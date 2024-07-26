@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class HelloApplication extends Application {
+
     @Override
     public void start(Stage stage) throws IOException {
 
@@ -25,58 +26,40 @@ public class HelloApplication extends Application {
         // CSS style options
         String ButtonFontSize = "-fx-font-size: 15px";
 
+        String NameButtonGroup = "Группы";
+
+        String NameButtonTeacher = "Преподаватели";
+
+        String NameButtonClassroom = "Аудитории";
+
         // Scene groups
         // --------------------------------------------------------------------------------------
 
         // I get an array (Checkbox) of the Faculty of FITR (from ReadGroupFITR)
         ArrayList<CheckBox> ArrayCheckBoxGrFITR = ReadGroupFITR(separator);
-
-        // I sort through the objects and set the style
-        for(int i = 0; i < ArrayCheckBoxGrFITR.size(); i++){
-            ArrayCheckBoxGrFITR.get(i).setFont(new Font("Time New Roman",15));
-        }
+        ArrayCheckBoxGrFITR = CheckBoxStyleChanges(ArrayCheckBoxGrFITR);
 
         // I get an array (Checkbox) of the Faculty of SPO (from ReadGroupSPO)
         ArrayList<CheckBox> ArrayCheckBoxGrSPO = ReadGroupSPO(separator);
+        ArrayCheckBoxGrSPO = CheckBoxStyleChanges(ArrayCheckBoxGrSPO);
 
-        // I sort through the objects and set the style
-        for(int i = 0; i < ArrayCheckBoxGrSPO.size(); i++){
-            ArrayCheckBoxGrSPO.get(i).setFont(new Font("Time New Roman",15));
-        }
+        ArrayList<CheckBox> ArrayCheckBoxTeacher = ReadTeacher(separator);
+        ArrayCheckBoxTeacher = CheckBoxStyleChanges(ArrayCheckBoxTeacher);
+
+        ArrayList<CheckBox> ArrayCheckBoxClassroom = ReadClassroom(separator);
+        ArrayCheckBoxClassroom = CheckBoxStyleChanges(ArrayCheckBoxClassroom);
 
         // Creating a (head) text
-        Label TitleGroup = new Label("Расписание групп:");
-        TitleGroup.setFont(new Font("Arial",40));
+        Label TitleGroup = SetStyleTitle("Расписание групп:");
 
         // Creating a button to go to groups
-        Button buttonSwapGroup = new Button("Группы");
-        buttonSwapGroup.setStyle(ButtonFontSize);
-
-        // Setting the size of the button
-        buttonSwapGroup.setMinWidth(150);
-        buttonSwapGroup.setMinHeight(40);
-        buttonSwapGroup.setMaxHeight(40);
-        buttonSwapGroup.setMaxWidth(150);
+        Button buttonSwapGroup = CreatorButtonSwap(NameButtonGroup,ButtonFontSize);
 
         // Creating a button to go to teachers
-        Button buttonSwapTeacher = new Button("Преподаватели");
-        buttonSwapTeacher.setStyle(ButtonFontSize);
-
-        // Setting the size of the button
-        buttonSwapTeacher.setMinHeight(40);
-        buttonSwapTeacher.setMinWidth(150);
-        buttonSwapTeacher.setMaxWidth(150);
-        buttonSwapTeacher.setMaxHeight(40);
+        Button buttonSwapTeacher = CreatorButtonSwap(NameButtonTeacher,ButtonFontSize);
 
         // Creating a button to go to the audience
-        Button buttonSwapClassroom = new Button("Аудитории");
-        buttonSwapClassroom.setStyle(ButtonFontSize);
-
-        // Setting the size of the button
-        buttonSwapClassroom.setMinWidth(150);
-        buttonSwapClassroom.setMinHeight(40);
-        buttonSwapClassroom.setMaxHeight(40);
-        buttonSwapClassroom.setMaxWidth(150);
+        Button buttonSwapClassroom = CreatorButtonSwap(NameButtonClassroom,ButtonFontSize);
 
         // Creating horizontal layout
         HBox ButtonHBoxGroup = new HBox(10);
@@ -86,15 +69,9 @@ public class HelloApplication extends Application {
         ButtonHBoxGroup.getChildren().addAll(buttonSwapGroup,buttonSwapTeacher,buttonSwapClassroom);
 
         // Creating a drop-down list
-        ChoiceBox<String> ChoiceBoxFaculty = new ChoiceBox<>();
-        ChoiceBoxFaculty.setStyle(ButtonFontSize);
-
+        ChoiceBox<String> ChoiceBoxFaculty = SetStyleChoiceBox(ButtonFontSize);
         //Adding values to the ChoiceBox
         ChoiceBoxFaculty.getItems().addAll("Информационные технологии и радиоэлектроника (ФИТР)","Машиностроительный (МСФ)","Гуманитарный (ГФ)","Определение среднего профессионального образования (СПО)");
-
-        // Setting the size of the ChoiceBox
-        ChoiceBoxFaculty.setMaxSize(468,40);
-        ChoiceBoxFaculty.setMinSize(468,40);
 
         // Adding the hbox layout to control the choicebox
         HBox ChoiceBoxControl = new HBox();
@@ -104,55 +81,12 @@ public class HelloApplication extends Application {
 
         // --------------------------------------------------------------------------------------
 
-        GridPane GridPaneGroupFITR = new GridPane();
-        GridPaneGroupFITR.setPadding(new Insets(10,10,10,10));
-        GridPaneGroupFITR.setVgap(10);
-        GridPaneGroupFITR.setHgap(10);
-
-        int countStrFITRColumnZero = 0;
-
-        for(int i = 0; i < ArrayCheckBoxGrFITR.size()/2; i++){
-            GridPane.setConstraints(ArrayCheckBoxGrFITR.get(i),0,countStrFITRColumnZero);
-            countStrFITRColumnZero++;
-
-        }
-
-        int countStrFITRColumnOne = 0;
-
-        for(int i = ArrayCheckBoxGrFITR.size()/2; i < ArrayCheckBoxGrFITR.size(); i++){
-            GridPane.setConstraints(ArrayCheckBoxGrFITR.get(i),1,countStrFITRColumnOne);
-            countStrFITRColumnOne++;
-        }
-
-        for(int i = 0; i < ArrayCheckBoxGrFITR.size(); i++){
-            GridPaneGroupFITR.getChildren().add(ArrayCheckBoxGrFITR.get(i));
-        }
+        GridPane GridPaneGroupFITR = CreatorGridPaneCheckBox(ArrayCheckBoxGrFITR);
 
         VBox VBoxGridPaneGroupFITR = new VBox();
         VBoxGridPaneGroupFITR.getChildren().addAll(GridPaneGroupFITR);
 
-        GridPane GridPaneGroupSPO = new GridPane();
-        GridPaneGroupSPO.setPadding(new Insets(10,10,10,10));
-        GridPaneGroupSPO.setHgap(10);
-        GridPaneGroupSPO.setVgap(10);
-
-        int countStrSPOColumnZero = 0;
-
-        for(int i = 0; i < ArrayCheckBoxGrSPO.size()/2; i++){
-            GridPane.setConstraints(ArrayCheckBoxGrSPO.get(i),0,countStrSPOColumnZero);
-            countStrSPOColumnZero++;
-        }
-
-        int countStrSPOColumnOne = 0;
-
-        for(int i = ArrayCheckBoxGrSPO.size()/2; i < ArrayCheckBoxGrSPO.size(); i++){
-            GridPane.setConstraints(ArrayCheckBoxGrSPO.get(i),1,countStrSPOColumnOne);
-            countStrSPOColumnOne++;
-        }
-
-        for(int i = 0; i < ArrayCheckBoxGrSPO.size(); i++){
-            GridPaneGroupSPO.getChildren().add(ArrayCheckBoxGrSPO.get(i));
-        }
+        GridPane GridPaneGroupSPO = CreatorGridPaneCheckBox(ArrayCheckBoxGrSPO);
 
         VBox VBoxGridPaneGroupSPO = new VBox();
         VBoxGridPaneGroupSPO.getChildren().add(GridPaneGroupSPO);
@@ -170,28 +104,19 @@ public class HelloApplication extends Application {
         // -----------------------------------------------------------------------------------------------------
 
         // Creating a scroll pane
-        ScrollPane GroupScrollPane = new ScrollPane();
-
-        // Setting the size of the ScrollPane
-        GroupScrollPane.setMinHeight(300);
-        GroupScrollPane.setMinWidth(400);
-        GroupScrollPane.setMaxSize(400,300);
+        ScrollPane GroupScrollPane = CreatorScrollPane();
 
         // Creating a button for creating a schedule
-        Button buttonCreatorTimeTable = new Button("Создать расписание");
-        buttonCreatorTimeTable.setStyle(ButtonFontSize);
+        Button buttonCreatorTimeTableOne = CreatorButtonCreatorTimetable("Создать индивидуальное расписание",ButtonFontSize);
 
-        // Setting the size of the Button
-        buttonCreatorTimeTable.setMinWidth(200);
-        buttonCreatorTimeTable.setMinHeight(40);
-        buttonCreatorTimeTable.setMaxHeight(40);
-        buttonCreatorTimeTable.setMaxWidth(200);
+        // Creating a button for creating a schedule
+        Button buttonCreatorTimeTableTwo = CreatorButtonCreatorTimetable("Создать групповое расписание",ButtonFontSize);
 
         // Adding the hbox layout to control the button(buttonCreatorTimeTable)
-        HBox ButtonTimeTableControl = new HBox();
+        VBox ButtonTimeTableControl = new VBox(10);
         ButtonTimeTableControl.setAlignment(Pos.CENTER);
-        ButtonTimeTableControl.setPadding(new Insets(-20,-20,-20,-20));
-        ButtonTimeTableControl.getChildren().add(buttonCreatorTimeTable);
+        ButtonTimeTableControl.setPadding(new Insets(-60,-60,-60,-60));
+        ButtonTimeTableControl.getChildren().addAll(buttonCreatorTimeTableOne,buttonCreatorTimeTableTwo);
 
         // Creating a vbox to add all the elements scene
         VBox VBoxGroup  = new VBox(50);
@@ -204,17 +129,81 @@ public class HelloApplication extends Application {
         // Scene teacher
         // --------------------------------------------------------------------------------------
 
-        Pane paneTeacher = new Pane();
+        Label TitleTeacher = SetStyleTitle("Расписание преподавателей:");
 
-        Scene sceneTeacher = new Scene(paneTeacher,1300,900);
+        // Creating a button to go to groups
+        Button buttonSwapGroupTeacher = CreatorButtonSwap(NameButtonGroup,ButtonFontSize);
+
+        // Creating a button to go to teachers
+        Button buttonSwapTeacherTeacher = CreatorButtonSwap(NameButtonTeacher,ButtonFontSize);
+
+        // Creating a button to go to the audience
+        Button buttonSwapClassroomTeacher = CreatorButtonSwap(NameButtonClassroom,ButtonFontSize);
+
+        HBox ButtonTeacherHbox = new HBox(10);
+        ButtonTeacherHbox.setAlignment(Pos.CENTER);
+        ButtonTeacherHbox.getChildren().addAll(buttonSwapGroupTeacher,buttonSwapTeacherTeacher,buttonSwapClassroomTeacher);
+
+        ScrollPane TeacherScrollPane = CreatorScrollPane();
+
+        GridPane TeacherGridPane = CreatorGridPaneCheckBox(ArrayCheckBoxTeacher);
+
+        TeacherScrollPane.setContent(TeacherGridPane);
+
+        Button buttonCreatorTimeTableTeacherOne = CreatorButtonCreatorTimetable("Создать индивидуальное расписание",ButtonFontSize);
+
+        Button buttonCreatorTimeTableTeacherTwo = CreatorButtonCreatorTimetable("Создать групповое расписание",ButtonFontSize);
+
+        VBox ButtonTimeTableControlTeacher = new VBox(10);
+        ButtonTimeTableControlTeacher.setPadding(new Insets(-60,-60,-60,-60));
+        ButtonTimeTableControlTeacher.setAlignment(Pos.CENTER);
+        ButtonTimeTableControlTeacher.getChildren().addAll(buttonCreatorTimeTableTeacherOne,buttonCreatorTimeTableTeacherTwo);
+
+        VBox VBoxTeacher = new VBox(50);
+        VBoxTeacher.setAlignment(Pos.BASELINE_CENTER);
+        VBoxTeacher.getChildren().addAll(TitleTeacher,ButtonTeacherHbox,TeacherScrollPane,ButtonTimeTableControlTeacher);
+
+        Scene sceneTeacher = new Scene(VBoxTeacher,1300,900);
 
 
         // Scene classroom
         // ---------------------------------------------------------------------------------------
 
-        Pane paneClassroom = new Pane();
+        Label TitleClassroom = SetStyleTitle("Расписание аудиторий:");
 
-        Scene sceneClassroom = new Scene(paneClassroom,1300,900);
+        // Creating a button to go to groups
+        Button buttonSwapGroupClassroom = CreatorButtonSwap(NameButtonGroup,ButtonFontSize);
+
+        // Creating a button to go to teachers
+        Button buttonSwapTeacherClassroom = CreatorButtonSwap(NameButtonTeacher,ButtonFontSize);
+
+        // Creating a button to go to the audience
+        Button buttonSwapClassroomClassroom = CreatorButtonSwap(NameButtonClassroom,ButtonFontSize);
+
+        HBox buttonHBoxClassroom = new HBox(10);
+        buttonHBoxClassroom.setAlignment(Pos.CENTER);
+        buttonHBoxClassroom.getChildren().addAll(buttonSwapGroupClassroom,buttonSwapTeacherClassroom,buttonSwapClassroomClassroom);
+
+        ScrollPane ClassroomScrollPane = CreatorScrollPane();
+
+        GridPane ClassroomGridPane = CreatorGridPaneCheckBox(ArrayCheckBoxClassroom);
+        ClassroomScrollPane.setContent(ClassroomGridPane);
+
+        Button buttonCreatorTimeTableClassroomOne = CreatorButtonCreatorTimetable("Создать индивидуальное расписание",ButtonFontSize);
+
+        Button buttonCreatorTimeTableClassroomTwo = CreatorButtonCreatorTimetable("Создать групповое расписание",ButtonFontSize);
+
+        VBox ButtonTimeTableControlClassroom = new VBox(10);
+        ButtonTimeTableControlClassroom.setPadding(new Insets(-60,-60,-60,-60));
+        ButtonTimeTableControlClassroom.setAlignment(Pos.CENTER);
+        ButtonTimeTableControlClassroom.getChildren().addAll(buttonCreatorTimeTableClassroomOne,buttonCreatorTimeTableClassroomTwo);
+
+
+        VBox VBoxClassroom = new VBox(50);
+        VBoxClassroom.setAlignment(Pos.BASELINE_CENTER);
+        VBoxClassroom.getChildren().addAll(TitleClassroom,buttonHBoxClassroom,ClassroomScrollPane,ButtonTimeTableControlClassroom);
+
+        Scene sceneClassroom = new Scene(VBoxClassroom,1300,900);
 
 
         // Button
@@ -229,6 +218,30 @@ public class HelloApplication extends Application {
         });
 
         buttonSwapClassroom.setOnAction(Event -> {
+            stage.setScene(sceneClassroom);
+        });
+
+        buttonSwapTeacherTeacher.setOnAction(Event -> {
+            stage.setScene(sceneTeacher);
+        });
+
+        buttonSwapGroupTeacher.setOnAction(Event -> {
+            stage.setScene(sceneGroup);
+        });
+
+        buttonSwapClassroomTeacher.setOnAction(Event -> {
+            stage.setScene(sceneClassroom);
+        });
+
+        buttonSwapGroupClassroom.setOnAction(Event -> {
+            stage.setScene(sceneGroup);
+        });
+
+        buttonSwapTeacherClassroom.setOnAction(Event -> {
+            stage.setScene(sceneTeacher);
+        });
+
+        buttonSwapClassroomClassroom.setOnAction(Event -> {
             stage.setScene(sceneClassroom);
         });
 
@@ -295,4 +308,138 @@ public class HelloApplication extends Application {
         return ArrayCheckBoxGroup;
 
     }
+
+    public ArrayList<CheckBox> ReadTeacher(String separator) throws FileNotFoundException {
+
+        ArrayList<CheckBox> ArrayTeacher = new ArrayList<>();
+
+        String path = "D:" + separator + "Javal" + separator + "TimetableKrylovGR" + separator + "Teacher.txt";
+
+        File file = new File(path);
+
+        Scanner scanner = new Scanner(file);
+
+        while(scanner.hasNextLine()){
+            ArrayTeacher.add(new CheckBox(scanner.nextLine()));
+        }
+
+        return ArrayTeacher;
+    }
+
+    public ArrayList<CheckBox> ReadClassroom(String separator) throws FileNotFoundException {
+
+        ArrayList<CheckBox> ArrayClassroom = new ArrayList<>();
+
+        String patch = "D:" + separator + "Javal" + separator + "TimetableKrylovGR" + separator + "Classroom.txt";
+
+        File file = new File(patch);
+
+        Scanner scanner = new Scanner(file);
+
+        while(scanner.hasNextLine()){
+            ArrayClassroom.add(new CheckBox(scanner.nextLine()));
+        }
+
+        return ArrayClassroom;
+    }
+
+    public Button CreatorButtonSwap(String nameButton, String ButtonStyle){
+
+        Button button =  new Button(nameButton);
+
+        button.setStyle(ButtonStyle);
+
+        button.setMinWidth(150);
+        button.setMinHeight(40);
+        button.setMaxHeight(40);
+        button.setMaxWidth(150);
+
+        return button;
+    }
+
+    public Button CreatorButtonCreatorTimetable(String nameButton, String ButtonStyle){
+
+        Button button = new Button(nameButton);
+        button.setStyle(ButtonStyle);
+
+        // Setting the size of the Button
+        button.setMinWidth(300);
+        button.setMinHeight(40);
+        button.setMaxHeight(40);
+        button.setMaxWidth(300);
+
+        return button;
+    }
+
+    public ArrayList<CheckBox> CheckBoxStyleChanges(ArrayList<CheckBox> Array){
+
+        for(int i = 0; i < Array.size(); i++){
+            Array.get(i).setFont(new Font("Time New Roman",15));
+        }
+
+        return Array;
+    }
+
+    public Label SetStyleTitle(String NameLabel){
+
+        Label label = new Label(NameLabel);
+        label.setFont(new Font("Arial",40));
+        return label;
+
+    }
+
+    public ChoiceBox<String> SetStyleChoiceBox(String ButtonStyle){
+
+        ChoiceBox<String> choiceBox = new ChoiceBox<>();
+        choiceBox.setStyle(ButtonStyle);
+
+        // Setting the size of the ChoiceBox
+        choiceBox.setMaxSize(468,40);
+        choiceBox.setMinSize(468,40);
+
+        return choiceBox;
+    }
+
+    public GridPane CreatorGridPaneCheckBox(ArrayList<CheckBox> Array){
+
+        GridPane gridPane = new GridPane();
+        gridPane.setPadding(new Insets(10,10,10,10));
+        gridPane.setVgap(10);
+        gridPane.setHgap(10);
+
+        int countStrInColumnZero = 0;
+
+        for(int i = 0; i < Array.size()/2; i++){
+            GridPane.setConstraints(Array.get(i),0,countStrInColumnZero);
+            countStrInColumnZero++;
+
+        }
+
+        int countStrInColumnOne = 0;
+
+        for(int i = Array.size()/2; i < Array.size(); i++){
+            GridPane.setConstraints(Array.get(i),1,countStrInColumnOne);
+            countStrInColumnOne++;
+        }
+
+        for(int i = 0; i < Array.size(); i++){
+            gridPane.getChildren().add(Array.get(i));
+        }
+
+        return gridPane;
+    }
+
+    public ScrollPane CreatorScrollPane(){
+
+        ScrollPane scrollPane = new ScrollPane();
+
+        // Setting the size of the ScrollPane
+        scrollPane.setMinHeight(300);
+        scrollPane.setMinWidth(450);
+        scrollPane.setMaxSize(470,300);
+
+        return scrollPane;
+    }
+
+
 }
