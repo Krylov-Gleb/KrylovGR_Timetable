@@ -1,7 +1,6 @@
 package timetablekrylov.timetablekrylovgr;
 
 import javafx.application.Application;
-import javafx.event.Event;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -323,21 +322,36 @@ public class HelloApplication extends Application {
         buttonCreatorTimeTableOne.setOnAction(Event -> {
             String Json = CreatorOneURL(finalArrayCheckBoxGrFITR,finalArrayCheckBoxGrSPO,finalArrayCheckBoxGF,finalArrayCheckBoxMSF,ChoiceBoxSemesterGroup,TextFieldYearGroup);
             System.out.println(Json);
+            Group group = new Group();
+            group.CreatorCouples(Json);
+            group.GetCouples();
+
         });
 
         // A button for getting the schedule of several groups
         buttonCreatorTimeTableTwo.setOnAction(Event -> {
             ArrayList<String> ArrayURLAddressGroup = CreatorAllURL(finalArrayCheckBoxGrFITR,finalArrayCheckBoxGrSPO,finalArrayCheckBoxGF,finalArrayCheckBoxMSF,ChoiceBoxSemesterGroup,TextFieldYearGroup);
+            ArrayList<Group> ArrayGroup = new ArrayList<>();
+
             for(int i = 0; i < ArrayURLAddressGroup.size(); i++){
                 System.out.println(ArrayURLAddressGroup.get(i));
+                ArrayGroup.add(new Group());
             }
+
+            for(int i = 0; i < ArrayURLAddressGroup.size(); i++){
+                ArrayGroup.get(i).CreatorCouples(ArrayURLAddressGroup.get(i));
+                ArrayGroup.get(i).GetCouples();
+            }
+
         });
 
         // A button for getting one teacher's schedule
         buttonCreatorTimeTableTeacherOne.setOnAction(Event -> {
             try {
                 String Json = CreatorURLTeacherOne(finalArrayCheckBoxTeacher,ChoiceBoxSemesterTeacher,TextFieldYearTeacher);
-                System.out.println(Json);
+                Teacher teacher = new Teacher();
+                teacher.CreatorCouples(Json);
+                teacher.GetCoupleTeacher();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
