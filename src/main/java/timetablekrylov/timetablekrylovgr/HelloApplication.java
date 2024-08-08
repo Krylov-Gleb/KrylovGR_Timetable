@@ -255,16 +255,24 @@ public class HelloApplication extends Application {
         // Creating a button for creating a schedule
         Button buttonCreatorTimeTableClassroomTwo = CreatorButtonCreatorTimetable("Создать групповое расписание",ButtonFontSize);
 
-        // Creating a VBox to control the buttons
-        VBox ButtonTimeTableControlClassroom = new VBox(10);
-        ButtonTimeTableControlClassroom.setPadding(new Insets(-60,-60,-60,-60));
-        ButtonTimeTableControlClassroom.setAlignment(Pos.CENTER);
-        ButtonTimeTableControlClassroom.getChildren().addAll(buttonCreatorTimeTableClassroomOne,buttonCreatorTimeTableClassroomTwo);
+        // I am creating a ChoiceBox so that the user can set semester
+        ChoiceBox<String> ChoiceBoxSemesterClassroom = SetStyleChoiceBox(ButtonFontSize);
+        ChoiceBoxSemesterClassroom.getItems().add("1");
+        ChoiceBoxSemesterClassroom.getItems().add("2");
+
+        // I am creating a text field for the user to set the year
+        TextField TextFieldYearClassroom = new TextField();
+        TextFieldYearClassroom.setStyle(ButtonFontSize);
+        TextFieldYearClassroom.setPromptText("Укажите год");
+        TextFieldYearClassroom.setMinSize(468,40);
+        TextFieldYearClassroom.setMaxSize(468,40);
+
+        VBox BottomMenuClassroom = CreatorBottomMenu(ChoiceBoxSemesterClassroom,TextFieldYearClassroom,buttonCreatorTimeTableClassroomOne,buttonCreatorTimeTableClassroomTwo);
 
         // Creating the final template for the classroom scene
         VBox VBoxClassroom = new VBox(50);
         VBoxClassroom.setAlignment(Pos.BASELINE_CENTER);
-        VBoxClassroom.getChildren().addAll(TitleClassroom,buttonHBoxClassroom,ClassroomScrollPane,ButtonTimeTableControlClassroom);
+        VBoxClassroom.getChildren().addAll(TitleClassroom,buttonHBoxClassroom,ClassroomScrollPane,BottomMenuClassroom);
 
         // Creating a scene
         Scene sceneClassroom = new Scene(VBoxClassroom,1300,900);
@@ -326,6 +334,13 @@ public class HelloApplication extends Application {
             group.CreatorCouples(Json);
             group.GetCouples();
 
+            CreatorTableExel creatorTableExel = new CreatorTableExel();
+            try {
+                creatorTableExel.CreatorTimeTableOneGroup(group);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
         });
 
         // A button for getting the schedule of several groups
@@ -361,8 +376,15 @@ public class HelloApplication extends Application {
         buttonCreatorTimeTableTeacherTwo.setOnAction(Event -> {
             try {
                 ArrayList<String> ArrayJsonTeachers = CreatorURLTeacherAll(finalArrayCheckBoxTeacher,ChoiceBoxSemesterTeacher,TextFieldYearTeacher);
+                ArrayList<Teacher> ArrayTeacher = new ArrayList<>();
+
                 for(int i = 0; i < ArrayJsonTeachers.size(); i++){
-                    System.out.println(ArrayJsonTeachers.get(i));
+                    ArrayTeacher.add(new Teacher());
+                }
+
+                for(int i = 0; i < ArrayTeacher.size(); i++){
+                    ArrayTeacher.get(i).CreatorCouples(ArrayJsonTeachers.get(i));
+                    ArrayTeacher.get(i).GetCoupleTeacher();
                 }
 
             } catch (IOException e) {
@@ -370,8 +392,31 @@ public class HelloApplication extends Application {
             }
         });
 
+        buttonCreatorTimeTableClassroomOne.setOnAction(Event -> {
+
+            try {
+               ArrayList<String> Array = CreatorCoupleAllGroup(finalArrayCheckBoxGrFITR,finalArrayCheckBoxGrSPO,finalArrayCheckBoxGF,finalArrayCheckBoxMSF,ChoiceBoxSemesterClassroom,TextFieldYearClassroom,finalArrayCheckBoxClassroom);
+               ArrayList<CoupleGroup> ArrayCouple = new ArrayList<>();
+
+               for(int i = 0; i < Array.size(); i++){
+                   ArrayCouple.add(new CoupleGroup());
+               }
+
+               for(int i = 0; i < ArrayCouple.size(); i++){
+                   ArrayCouple.get(i).CreatorCouple(Array.get(i));
+                   ArrayCouple.get(i).GetCouple();
+               }
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+
+        });
+
         // Scene Timetable Group
         // -----------------------------------------------------------------------------------------
+
 
 
 
@@ -894,6 +939,102 @@ public class HelloApplication extends Application {
 
         return ArrayURLAddress;
 
+    }
+
+    public ArrayList<String> CreatorCoupleAllGroup(ArrayList<CheckBox> ArrayFITR, ArrayList<CheckBox> ArraySPO, ArrayList<CheckBox> ArrayGF, ArrayList<CheckBox> ArrayMSF, ChoiceBox<String> Sem, TextField Year, ArrayList<CheckBox> ArrayClassroom) throws IOException {
+
+        ArrayList<String> ArrayCoupleJson = new ArrayList<>();
+        ArrayList<String> ArrayCoupleItogString = new ArrayList<>();
+
+        ArrayList<String> ArrayJsonAllGroup = new ArrayList<>();
+        String FirstURLData = "https://scala.mivlgu.ru/core/frontend/index.php?r=schedulecash/group&group=";
+        String semester = "&semester=";
+        String year = "&year=";
+        String format = "&format=json";
+        String ChoiceBoxSem = Sem.getValue();
+        String TextFieldYear = Year.getText();
+
+        for(int i = 0; i < ArrayFITR.size(); i++){
+
+            String URLDataAndGroup = URLEncoder.encode(ArrayFITR.get(i).getText(), StandardCharsets.UTF_8);
+            String FinalUrl = FirstURLData + URLDataAndGroup + semester + ChoiceBoxSem + year + TextFieldYear + format;
+
+            String Json = ReadJsonInURL(FinalUrl);
+            ArrayJsonAllGroup.add(Json);
+
+        }
+
+        for(int i = 0; i < ArraySPO.size(); i++){
+
+            String URLDataAndGroup = URLEncoder.encode(ArraySPO.get(i).getText(), StandardCharsets.UTF_8);
+            String FinalUrl = FirstURLData + URLDataAndGroup + semester + ChoiceBoxSem + year + TextFieldYear + format;
+
+            String Json = ReadJsonInURL(FinalUrl);
+            ArrayJsonAllGroup.add(Json);
+
+        }
+
+        for(int i = 0; i < ArrayGF.size(); i++){
+
+            String URLDataAndGroup = URLEncoder.encode(ArrayGF.get(i).getText(), StandardCharsets.UTF_8);
+            String FinalUrl = FirstURLData + URLDataAndGroup + semester + ChoiceBoxSem + year + TextFieldYear + format;
+
+            String Json = ReadJsonInURL(FinalUrl);
+            ArrayJsonAllGroup.add(Json);
+
+        }
+
+        for(int i = 0; i < ArrayMSF.size(); i++){
+
+            String URLDataAndGroup = URLEncoder.encode(ArrayMSF.get(i).getText(), StandardCharsets.UTF_8);
+            String FinalUrl = FirstURLData + URLDataAndGroup + semester + ChoiceBoxSem + year + TextFieldYear + format;
+
+            String Json = ReadJsonInURL(FinalUrl);
+            ArrayJsonAllGroup.add(Json);
+
+        }
+
+        for(int i = 0; i < ArrayJsonAllGroup.size(); i++){
+
+            Pattern pattern = Pattern.compile("\"id_day\":\"\\d\",\"number_para\":\"\\d\",\"discipline\":\"[A-zА-я \\.\\-\\/]+\",\"type\":\"[А-яA-z]+\",\"type_week\":\"[А-яA-z]+\",\"aud\":\"[А-я\\. 0-9\\/\\-]+\",\"number_week\":\"[0-9\\/\\,\\-]+\",\"comment\":\"(|[A-zА-я\\.\\/\\,\\-])\",\"zaoch\":(true|false),\"name\":\"[A-zА-яё. ]+\"");
+            Matcher matcher = pattern.matcher(ArrayJsonAllGroup.get(i));
+
+            while(matcher.find()){
+                ArrayCoupleJson.add(matcher.group());
+            }
+
+        }
+
+        for(int i = 0; i < ArrayCoupleJson.size(); i++){
+            Pattern pattern = Pattern.compile("\"aud\":\"((ауд|)[\\.0-9A-zА-я\\/ ]+|[A-zА-я])\"");
+            Matcher matcher = pattern.matcher(ArrayCoupleJson.get(i));
+
+            String RegXAudFull = "";
+
+            while(matcher.find()){
+                RegXAudFull = matcher.group();
+            }
+
+            Pattern pattern1 = Pattern.compile("[\\d]{1,3}(|\\-)([А-яA-z0-9]|)\\/\\d");
+            Matcher matcher1 = pattern1.matcher(RegXAudFull);
+
+            String Itog = "";
+
+            while(matcher1.find()){
+                Itog = matcher1.group();
+            }
+
+            for(int i2 = 0; i2 < ArrayClassroom.size(); i2++){
+
+                if(ArrayClassroom.get(i2).isSelected()){
+                    if(ArrayClassroom.get(i2).getText().equals(Itog)){
+                        ArrayCoupleItogString.add(ArrayCoupleJson.get(i));
+                    }
+                }
+            }
+        }
+
+        return ArrayCoupleItogString;
     }
 
     public String CreatorURLTeacherOne(ArrayList<CheckBox> ArrayTeacher,ChoiceBox<String> Sem,TextField year) throws IOException {

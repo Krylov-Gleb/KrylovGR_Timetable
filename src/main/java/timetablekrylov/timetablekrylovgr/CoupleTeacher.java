@@ -110,7 +110,7 @@ public class CoupleTeacher {
     private void SetDiscipline(String Json){
 
         // I use regular expressions
-        Pattern pattern = Pattern.compile("\"discipline\":\"[A-zА-яё\\. ]+\"");
+        Pattern pattern = Pattern.compile("\"discipline\":\"[A-zА-яё\\.\\-\\, ]+\"");
         Matcher matcher = pattern.matcher(Json);
 
         String RegX = "";
@@ -121,7 +121,7 @@ public class CoupleTeacher {
         }
 
         // I use regular expressions
-        Pattern pattern1 = Pattern.compile("[А-я ]+");
+        Pattern pattern1 = Pattern.compile("[А-я\\-\\.\\, ]+");
         Matcher matcher1 = pattern1.matcher(RegX);
 
         // Getting the value
@@ -188,7 +188,7 @@ public class CoupleTeacher {
     private void SetAud(String Json){
 
         // I use regular expressions
-        Pattern pattern = Pattern.compile("\"ауд. [A-zА-яё0-9\\/]+\"");
+        Pattern pattern = Pattern.compile("\"aud\":\"[А-я\\. 0-9\\/\\-]+\"");
         Matcher matcher = pattern.matcher(Json);
 
         String RegX = "";
@@ -199,7 +199,7 @@ public class CoupleTeacher {
         }
 
         // I use regular expressions
-        Pattern pattern1 = Pattern.compile("[\\d]{1,3}([А-яA-z]|)\\/\\d");
+        Pattern pattern1 = Pattern.compile("([\\d]{1,3}(|\\-)([А-яA-z0-9]|)\\/\\d|Зал)");
         Matcher matcher1 = pattern1.matcher(RegX);
 
         // Getting the value

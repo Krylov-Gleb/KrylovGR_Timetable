@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 // Creating a Couple class
-public class Couple {
+public class CoupleGroup {
 
     // I am creating private fields of the Couple class
     // The field that stores the ID of the day
@@ -105,7 +105,7 @@ public class Couple {
     private void SetDiscipline(String Json){
 
         // I use regular expressions
-        Pattern pattern = Pattern.compile("\"discipline\":\"[A-zА-яё ]+\"");
+        Pattern pattern = Pattern.compile("\"discipline\":\"[A-zА-яё\\.\\-\\, ]+\"");
         Matcher matcher = pattern.matcher(Json);
 
         String RegX = "";
@@ -116,7 +116,7 @@ public class Couple {
         }
 
         // I use regular expressions
-        Pattern pattern1 = Pattern.compile("[А-я ]+");
+        Pattern pattern1 = Pattern.compile("[А-я\\-\\.\\, ]+");
         Matcher matcher1 = pattern1.matcher(RegX);
 
         // Getting the value
@@ -183,7 +183,7 @@ public class Couple {
     private void SetAud(String Json){
 
         // I use regular expressions
-        Pattern pattern = Pattern.compile("\"ауд. [A-zА-яё0-9\\/]+\"");
+        Pattern pattern = Pattern.compile("\"aud\":\"[А-я\\. 0-9\\/\\-]+\"");
         Matcher matcher = pattern.matcher(Json);
 
         String RegX = "";
@@ -194,7 +194,7 @@ public class Couple {
         }
 
         // I use regular expressions
-        Pattern pattern1 = Pattern.compile("[\\d]{1,3}([А-яA-z]|)\\/\\d");
+        Pattern pattern1 = Pattern.compile("([\\d]{1,3}(|\\-)([А-яA-z0-9]|)\\/\\d|Зал)");
         Matcher matcher1 = pattern1.matcher(RegX);
 
         // Getting the value
@@ -283,4 +283,39 @@ public class Couple {
 
     }
 
+    public int GetIDDay(){
+        return IDDay;
+    }
+
+    public int GetCoupleNumber(){
+        return CoupleNumber;
+    }
+
+    public String GetCoupleType(){
+        return CoupleType;
+    }
+
+    public String GetDiscipline(){
+        return Discipline;
+    }
+
+    public String GetTypeWeek(){
+        return TypeWeek;
+    }
+
+    public String GetAud(){
+        return Aud;
+    }
+
+    public String GetNumberWeek(){
+        return NumberWeek;
+    }
+
+    public boolean GetZaoch(){
+        return Zaoch;
+    }
+
+    public String GetTeacherName(){
+        return TeacherName;
+    }
 }

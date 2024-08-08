@@ -16,7 +16,9 @@ public class Group {
     private ArrayList<String> ArrayCouplesJson = new ArrayList<>();
 
     // Creating an array of objects of the couple class
-    private ArrayList<Couple> ArrayCouples = new ArrayList<>();
+    private ArrayList<CoupleGroup> ArrayCouples = new ArrayList<>();
+
+    private ArrayList<String> ArrayExelCouple = new ArrayList<>();
 
     // I create a method to set the group ID
     public void SetGroupId(String Json){
@@ -83,7 +85,7 @@ public class Group {
         }
 
         for(int i = 0; i < ArrayCouplesJson.size(); i++){
-            ArrayCouples.add(new Couple());
+            ArrayCouples.add(new CoupleGroup());
         }
 
         for(int i = 0; i < ArrayCouples.size(); i++){
@@ -104,5 +106,22 @@ public class Group {
         for(int i = 0; i < ArrayCouples.size(); i++){
             ArrayCouples.get(i).GetCouple();
         }
+    }
+
+    public ArrayList<CoupleGroup> GetArrayCouples(){
+        return ArrayCouples;
+    }
+
+    public ArrayList<String> CreatorExelCouple(){
+
+        String Couple = "";
+
+        for(int i = 0; i < ArrayCouples.size(); i++){
+            Couple = String.valueOf(ArrayCouples.get(i).GetIDDay()) + ArrayCouples.get(i).GetCoupleNumber() + ArrayCouples.get(i).GetCoupleType() + ArrayCouples.get(i).GetDiscipline() + ArrayCouples.get(i).GetTypeWeek() + ArrayCouples.get(i).GetAud() + ArrayCouples.get(i).GetNumberWeek() + ArrayCouples.get(i).GetZaoch() + ArrayCouples.get(i).GetTeacherName();
+            ArrayExelCouple.add(Couple);
+            Couple = "";
+        }
+
+        return ArrayExelCouple;
     }
 }
