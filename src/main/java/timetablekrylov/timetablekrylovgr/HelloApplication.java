@@ -334,7 +334,7 @@ public class HelloApplication extends Application {
             group.CreatorCouples(Json);
             group.GetCouples();
 
-            CreatorTableExel creatorTableExel = new CreatorTableExel();
+            CreatorTableExelGroup creatorTableExel = new CreatorTableExelGroup();
             try {
                 creatorTableExel.CreatorTimeTableOneGroup(group);
             } catch (IOException e) {
@@ -367,6 +367,10 @@ public class HelloApplication extends Application {
                 Teacher teacher = new Teacher();
                 teacher.CreatorCouples(Json);
                 teacher.GetCoupleTeacher();
+
+                CreatorTableExelTeacher creatorTableExelTeacher = new CreatorTableExelTeacher();
+                creatorTableExelTeacher.CreatorTimeTableTeacherOne(teacher);
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

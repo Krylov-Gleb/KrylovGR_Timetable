@@ -314,4 +314,44 @@ public class CoupleTeacher {
 
     }
 
+    public int GetIdDay(){
+        return idDay;
+    }
+
+    public int GetNumberCouple(){
+        return NumberCouple;
+    }
+
+    public String GetDiscipline(){
+        return Discipline;
+    }
+
+    public String GetType(){
+        return Type;
+    }
+
+    public String GetTypeWeek(){
+        return TypeWeek;
+    }
+
+    public String GetAud(){
+        return Aud;
+    }
+
+    public String GetNumberWeek(){
+        return NumberWeek;
+    }
+
+    public boolean GetZaoch(){
+        return Zaoch;
+    }
+
+    public String GetUnderGroup(){
+        return UnderGroup;
+    }
+
+    public String GetGroupName(){
+        return GroupName;
+    }
+
 }

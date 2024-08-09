@@ -91,5 +91,9 @@ public class Teacher {
         }
     }
 
+    public ArrayList<CoupleTeacher> GetArrayCoupleTeacher(){
+        return ArrayTeacherCouples;
+    }
+
 
 }
