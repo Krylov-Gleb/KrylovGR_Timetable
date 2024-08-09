@@ -408,8 +408,10 @@ public class HelloApplication extends Application {
 
                for(int i = 0; i < ArrayCouple.size(); i++){
                    ArrayCouple.get(i).CreatorCouple(Array.get(i));
-                   ArrayCouple.get(i).GetCouple();
                }
+
+               CreatorTableExelClassroom creatorTableExelClassroom = new CreatorTableExelClassroom();
+               creatorTableExelClassroom.CreatorTimeTableClassroomOne(ArrayCouple);
 
             } catch (IOException e) {
                 throw new RuntimeException(e);
