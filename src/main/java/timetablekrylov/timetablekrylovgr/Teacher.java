@@ -95,5 +95,9 @@ public class Teacher {
         return ArrayTeacherCouples;
     }
 
+    public String GetTeacherName(){
+        return TeacherName;
+    }
+
 
 }

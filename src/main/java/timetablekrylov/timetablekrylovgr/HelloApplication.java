@@ -398,6 +398,9 @@ public class HelloApplication extends Application {
                     ArrayTeacher.get(i).GetCoupleTeacher();
                 }
 
+                CreatorTableExelTeachers creatorTableExelTeachers = new CreatorTableExelTeachers();
+                creatorTableExelTeachers.CreateTimeTableTeachers(ArrayTeacher);
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
