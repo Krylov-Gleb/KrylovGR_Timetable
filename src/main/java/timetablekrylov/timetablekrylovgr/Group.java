@@ -124,4 +124,9 @@ public class Group {
 
         return ArrayExelCouple;
     }
+
+    public String GetGroupName(){
+        return groupName;
+    }
+
 }

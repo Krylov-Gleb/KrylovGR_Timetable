@@ -358,6 +358,13 @@ public class HelloApplication extends Application {
                 ArrayGroup.get(i).GetCouples();
             }
 
+            CreatorTableExelGroups creatorTableExelGroups = new CreatorTableExelGroups();
+            try {
+                creatorTableExelGroups.CreatorTimeTableGroups(ArrayGroup);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
         });
 
         // A button for getting one teacher's schedule
