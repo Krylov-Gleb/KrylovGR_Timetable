@@ -427,7 +427,6 @@ public class HelloApplication extends Application {
                 throw new RuntimeException(e);
             }
 
-
         });
 
         // Scene Timetable Group
@@ -1044,7 +1043,7 @@ public class HelloApplication extends Application {
 
                 if(ArrayClassroom.get(i2).isSelected()){
                     if(ArrayClassroom.get(i2).getText().equals(Itog)){
-                        ArrayCoupleItogString.add(ArrayCoupleJson.get(i));
+                       ArrayCoupleItogString.add(ArrayCoupleJson.get(i));
                     }
                 }
             }

@@ -48,8 +48,8 @@ public class CreatorTableExelClassroom {
 
     public void CreatorTimeTableClassroomOne(ArrayList<CoupleGroup> Array) throws IOException {
 
-        int HeightPoints = 250;
-        int ColumnWidth = 10000;
+        int HeightPoints = 400;
+        int ColumnWidth = 12000;
 
         CellStyle cellStyle = workbookOneClassroom.createCellStyle();
         cellStyle.setWrapText(true);
@@ -172,43 +172,43 @@ public class CreatorTableExelClassroom {
         Cell cellOneCoupleMonday = StrOneCouple.createCell(1);
         cellOneCoupleMonday.setCellValue(CoupleOneMonday);
         cellOneCoupleMonday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(1, ColumnWidth);
+        Classroom.autoSizeColumn(1);
         StrOneCouple.setHeightInPoints(HeightPoints);
 
         Cell cellTwoCoupleMonday = StrTwoCouple.createCell(1);
         cellTwoCoupleMonday.setCellValue(CoupleTwoMonday);
         cellTwoCoupleMonday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(1, ColumnWidth);
+        Classroom.autoSizeColumn(1);
         StrTwoCouple.setHeightInPoints(HeightPoints);
 
         Cell cellThreeCoupleMonday = StrThreeCouple.createCell(1);
         cellThreeCoupleMonday.setCellValue(CoupleThreeMonday);
         cellThreeCoupleMonday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(1, ColumnWidth);
+        Classroom.autoSizeColumn(1);
         StrThreeCouple.setHeightInPoints(HeightPoints);
 
         Cell cellFourCoupleMonday = StrFourCouple.createCell(1);
         cellFourCoupleMonday.setCellValue(CoupleFourMonday);
         cellFourCoupleMonday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(1, ColumnWidth);
+        Classroom.autoSizeColumn(1);
         StrFourCouple.setHeightInPoints(HeightPoints);
 
         Cell cellFiveCoupleMonday = StrFiveCouple.createCell(1);
         cellFiveCoupleMonday.setCellValue(CoupleFiveMonday);
         cellFiveCoupleMonday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(1, ColumnWidth);
+        Classroom.autoSizeColumn(1);
         StrFiveCouple.setHeightInPoints(HeightPoints);
 
         Cell cellSixCoupleMonday = StrSixCouple.createCell(1);
         cellSixCoupleMonday.setCellValue(CoupleSixMonday);
         cellSixCoupleMonday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(1, ColumnWidth);
+        Classroom.autoSizeColumn(1);
         StrSixCouple.setHeightInPoints(HeightPoints);
 
         Cell cellSevenCoupleMonday = StrSevenCouple.createCell(1);
         cellSevenCoupleMonday.setCellValue(CoupleSevenMonday);
         cellSevenCoupleMonday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(1, ColumnWidth);
+        Classroom.autoSizeColumn(1);
         StrSevenCouple.setHeightInPoints(HeightPoints);
 
         // Couple Tuesday
@@ -258,43 +258,43 @@ public class CreatorTableExelClassroom {
         Cell cellOneCoupleTuesday = StrOneCouple.createCell(2);
         cellOneCoupleTuesday.setCellValue(CoupleOneTuesday);
         cellOneCoupleTuesday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(2, ColumnWidth);
+        Classroom.autoSizeColumn(2);
         StrOneCouple.setHeightInPoints(HeightPoints);
 
         Cell cellTwoCoupleTuesday = StrTwoCouple.createCell(2);
         cellTwoCoupleTuesday.setCellValue(CoupleTwoTuesday);
         cellTwoCoupleTuesday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(2, ColumnWidth);
+        Classroom.autoSizeColumn(2);
         StrTwoCouple.setHeightInPoints(HeightPoints);
 
         Cell cellThreeCoupleTuesday = StrThreeCouple.createCell(2);
         cellThreeCoupleTuesday.setCellValue(CoupleThreeTuesday);
         cellThreeCoupleTuesday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(2, ColumnWidth);
+        Classroom.autoSizeColumn(2);
         StrThreeCouple.setHeightInPoints(HeightPoints);
 
         Cell cellFourCoupleTuesday = StrFourCouple.createCell(2);
         cellFourCoupleTuesday.setCellValue(CoupleFourTuesday);
         cellFourCoupleTuesday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(2, ColumnWidth);
+        Classroom.autoSizeColumn(2);
         StrFourCouple.setHeightInPoints(HeightPoints);
 
         Cell cellFiveCoupleTuesday = StrFiveCouple.createCell(2);
         cellFiveCoupleTuesday.setCellValue(CoupleFiveTuesday);
         cellFiveCoupleTuesday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(2, ColumnWidth);
+        Classroom.autoSizeColumn(2);
         StrFiveCouple.setHeightInPoints(HeightPoints);
 
         Cell cellSixCoupleTuesday = StrSixCouple.createCell(2);
         cellSixCoupleTuesday.setCellValue(CoupleSixTuesday);
         cellSixCoupleTuesday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(2, ColumnWidth);
+        Classroom.autoSizeColumn(2);
         StrSixCouple.setHeightInPoints(HeightPoints);
 
         Cell cellSevenCoupleTuesday = StrSevenCouple.createCell(2);
         cellSevenCoupleTuesday.setCellValue(CoupleSevenTuesday);
         cellSevenCoupleTuesday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(2, ColumnWidth);
+        Classroom.autoSizeColumn(2);
         StrSevenCouple.setHeightInPoints(HeightPoints);
 
         // Couple Wednesday
@@ -344,43 +344,43 @@ public class CreatorTableExelClassroom {
         Cell cellOneCoupleWednesday = StrOneCouple.createCell(3);
         cellOneCoupleWednesday.setCellValue(CoupleOneWednesday);
         cellOneCoupleWednesday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(3, ColumnWidth);
+        Classroom.autoSizeColumn(3);
         StrOneCouple.setHeightInPoints(HeightPoints);
 
         Cell cellTwoCoupleWednesday = StrTwoCouple.createCell(3);
         cellTwoCoupleWednesday.setCellValue(CoupleTwoWednesday);
         cellTwoCoupleWednesday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(3, ColumnWidth);
+        Classroom.autoSizeColumn(3);
         StrTwoCouple.setHeightInPoints(HeightPoints);
 
         Cell cellThreeCoupleWednesday = StrThreeCouple.createCell(3);
         cellThreeCoupleWednesday.setCellValue(CoupleThreeWednesday);
         cellThreeCoupleWednesday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(3, ColumnWidth);
+        Classroom.autoSizeColumn(3);
         StrThreeCouple.setHeightInPoints(HeightPoints);
 
         Cell cellFourCoupleWednesday = StrFourCouple.createCell(3);
         cellFourCoupleWednesday.setCellValue(CoupleFourWednesday);
         cellFourCoupleWednesday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(3, ColumnWidth);
+        Classroom.autoSizeColumn(3);
         StrFourCouple.setHeightInPoints(HeightPoints);
 
         Cell cellFiveCoupleWednesday = StrFiveCouple.createCell(3);
         cellFiveCoupleWednesday.setCellValue(CoupleFiveWednesday);
         cellFiveCoupleWednesday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(3, ColumnWidth);
+        Classroom.autoSizeColumn(3);
         StrFiveCouple.setHeightInPoints(HeightPoints);
 
         Cell cellSixCoupleWednesday = StrSixCouple.createCell(3);
         cellSixCoupleWednesday.setCellValue(CoupleSixWednesday);
         cellSixCoupleWednesday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(3, ColumnWidth);
+        Classroom.autoSizeColumn(3);
         StrSixCouple.setHeightInPoints(HeightPoints);
 
         Cell cellSevenCoupleWednesday = StrSevenCouple.createCell(3);
         cellSevenCoupleWednesday.setCellValue(CoupleSevenWednesday);
         cellSevenCoupleWednesday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(3, ColumnWidth);
+        Classroom.autoSizeColumn(3);
         StrSevenCouple.setHeightInPoints(HeightPoints);
 
         // Couple Thursday
@@ -430,43 +430,43 @@ public class CreatorTableExelClassroom {
         Cell cellOneCoupleThursday = StrOneCouple.createCell(4);
         cellOneCoupleThursday.setCellValue(CoupleOneThursday);
         cellOneCoupleThursday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(4, ColumnWidth);
+        Classroom.autoSizeColumn(4);
         StrOneCouple.setHeightInPoints(HeightPoints);
 
         Cell cellTwoCoupleThursday = StrTwoCouple.createCell(4);
         cellTwoCoupleThursday.setCellValue(CoupleTwoThursday);
         cellTwoCoupleThursday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(4, ColumnWidth);
+        Classroom.autoSizeColumn(4);
         StrTwoCouple.setHeightInPoints(HeightPoints);
 
         Cell cellThreeCoupleThursday = StrThreeCouple.createCell(4);
         cellThreeCoupleThursday.setCellValue(CoupleThreeThursday);
         cellThreeCoupleThursday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(4, ColumnWidth);
+        Classroom.autoSizeColumn(4);
         StrThreeCouple.setHeightInPoints(HeightPoints);
 
         Cell cellFourCoupleThursday = StrFourCouple.createCell(4);
         cellFourCoupleThursday.setCellValue(CoupleFourThursday);
         cellFourCoupleThursday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(4, ColumnWidth);
+        Classroom.autoSizeColumn(4);
         StrFourCouple.setHeightInPoints(HeightPoints);
 
         Cell cellFiveCoupleThursday = StrFiveCouple.createCell(4);
         cellFiveCoupleThursday.setCellValue(CoupleFiveThursday);
         cellFiveCoupleThursday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(4, ColumnWidth);
+        Classroom.autoSizeColumn(4);
         StrFiveCouple.setHeightInPoints(HeightPoints);
 
         Cell cellSixCoupleThursday = StrSixCouple.createCell(4);
         cellSixCoupleThursday.setCellValue(CoupleSixThursday);
         cellSixCoupleThursday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(4, ColumnWidth);
+        Classroom.autoSizeColumn(4);
         StrSixCouple.setHeightInPoints(HeightPoints);
 
         Cell cellSevenCoupleThursday = StrSevenCouple.createCell(4);
         cellSevenCoupleThursday.setCellValue(CoupleSevenThursday);
         cellSevenCoupleThursday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(4, ColumnWidth);
+        Classroom.autoSizeColumn(4);
         StrSevenCouple.setHeightInPoints(HeightPoints);
 
         // Couple Friday
@@ -516,43 +516,43 @@ public class CreatorTableExelClassroom {
         Cell cellOneCoupleFriday = StrOneCouple.createCell(5);
         cellOneCoupleFriday.setCellValue(CoupleOneFriday);
         cellOneCoupleFriday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(5, ColumnWidth);
+        Classroom.autoSizeColumn(5);
         StrOneCouple.setHeightInPoints(HeightPoints);
 
         Cell cellTwoCoupleFriday = StrTwoCouple.createCell(5);
         cellTwoCoupleFriday.setCellValue(CoupleTwoFriday);
         cellTwoCoupleFriday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(5, ColumnWidth);
+        Classroom.autoSizeColumn(5);
         StrTwoCouple.setHeightInPoints(HeightPoints);
 
         Cell cellThreeCoupleFriday = StrThreeCouple.createCell(5);
         cellThreeCoupleFriday.setCellValue(CoupleThreeFriday);
         cellThreeCoupleFriday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(5, ColumnWidth);
+        Classroom.autoSizeColumn(5);
         StrThreeCouple.setHeightInPoints(HeightPoints);
 
         Cell cellFourCoupleFriday = StrFourCouple.createCell(5);
         cellFourCoupleFriday.setCellValue(CoupleFourFriday);
         cellFourCoupleFriday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(5, ColumnWidth);
+        Classroom.autoSizeColumn(5);
         StrFourCouple.setHeightInPoints(HeightPoints);
 
         Cell cellFiveCoupleFriday = StrFiveCouple.createCell(5);
         cellFiveCoupleFriday.setCellValue(CoupleFiveFriday);
         cellFiveCoupleFriday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(5, ColumnWidth);
+        Classroom.autoSizeColumn(5);
         StrFiveCouple.setHeightInPoints(HeightPoints);
 
         Cell cellSixCoupleFriday = StrSixCouple.createCell(5);
         cellSixCoupleFriday.setCellValue(CoupleSixFriday);
         cellSixCoupleFriday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(5, ColumnWidth);
+        Classroom.autoSizeColumn(5);
         StrSixCouple.setHeightInPoints(HeightPoints);
 
         Cell cellSevenCoupleFriday = StrSevenCouple.createCell(5);
         cellSevenCoupleFriday.setCellValue(CoupleSevenFriday);
         cellSevenCoupleFriday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(5, ColumnWidth);
+        Classroom.autoSizeColumn(5);
         StrSevenCouple.setHeightInPoints(HeightPoints);
 
         // Couple Saturday
@@ -602,43 +602,43 @@ public class CreatorTableExelClassroom {
         Cell cellOneCoupleSaturday = StrOneCouple.createCell(6);
         cellOneCoupleSaturday.setCellValue(CoupleOneSaturday);
         cellOneCoupleSaturday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(6, ColumnWidth);
+        Classroom.autoSizeColumn(6);
         StrOneCouple.setHeightInPoints(HeightPoints);
 
         Cell cellTwoCoupleSaturday = StrTwoCouple.createCell(6);
         cellTwoCoupleSaturday.setCellValue(CoupleTwoSaturday);
         cellTwoCoupleSaturday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(6, ColumnWidth);
+        Classroom.autoSizeColumn(6);
         StrTwoCouple.setHeightInPoints(HeightPoints);
 
         Cell cellThreeCoupleSaturday = StrThreeCouple.createCell(6);
         cellThreeCoupleSaturday.setCellValue(CoupleThreeSaturday);
         cellThreeCoupleSaturday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(6, ColumnWidth);
+        Classroom.autoSizeColumn(6);
         StrThreeCouple.setHeightInPoints(HeightPoints);
 
         Cell cellFourCoupleSaturday = StrFourCouple.createCell(6);
         cellFourCoupleSaturday.setCellValue(CoupleFourSaturday);
         cellFourCoupleSaturday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(6, ColumnWidth);
+        Classroom.autoSizeColumn(6);
         StrFourCouple.setHeightInPoints(HeightPoints);
 
         Cell cellFiveCoupleSaturday = StrFiveCouple.createCell(6);
         cellFiveCoupleSaturday.setCellValue(CoupleFiveSaturday);
         cellFiveCoupleSaturday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(6, ColumnWidth);
+        Classroom.autoSizeColumn(6);
         StrFiveCouple.setHeightInPoints(HeightPoints);
 
         Cell cellSixCoupleSaturday = StrSixCouple.createCell(6);
         cellSixCoupleSaturday.setCellValue(CoupleSixSaturday);
         cellSixCoupleSaturday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(6, ColumnWidth);
+        Classroom.autoSizeColumn(6);
         StrSixCouple.setHeightInPoints(HeightPoints);
 
         Cell cellSevenCoupleSaturday = StrSevenCouple.createCell(6);
         cellSevenCoupleSaturday.setCellValue(CoupleSevenSaturday);
         cellSevenCoupleSaturday.setCellStyle(cellStyle);
-        Classroom.setColumnWidth(6, ColumnWidth);
+        Classroom.autoSizeColumn(6);
         StrSevenCouple.setHeightInPoints(HeightPoints);
 
 
