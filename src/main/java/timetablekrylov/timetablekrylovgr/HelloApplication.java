@@ -423,6 +423,9 @@ public class HelloApplication extends Application {
                CreatorTableExelClassroom creatorTableExelClassroom = new CreatorTableExelClassroom();
                creatorTableExelClassroom.CreatorTimeTableClassroomOne(ArrayCouple);
 
+               CreatorTableExelClassrooms creatorTableExelClassrooms = new CreatorTableExelClassrooms();
+               creatorTableExelClassrooms.CreateTableExelClassroom(ArrayCouple,finalArrayCheckBoxClassroom);
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
