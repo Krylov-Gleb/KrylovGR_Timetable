@@ -77,7 +77,7 @@ public class Group {
 
         // I use regular expressions
         // (More details in class Teacher)
-        Pattern pattern = Pattern.compile("\"id_day\":\"\\d\",\"number_para\":\"\\d\",\"discipline\":\"[A-zА-я \\.\\-\\/]+\",\"type\":\"[А-яA-z]+\",\"type_week\":\"[А-яA-z]+\",\"aud\":\"[А-я\\. 0-9\\/\\-]+\",\"number_week\":\"[0-9\\/\\,\\-]+\",\"comment\":\"(|[A-zА-я\\.\\/\\,\\-])\",\"zaoch\":(true|false),\"name\":\"[A-zА-яё. ]+\"");
+        Pattern pattern = Pattern.compile("\"id_day\":\"\\d\",\"number_para\":\"\\d\",\"discipline\":\"[A-zА-я \\.\\-\\/\\(\\)]+\",\"type\":\"[А-яA-z]+\",\"type_week\":\"[А-яA-z]+\",\"aud\":\"[А-яA-z\\. 0-9\\/\\-]+\",\"number_week\":\"([0-9\\/\\,\\-]|)+\",\"comment\":\"(|[A-zА-я\\.\\/\\,\\-])\",\"zaoch\":(true|false),\"name\":\"[A-zА-яё. ]+\"");
         Matcher matcher = pattern.matcher(Json);
 
         while(matcher.find()){
@@ -95,17 +95,6 @@ public class Group {
         SetGroupId(Json);
         SetGroupName(Json);
 
-    }
-
-    // I create a method to output data
-    public void GetCouples(){
-        System.out.print("\n");
-        System.out.println("Id группы = " + groupId);
-        System.out.println("Группа = " + groupName);
-        System.out.print("\n");
-        for(int i = 0; i < ArrayCouples.size(); i++){
-            ArrayCouples.get(i).GetCouple();
-        }
     }
 
     public ArrayList<CoupleGroup> GetArrayCouples(){

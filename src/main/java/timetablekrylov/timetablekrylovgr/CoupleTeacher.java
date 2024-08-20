@@ -39,21 +39,6 @@ public class CoupleTeacher {
         SetGroupName(Json);
     }
 
-    // Method for output couple
-    public void GetCouple(){
-        System.out.println("День недели = " + idDay);
-        System.out.println("Номер пары = " + NumberCouple);
-        System.out.println("Дисциплина = " + Discipline);
-        System.out.println("Тип занятия = " + Type);
-        System.out.println("Тип недели = " + TypeWeek);
-        System.out.println("Номер аудитории = " + Aud);
-        System.out.println("Недели = " + NumberWeek);
-        System.out.println("Заочная форма = " + Zaoch);
-        System.out.println("Подгруппы = " + UnderGroup);
-        System.out.println("Группа = " + GroupName);
-        System.out.println("\n");
-    }
-
     // Method for changing the idDay value
     private void SetIdDay(String Json){
 
@@ -110,7 +95,7 @@ public class CoupleTeacher {
     private void SetDiscipline(String Json){
 
         // I use regular expressions
-        Pattern pattern = Pattern.compile("\"discipline\":\"[A-zА-яё\\.\\-\\, ]+\"");
+        Pattern pattern = Pattern.compile("\"discipline\":\"[A-zА-я \\.\\-\\/\\(\\)]+\"");
         Matcher matcher = pattern.matcher(Json);
 
         String RegX = "";
@@ -121,7 +106,7 @@ public class CoupleTeacher {
         }
 
         // I use regular expressions
-        Pattern pattern1 = Pattern.compile("[А-я\\-\\.\\, ]+");
+        Pattern pattern1 = Pattern.compile("[А-я\\-\\.\\, ]+(\\([А-яA-z\\-\\.\\, ]+\\)|)([А-я\\-\\.\\, ]+|)");
         Matcher matcher1 = pattern1.matcher(RegX);
 
         // Getting the value
@@ -214,7 +199,7 @@ public class CoupleTeacher {
     private void SetNumberWeek(String Json){
 
         // I use regular expressions
-        Pattern pattern = Pattern.compile("\"number_week\":\"[\\d\\-\\/\\,]+\"");
+        Pattern pattern = Pattern.compile("\"number_week\":\"([0-9\\/\\,\\-]+|)\"");
         Matcher matcher = pattern.matcher(Json);
 
         String RegX = "";
@@ -225,7 +210,7 @@ public class CoupleTeacher {
         }
 
         // I use regular expressions
-        Pattern pattern1 = Pattern.compile("[\\d\\-\\/\\,]+");
+        Pattern pattern1 = Pattern.compile("\"([\\d\\-\\/\\,]+|)\"");
         Matcher matcher1 = pattern1.matcher(RegX);
 
         // Getting the value

@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import org.apache.poi.ss.formula.functions.T;
 
 import java.io.*;
 import java.net.MalformedURLException;
@@ -93,14 +94,14 @@ public class HelloApplication extends Application {
         ButtonHBoxGroup.getChildren().addAll(buttonSwapGroup,buttonSwapTeacher,buttonSwapClassroom);
 
         // Creating a drop-down list
-        ChoiceBox<String> ChoiceBoxFaculty = SetStyleChoiceBox(ButtonFontSize);
+        ComboBox<String> ComboBoxBoxFaculty = SetStyleComboBox(ButtonFontSize,"Выберите факультет");
         //Adding values to the ChoiceBox
-        ChoiceBoxFaculty.getItems().addAll("Информационные технологии и радиоэлектроника (ФИТР)","Машиностроительный (МСФ)","Гуманитарный (ГФ)","Определение среднего профессионального образования (СПО)");
+        ComboBoxBoxFaculty.getItems().addAll("Информационные технологии и радиоэлектроника (ФИТР)","Машиностроительный (МСФ)","Гуманитарный (ГФ)","Определение среднего профессионального образования (СПО)");
 
         // Adding the hbox layout to control the choicebox
         HBox ChoiceBoxControl = new HBox();
         ChoiceBoxControl.setAlignment(Pos.CENTER);
-        ChoiceBoxControl.getChildren().add(ChoiceBoxFaculty);
+        ChoiceBoxControl.getChildren().add(ComboBoxBoxFaculty);
         ChoiceBoxControl.setPadding(new Insets(-20,-20,-20,-20));
 
         // --------------------------------------------------------------------------------------
@@ -135,10 +136,10 @@ public class HelloApplication extends Application {
         ScrollPane GroupScrollPane = CreatorScrollPane();
 
         // I am creating a ChoiceBox so that the user can set semester
-        ChoiceBox<String> ChoiceBoxSemesterGroup = SetStyleChoiceBox(ButtonFontSize);
+        ComboBox<String> ComboBoxSemesterGroup = SetStyleComboBox(ButtonFontSize,"Выберите семестр");
         // 1 or 2
-        ChoiceBoxSemesterGroup.getItems().add("1");
-        ChoiceBoxSemesterGroup.getItems().add("2");
+        ComboBoxSemesterGroup.getItems().add("1");
+        ComboBoxSemesterGroup.getItems().add("2");
 
         // I am creating a text field for the user to set the year
         TextField TextFieldYearGroup = new TextField();
@@ -153,7 +154,7 @@ public class HelloApplication extends Application {
         // Creating a button for creating a schedule
         Button buttonCreatorTimeTableTwo = CreatorButtonCreatorTimetable("Создать групповое расписание",ButtonFontSize);
 
-        VBox BottomMenuTimeTableControl = CreatorBottomMenu(ChoiceBoxSemesterGroup,TextFieldYearGroup,buttonCreatorTimeTableOne,buttonCreatorTimeTableTwo);
+        VBox BottomMenuTimeTableControl = CreatorBottomMenu(ComboBoxSemesterGroup,TextFieldYearGroup,buttonCreatorTimeTableOne,buttonCreatorTimeTableTwo);
 
         // Creating a vbox to add all the elements scene
         VBox VBoxGroup  = new VBox(50);
@@ -192,9 +193,9 @@ public class HelloApplication extends Application {
         TeacherScrollPane.setContent(TeacherGridPane);
 
         // I am creating a ChoiceBox so that the user can set semester
-        ChoiceBox<String> ChoiceBoxSemesterTeacher = SetStyleChoiceBox(ButtonFontSize);
-        ChoiceBoxSemesterTeacher.getItems().add("1");
-        ChoiceBoxSemesterTeacher.getItems().add("2");
+        ComboBox<String> ComboBoxSemesterTeacher = SetStyleComboBox(ButtonFontSize,"Выберите семестр");
+        ComboBoxSemesterTeacher.getItems().add("1");
+        ComboBoxSemesterTeacher.getItems().add("2");
 
         // I am creating a text field for the user to set the year
         TextField TextFieldYearTeacher = new TextField();
@@ -210,7 +211,7 @@ public class HelloApplication extends Application {
         Button buttonCreatorTimeTableTeacherTwo = CreatorButtonCreatorTimetable("Создать групповое расписание",ButtonFontSize);
 
         // I use the function to form the bottom menu (CreatorBottomMenu)
-        VBox BottomMenuTimeTableControlTeacher = CreatorBottomMenu(ChoiceBoxSemesterTeacher,TextFieldYearTeacher,buttonCreatorTimeTableTeacherOne,buttonCreatorTimeTableTeacherTwo);
+        VBox BottomMenuTimeTableControlTeacher = CreatorBottomMenu(ComboBoxSemesterTeacher,TextFieldYearTeacher,buttonCreatorTimeTableTeacherOne,buttonCreatorTimeTableTeacherTwo);
 
         // Creating the final template for the teachers' scene
         VBox VBoxTeacher = new VBox(50);
@@ -256,9 +257,9 @@ public class HelloApplication extends Application {
         Button buttonCreatorTimeTableClassroomTwo = CreatorButtonCreatorTimetable("Создать групповое расписание",ButtonFontSize);
 
         // I am creating a ChoiceBox so that the user can set semester
-        ChoiceBox<String> ChoiceBoxSemesterClassroom = SetStyleChoiceBox(ButtonFontSize);
-        ChoiceBoxSemesterClassroom.getItems().add("1");
-        ChoiceBoxSemesterClassroom.getItems().add("2");
+        ComboBox<String> ComboBoxSemesterClassroom = SetStyleComboBox(ButtonFontSize,"Выберите семестр");
+        ComboBoxSemesterClassroom.getItems().add("1");
+        ComboBoxSemesterClassroom.getItems().add("2");
 
         // I am creating a text field for the user to set the year
         TextField TextFieldYearClassroom = new TextField();
@@ -267,7 +268,7 @@ public class HelloApplication extends Application {
         TextFieldYearClassroom.setMinSize(468,40);
         TextFieldYearClassroom.setMaxSize(468,40);
 
-        VBox BottomMenuClassroom = CreatorBottomMenu(ChoiceBoxSemesterClassroom,TextFieldYearClassroom,buttonCreatorTimeTableClassroomOne,buttonCreatorTimeTableClassroomTwo);
+        VBox BottomMenuClassroom = CreatorBottomMenu(ComboBoxSemesterClassroom,TextFieldYearClassroom,buttonCreatorTimeTableClassroomOne,buttonCreatorTimeTableClassroomTwo);
 
         // Creating the final template for the classroom scene
         VBox VBoxClassroom = new VBox(50);
@@ -328,11 +329,9 @@ public class HelloApplication extends Application {
 
         // The button for getting the schedule of one group
         buttonCreatorTimeTableOne.setOnAction(Event -> {
-            String Json = CreatorOneURL(finalArrayCheckBoxGrFITR,finalArrayCheckBoxGrSPO,finalArrayCheckBoxGF,finalArrayCheckBoxMSF,ChoiceBoxSemesterGroup,TextFieldYearGroup);
-            System.out.println(Json);
+            String Json = CreatorOneURL(finalArrayCheckBoxGrFITR,finalArrayCheckBoxGrSPO,finalArrayCheckBoxGF,finalArrayCheckBoxMSF,ComboBoxSemesterGroup,TextFieldYearGroup);
             Group group = new Group();
             group.CreatorCouples(Json);
-            group.GetCouples();
 
             CreatorTableExelGroup creatorTableExel = new CreatorTableExelGroup();
             try {
@@ -345,17 +344,15 @@ public class HelloApplication extends Application {
 
         // A button for getting the schedule of several groups
         buttonCreatorTimeTableTwo.setOnAction(Event -> {
-            ArrayList<String> ArrayURLAddressGroup = CreatorAllURL(finalArrayCheckBoxGrFITR,finalArrayCheckBoxGrSPO,finalArrayCheckBoxGF,finalArrayCheckBoxMSF,ChoiceBoxSemesterGroup,TextFieldYearGroup);
+            ArrayList<String> ArrayURLAddressGroup = CreatorAllURL(finalArrayCheckBoxGrFITR,finalArrayCheckBoxGrSPO,finalArrayCheckBoxGF,finalArrayCheckBoxMSF,ComboBoxSemesterGroup,TextFieldYearGroup);
             ArrayList<Group> ArrayGroup = new ArrayList<>();
 
             for(int i = 0; i < ArrayURLAddressGroup.size(); i++){
-                System.out.println(ArrayURLAddressGroup.get(i));
                 ArrayGroup.add(new Group());
             }
 
             for(int i = 0; i < ArrayURLAddressGroup.size(); i++){
                 ArrayGroup.get(i).CreatorCouples(ArrayURLAddressGroup.get(i));
-                ArrayGroup.get(i).GetCouples();
             }
 
             CreatorTableExelGroups creatorTableExelGroups = new CreatorTableExelGroups();
@@ -370,10 +367,9 @@ public class HelloApplication extends Application {
         // A button for getting one teacher's schedule
         buttonCreatorTimeTableTeacherOne.setOnAction(Event -> {
             try {
-                String Json = CreatorURLTeacherOne(finalArrayCheckBoxTeacher,ChoiceBoxSemesterTeacher,TextFieldYearTeacher);
+                String Json = CreatorURLTeacherOne(finalArrayCheckBoxTeacher,ComboBoxSemesterTeacher,TextFieldYearTeacher);
                 Teacher teacher = new Teacher();
                 teacher.CreatorCouples(Json);
-                teacher.GetCoupleTeacher();
 
                 CreatorTableExelTeacher creatorTableExelTeacher = new CreatorTableExelTeacher();
                 creatorTableExelTeacher.CreatorTimeTableTeacherOne(teacher);
@@ -386,7 +382,7 @@ public class HelloApplication extends Application {
         // A button for getting the schedule of several teachers
         buttonCreatorTimeTableTeacherTwo.setOnAction(Event -> {
             try {
-                ArrayList<String> ArrayJsonTeachers = CreatorURLTeacherAll(finalArrayCheckBoxTeacher,ChoiceBoxSemesterTeacher,TextFieldYearTeacher);
+                ArrayList<String> ArrayJsonTeachers = CreatorURLTeacherAll(finalArrayCheckBoxTeacher,ComboBoxSemesterTeacher,TextFieldYearTeacher);
                 ArrayList<Teacher> ArrayTeacher = new ArrayList<>();
 
                 for(int i = 0; i < ArrayJsonTeachers.size(); i++){
@@ -395,7 +391,6 @@ public class HelloApplication extends Application {
 
                 for(int i = 0; i < ArrayTeacher.size(); i++){
                     ArrayTeacher.get(i).CreatorCouples(ArrayJsonTeachers.get(i));
-                    ArrayTeacher.get(i).GetCoupleTeacher();
                 }
 
                 CreatorTableExelTeachers creatorTableExelTeachers = new CreatorTableExelTeachers();
@@ -408,23 +403,53 @@ public class HelloApplication extends Application {
 
         buttonCreatorTimeTableClassroomOne.setOnAction(Event -> {
 
+            int countSelect = 0;
+
+            for(int i = 0; i < finalArrayCheckBoxClassroom.size(); i++){
+                if(finalArrayCheckBoxClassroom.get(i).isSelected()){
+                    countSelect++;
+                }
+            }
+
+            if(countSelect == 1) {
+                try {
+                    ArrayList<String> Array = CreatorCoupleAllGroup(finalArrayCheckBoxGrFITR, finalArrayCheckBoxGrSPO, finalArrayCheckBoxGF, finalArrayCheckBoxMSF, ComboBoxSemesterClassroom, TextFieldYearClassroom, finalArrayCheckBoxClassroom);
+                    ArrayList<CoupleGroup> ArrayCouple = new ArrayList<>();
+
+                    for (int i = 0; i < Array.size(); i++) {
+                        ArrayCouple.add(new CoupleGroup());
+                    }
+
+                    for (int i = 0; i < ArrayCouple.size(); i++) {
+                        ArrayCouple.get(i).CreatorCouple(Array.get(i));
+                    }
+
+                    CreatorTableExelClassroom creatorTableExelClassroom = new CreatorTableExelClassroom();
+                    creatorTableExelClassroom.CreatorTimeTableClassroomOne(ArrayCouple);
+
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+        });
+
+        buttonCreatorTimeTableClassroomTwo.setOnAction(Event -> {
+
             try {
-               ArrayList<String> Array = CreatorCoupleAllGroup(finalArrayCheckBoxGrFITR,finalArrayCheckBoxGrSPO,finalArrayCheckBoxGF,finalArrayCheckBoxMSF,ChoiceBoxSemesterClassroom,TextFieldYearClassroom,finalArrayCheckBoxClassroom);
-               ArrayList<CoupleGroup> ArrayCouple = new ArrayList<>();
+                ArrayList<String> Array = CreatorCoupleAllGroup(finalArrayCheckBoxGrFITR,finalArrayCheckBoxGrSPO,finalArrayCheckBoxGF,finalArrayCheckBoxMSF,ComboBoxSemesterClassroom,TextFieldYearClassroom,finalArrayCheckBoxClassroom);
+                ArrayList<CoupleGroup> ArrayCouple = new ArrayList<>();
 
-               for(int i = 0; i < Array.size(); i++){
-                   ArrayCouple.add(new CoupleGroup());
-               }
+                for(int i = 0; i < Array.size(); i++){
+                    ArrayCouple.add(new CoupleGroup());
+                }
 
-               for(int i = 0; i < ArrayCouple.size(); i++){
-                   ArrayCouple.get(i).CreatorCouple(Array.get(i));
-               }
+                for(int i = 0; i < ArrayCouple.size(); i++){
+                    ArrayCouple.get(i).CreatorCouple(Array.get(i));
+                }
 
-               CreatorTableExelClassroom creatorTableExelClassroom = new CreatorTableExelClassroom();
-               creatorTableExelClassroom.CreatorTimeTableClassroomOne(ArrayCouple);
-
-               CreatorTableExelClassrooms creatorTableExelClassrooms = new CreatorTableExelClassrooms();
-               creatorTableExelClassrooms.CreateTableExelClassroom(ArrayCouple,finalArrayCheckBoxClassroom);
+                CreatorTableExelClassrooms creatorTableExelClassrooms = new CreatorTableExelClassrooms();
+                creatorTableExelClassrooms.CreateTableExelClassroom(ArrayCouple,finalArrayCheckBoxClassroom);
 
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -447,7 +472,7 @@ public class HelloApplication extends Application {
         // -----------------------------------------------------------------------------------------
 
         // Changing information in the ScrollPane depending on the selected ChoiceBox item
-        ChoiceBoxFaculty.getSelectionModel().selectedItemProperty().addListener((V,OldView,NewView) -> {
+        ComboBoxBoxFaculty.getSelectionModel().selectedItemProperty().addListener((V,OldView,NewView) -> {
             if(NewView.equals("Информационные технологии и радиоэлектроника (ФИТР)")){
                 GroupScrollPane.setContent(VBoxGridPaneGroupFITR);
             }
@@ -672,16 +697,17 @@ public class HelloApplication extends Application {
     }
 
     // Method for creating ChoiceBox
-    public ChoiceBox<String> SetStyleChoiceBox(String ButtonStyle){
+    public ComboBox<String> SetStyleComboBox(String ButtonStyle,String Text){
 
-        ChoiceBox<String> choiceBox = new ChoiceBox<>();
-        choiceBox.setStyle(ButtonStyle);
+        ComboBox<String> comboBox = new ComboBox<>();
+        comboBox.setStyle(ButtonStyle);
+        comboBox.setPromptText(Text);
 
         // Setting the size of the ChoiceBox
-        choiceBox.setMaxSize(468,40);
-        choiceBox.setMinSize(468,40);
+        comboBox.setMaxSize(468,40);
+        comboBox.setMinSize(468,40);
 
-        return choiceBox;
+        return comboBox;
     }
 
     // Method for creating ПкшвЗфту
@@ -769,7 +795,7 @@ public class HelloApplication extends Application {
 
     }
 
-    public String CreatorOneURL(ArrayList<CheckBox> ArrayFITR, ArrayList<CheckBox> ArraySPO, ArrayList<CheckBox> ArrayGF, ArrayList<CheckBox> ArrayMSF, ChoiceBox<String> Sem, TextField year) {
+    public String CreatorOneURL(ArrayList<CheckBox> ArrayFITR, ArrayList<CheckBox> ArraySPO, ArrayList<CheckBox> ArrayGF, ArrayList<CheckBox> ArrayMSF, ComboBox<String> Sem, TextField year) {
 
         for (int i = 0; i < ArrayFITR.size(); i++) {
             if (ArrayFITR.get(i).isSelected()) {
@@ -859,7 +885,7 @@ public class HelloApplication extends Application {
         return "Сбор не удался!";
     }
 
-    public ArrayList<String> CreatorAllURL(ArrayList<CheckBox> ArrayFITR, ArrayList<CheckBox> ArraySPO, ArrayList<CheckBox> ArrayGF, ArrayList<CheckBox> ArrayMSF, ChoiceBox<String> Sem, TextField year){
+    public ArrayList<String> CreatorAllURL(ArrayList<CheckBox> ArrayFITR, ArrayList<CheckBox> ArraySPO, ArrayList<CheckBox> ArrayGF, ArrayList<CheckBox> ArrayMSF, ComboBox<String> Sem, TextField year){
 
         ArrayList<String> ArrayURLAddress = new ArrayList<>();
 
@@ -874,7 +900,6 @@ public class HelloApplication extends Application {
                 String TextFieldYear = year.getText();
                 String Format = "&format=json";
                 String FinalUrl = FirstURLData+URLDataAndGroup+Semester+ChoiceBoxSem+Year+TextFieldYear+Format;
-                System.out.println(FinalUrl);
 
                 try {
                     String Json = ReadJsonInURL(FinalUrl);
@@ -897,7 +922,6 @@ public class HelloApplication extends Application {
                 String TextFieldYear = year.getText();
                 String Format = "&format=json";
                 String FinalUrl = FirstURLData + URLDataAndGroup + Semester + ChoiceBoxSem + Year + TextFieldYear + Format;
-                System.out.println(FinalUrl);
 
                 try {
                     String Json = ReadJsonInURL(FinalUrl);
@@ -920,7 +944,6 @@ public class HelloApplication extends Application {
                 String TextFieldYear = year.getText();
                 String Format = "&format=json";
                 String FinalUrl = FirstURLData + URLDataAndGroup + Semester + ChoiceBoxSem + Year + TextFieldYear + Format;
-                System.out.println(FinalUrl);
 
                 try {
                     String Json = ReadJsonInURL(FinalUrl);
@@ -943,7 +966,6 @@ public class HelloApplication extends Application {
                 String TextFieldYear = year.getText();
                 String Format = "&format=json";
                 String FinalUrl = FirstURLData + URLDataAndGroup + Semester + ChoiceBoxSem + Year + TextFieldYear + Format;
-                System.out.println(FinalUrl);
 
                 try {
                     String Json = ReadJsonInURL(FinalUrl);
@@ -959,7 +981,7 @@ public class HelloApplication extends Application {
 
     }
 
-    public ArrayList<String> CreatorCoupleAllGroup(ArrayList<CheckBox> ArrayFITR, ArrayList<CheckBox> ArraySPO, ArrayList<CheckBox> ArrayGF, ArrayList<CheckBox> ArrayMSF, ChoiceBox<String> Sem, TextField Year, ArrayList<CheckBox> ArrayClassroom) throws IOException {
+    public ArrayList<String> CreatorCoupleAllGroup(ArrayList<CheckBox> ArrayFITR, ArrayList<CheckBox> ArraySPO, ArrayList<CheckBox> ArrayGF, ArrayList<CheckBox> ArrayMSF, ComboBox<String> Sem, TextField Year, ArrayList<CheckBox> ArrayClassroom) throws IOException {
 
         ArrayList<String> ArrayCoupleJson = new ArrayList<>();
         ArrayList<String> ArrayCoupleItogString = new ArrayList<>();
@@ -1055,7 +1077,7 @@ public class HelloApplication extends Application {
         return ArrayCoupleItogString;
     }
 
-    public String CreatorURLTeacherOne(ArrayList<CheckBox> ArrayTeacher,ChoiceBox<String> Sem,TextField year) throws IOException {
+    public String CreatorURLTeacherOne(ArrayList<CheckBox> ArrayTeacher,ComboBox<String> Sem,TextField year) throws IOException {
 
         for(int i = 0; i < ArrayTeacher.size(); i++){
             if(ArrayTeacher.get(i).isSelected()){
@@ -1106,7 +1128,7 @@ public class HelloApplication extends Application {
         return "Вы ничего не отметили!";
     }
 
-    public ArrayList<String> CreatorURLTeacherAll(ArrayList<CheckBox> ArrayTeacher,ChoiceBox<String> Sem,TextField year) throws IOException {
+    public ArrayList<String> CreatorURLTeacherAll(ArrayList<CheckBox> ArrayTeacher,ComboBox<String> Sem,TextField year) throws IOException {
 
         ArrayList<String> ArrayJsonTeacher = new ArrayList<>();
 
@@ -1161,7 +1183,7 @@ public class HelloApplication extends Application {
     }
 
     // Method for creating Bottom Menu
-    public VBox CreatorBottomMenu(ChoiceBox<String> choiceBox,TextField textField,Button button1,Button button2){
+    public VBox CreatorBottomMenu(ComboBox<String> choiceBox,TextField textField,Button button1,Button button2){
 
         VBox ControlChoiceBox = new VBox();
         ControlChoiceBox.setAlignment(Pos.CENTER);

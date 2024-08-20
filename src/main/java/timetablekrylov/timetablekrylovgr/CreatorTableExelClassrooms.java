@@ -6,14 +6,12 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class CreatorTableExelClassrooms {
-
-    int HeightPoints = 250;
-    int ColumnWidth = 10000;
 
     private Workbook workbookClassroom = new HSSFWorkbook();
 
@@ -166,6 +164,1046 @@ public class CreatorTableExelClassrooms {
     private Row rowFortyTwo = Classroom.createRow(42);
     private Cell CoupleSevenSaturday = rowFortyTwo.createCell(1);
 
+    public ArrayList<String> ConcatCoupleDayWeek(ArrayList<CoupleGroup> CoupleOne,ArrayList<CoupleGroup> CoupleTwo,ArrayList<CoupleGroup> CoupleThree,ArrayList<CoupleGroup> CoupleFour, ArrayList<CoupleGroup> CoupleFive,ArrayList<CoupleGroup> CoupleSix,ArrayList<CoupleGroup> CoupleSeven){
+
+        String CoupleOneDayWeekOne = "";
+        String CoupleTwoDayWeekTwo = "";
+        String CoupleThreeDayWeekThree = "";
+        String CoupleFourDayWeekFour = "";
+        String CoupleFiveDayWeekFive = "";
+        String CoupleSixDayWeekSix = "";
+        String CoupleSevenDayWeekSeven = "";
+
+        for(int i = 0; i < CoupleOne.size(); i++){
+            if(i < CoupleOne.size()-1) {
+                CoupleOneDayWeekOne = CoupleOneDayWeekOne + CoupleOne.get(i).GetDiscipline() + " (" + CoupleOne.get(i).GetCoupleType() + ")\n" + CoupleOne.get(i).GetNumberWeek() + " " + CoupleOne.get(i).GetTeacherName() + " " + CoupleOne.get(i).GetAud() + "\n" + "\n";
+            }
+            else{
+                CoupleOneDayWeekOne = CoupleOneDayWeekOne + CoupleOne.get(i).GetDiscipline() + " (" + CoupleOne.get(i).GetCoupleType() + ")\n" + CoupleOne.get(i).GetNumberWeek() + " " + CoupleOne.get(i).GetTeacherName() + " " + CoupleOne.get(i).GetAud();
+            }
+        }
+
+        for(int i = 0; i < CoupleTwo.size(); i++){
+            if(i < CoupleTwo.size()-1) {
+                CoupleTwoDayWeekTwo = CoupleTwoDayWeekTwo + CoupleTwo.get(i).GetDiscipline() + " (" + CoupleTwo.get(i).GetCoupleType() + ")\n" + CoupleTwo.get(i).GetNumberWeek() + " " + CoupleTwo.get(i).GetTeacherName() + " " + CoupleTwo.get(i).GetAud() + "\n" + "\n";
+            }
+            else{
+                CoupleTwoDayWeekTwo = CoupleTwoDayWeekTwo + CoupleTwo.get(i).GetDiscipline() + " (" + CoupleTwo.get(i).GetCoupleType() + ")\n" + CoupleTwo.get(i).GetNumberWeek() + " " + CoupleTwo.get(i).GetTeacherName() + " " + CoupleTwo.get(i).GetAud();
+            }
+        }
+
+        for(int i = 0; i < CoupleThree.size(); i++){
+            if(i < CoupleThree.size()-1) {
+                CoupleThreeDayWeekThree = CoupleThreeDayWeekThree + CoupleThree.get(i).GetDiscipline() + " (" + CoupleThree.get(i).GetCoupleType() + ")\n" + CoupleThree.get(i).GetNumberWeek() + " " + CoupleThree.get(i).GetTeacherName() + " " + CoupleThree.get(i).GetAud() + "\n" + "\n";
+            }
+            else{
+                CoupleThreeDayWeekThree = CoupleThreeDayWeekThree + CoupleThree.get(i).GetDiscipline() + " (" + CoupleThree.get(i).GetCoupleType() + ")\n" + CoupleThree.get(i).GetNumberWeek() + " " + CoupleThree.get(i).GetTeacherName() + " " + CoupleThree.get(i).GetAud();
+            }
+        }
+
+        for(int i = 0; i < CoupleFour.size(); i++){
+            if(i < CoupleFour.size()-1) {
+                CoupleFourDayWeekFour = CoupleFourDayWeekFour + CoupleFour.get(i).GetDiscipline() + " (" + CoupleFour.get(i).GetCoupleType() + ")\n" + CoupleFour.get(i).GetNumberWeek() + " " + CoupleFour.get(i).GetTeacherName() + " " + CoupleFour.get(i).GetAud() + "\n" + "\n";
+            }
+            else{
+                CoupleFourDayWeekFour = CoupleFourDayWeekFour + CoupleFour.get(i).GetDiscipline() + " (" + CoupleFour.get(i).GetCoupleType() + ")\n" + CoupleFour.get(i).GetNumberWeek() + " " + CoupleFour.get(i).GetTeacherName() + " " + CoupleFour.get(i).GetAud();
+            }
+        }
+
+        for(int i = 0; i < CoupleFive.size(); i++){
+            if(i < CoupleFive.size()-1) {
+                CoupleFiveDayWeekFive = CoupleFiveDayWeekFive + CoupleFive.get(i).GetDiscipline() + " (" + CoupleFive.get(i).GetCoupleType() + ")\n" + CoupleFive.get(i).GetNumberWeek() + " " + CoupleFive.get(i).GetTeacherName() + " " + CoupleFive.get(i).GetAud() + "\n" + "\n";
+            }
+            else{
+                CoupleFiveDayWeekFive = CoupleFiveDayWeekFive + CoupleFive.get(i).GetDiscipline() + " (" + CoupleFive.get(i).GetCoupleType() + ")\n" + CoupleFive.get(i).GetNumberWeek() + " " + CoupleFive.get(i).GetTeacherName() + " " + CoupleFive.get(i).GetAud();
+            }
+        }
+
+        for(int i = 0; i < CoupleSix.size(); i++){
+            if(i < CoupleSix.size()-1) {
+                CoupleSixDayWeekSix = CoupleSixDayWeekSix + CoupleSix.get(i).GetDiscipline() + " (" + CoupleSix.get(i).GetCoupleType() + ")\n" + CoupleSix.get(i).GetNumberWeek() + " " + CoupleSix.get(i).GetTeacherName() + " " + CoupleSix.get(i).GetAud() + "\n" + "\n";
+            }
+            else{
+                CoupleSixDayWeekSix = CoupleSixDayWeekSix + CoupleSix.get(i).GetDiscipline() + " (" + CoupleSix.get(i).GetCoupleType() + ")\n" + CoupleSix.get(i).GetNumberWeek() + " " + CoupleSix.get(i).GetTeacherName() + " " + CoupleSix.get(i).GetAud();
+            }
+        }
+
+        for(int i = 0; i < CoupleSeven.size(); i++){
+            if(i < CoupleSeven.size()-1) {
+                CoupleSevenDayWeekSeven = CoupleSevenDayWeekSeven + CoupleSeven.get(i).GetDiscipline() + " (" + CoupleSeven.get(i).GetCoupleType() + ")\n" + CoupleSeven.get(i).GetNumberWeek() + " " + CoupleSeven.get(i).GetTeacherName() + " " + CoupleSeven.get(i).GetAud() + "\n" + "\n";
+            }
+            else{
+                CoupleSevenDayWeekSeven = CoupleSevenDayWeekSeven + CoupleSeven.get(i).GetDiscipline() + " (" + CoupleSeven.get(i).GetCoupleType() + ")\n" + CoupleSeven.get(i).GetNumberWeek() + " " + CoupleSeven.get(i).GetTeacherName() + " " + CoupleSeven.get(i).GetAud();
+            }
+        }
+
+        ArrayList<String> CoupleDayWeek = new ArrayList<>();
+        CoupleDayWeek.add(CoupleOneDayWeekOne);
+        CoupleDayWeek.add(CoupleTwoDayWeekTwo);
+        CoupleDayWeek.add(CoupleThreeDayWeekThree);
+        CoupleDayWeek.add(CoupleFourDayWeekFour);
+        CoupleDayWeek.add(CoupleFiveDayWeekFive);
+        CoupleDayWeek.add(CoupleSixDayWeekSix);
+        CoupleDayWeek.add(CoupleSevenDayWeekSeven);
+
+        return CoupleDayWeek;
+    }
+
+    private void CreatorTable(int ClassroomNumber, ArrayList<CoupleGroup> Array){
+
+        int HeightPoints = 50;
+        int ColumnWidth = 12000;
+
+        ArrayList<CoupleGroup> CoupleOne = new ArrayList<>();
+        ArrayList<CoupleGroup> CoupleTwo = new ArrayList<>();
+        ArrayList<CoupleGroup> CoupleThree = new ArrayList<>();
+        ArrayList<CoupleGroup> CoupleFour = new ArrayList<>();
+        ArrayList<CoupleGroup> CoupleFive = new ArrayList<>();
+        ArrayList<CoupleGroup> CoupleSix = new ArrayList<>();
+        ArrayList<CoupleGroup> CoupleSeven = new ArrayList<>();
+
+
+//        int HeightOneCouple = HeightPoints;
+//        int HeightTwoCouple = HeightPoints;
+//        int HeightThreeCouple = HeightPoints;
+//        int HeightFourCouple = HeightPoints;
+//        int HeightFiveCouple = HeightPoints;
+//        int HeightSixCouple = HeightPoints;
+//        int HeightSevenCouple = HeightPoints;
+//
+//        int MaxHeightOneCouple = UserMaxHeightOneCouple;
+//        int MaxHeightTwoCouple = UserMaxHeightTwoCouple;
+//        int MaxHeightThreeCouple = UserMaxHeightThreeCouple;
+//        int MaxHeightFourCouple = UserMaxHeightFourCouple;
+//        int MaxHeightFiveCouple = UserMaxHeightFiveCouple;
+//        int MaxHeightSixCouple = UserMaxHeightSixCouple;
+//        int MaxHeightSevenCouple = UserMaxHeightSevenCouple;
+
+        CellStyle cellStyle = workbookClassroom.createCellStyle();
+        cellStyle.setWrapText(true);
+
+        ArrayList<CoupleGroup> ArrayMonday = new ArrayList<>();
+        ArrayList<CoupleGroup> ArrayTuesday = new ArrayList<>();
+        ArrayList<CoupleGroup> ArrayWednesday = new ArrayList<>();
+        ArrayList<CoupleGroup> ArrayThursday = new ArrayList<>();
+        ArrayList<CoupleGroup> ArrayFriday = new ArrayList<>();
+        ArrayList<CoupleGroup> ArraySaturday = new ArrayList<>();
+
+        for (int index = 0; index < Array.size(); index++) {
+
+            int IdDay = Array.get(index).GetIDDay();
+
+            switch (IdDay) {
+                case (1): {
+                    ArrayMonday.add(Array.get(index));
+                    break;
+                }
+                case (2): {
+                    ArrayTuesday.add(Array.get(index));
+                    break;
+                }
+                case (3): {
+                    ArrayWednesday.add(Array.get(index));
+                    break;
+                }
+                case (4): {
+                    ArrayThursday.add(Array.get(index));
+                    break;
+                }
+                case (5): {
+                    ArrayFriday.add(Array.get(index));
+                    break;
+                }
+                case (6): {
+                    ArraySaturday.add(Array.get(index));
+                    break;
+                }
+            }
+        }
+
+        String CoupleOneMonday = "";
+        String CoupleTwoMonday = "";
+        String CoupleThreeMonday = "";
+        String CoupleFourMonday = "";
+        String CoupleFiveMonday = "";
+        String CoupleSixMonday = "";
+        String CoupleSevenMonday = "";
+
+        for (int index2 = 0; index2 < ArrayMonday.size(); index2++) {
+
+            switch (ArrayMonday.get(index2).GetCoupleNumber()) {
+                case (1): {
+                    CoupleOne.add(ArrayMonday.get(index2));
+                    break;
+                }
+                case (2): {
+                    CoupleTwo.add(ArrayMonday.get(index2));
+                    break;
+                }
+                case (3): {
+                    CoupleThree.add(ArrayMonday.get(index2));
+                    break;
+                }
+                case (4): {
+                    CoupleFour.add(ArrayMonday.get(index2));
+                    break;
+                }
+                case (5): {
+                    CoupleFive.add(ArrayMonday.get(index2));
+                    break;
+                }
+                case (6): {
+                    CoupleSix.add(ArrayMonday.get(index2));
+                    break;
+                }
+                case (7): {
+                    CoupleSeven.add(ArrayMonday.get(index2));
+                    break;
+                }
+            }
+        }
+
+        ArrayList<String> ArrayStrMonday = ConcatCoupleDayWeek(CoupleOne,CoupleTwo,CoupleThree,CoupleFour,CoupleFive,CoupleSix,CoupleSeven);
+
+        CoupleOneMonday = ArrayStrMonday.get(0);
+        CoupleTwoMonday = ArrayStrMonday.get(1);
+        CoupleThreeMonday = ArrayStrMonday.get(2);
+        CoupleFourMonday = ArrayStrMonday.get(3);
+        CoupleFiveMonday = ArrayStrMonday.get(4);
+        CoupleSixMonday = ArrayStrMonday.get(5);
+        CoupleSevenMonday = ArrayStrMonday.get(6);
+
+        Cell cellOneCoupleMonday = rowOne.createCell(ClassroomNumber);
+        cellOneCoupleMonday.setCellValue(CoupleOneMonday);
+        cellOneCoupleMonday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightOneCouple < HeightOneCouple){
+//            MaxHeightOneCouple = HeightOneCouple;
+//        }
+
+        rowOne.setHeightInPoints(HeightPoints);
+
+        Cell cellTwoCoupleMonday = rowTwo.createCell(ClassroomNumber);
+        cellTwoCoupleMonday.setCellValue(CoupleTwoMonday);
+        cellTwoCoupleMonday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightTwoCouple < HeightTwoCouple){
+//            MaxHeightTwoCouple = HeightTwoCouple;
+//        }
+
+        rowTwo.setHeightInPoints(HeightPoints);
+
+        Cell cellThreeCoupleMonday = rowThree.createCell(ClassroomNumber);
+        cellThreeCoupleMonday.setCellValue(CoupleThreeMonday);
+        cellThreeCoupleMonday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightThreeCouple < HeightThreeCouple){
+//            MaxHeightThreeCouple = HeightThreeCouple;
+//        }
+
+        rowThree.setHeightInPoints(HeightPoints);
+
+        Cell cellFourCoupleMonday = rowFour.createCell(ClassroomNumber);
+        cellFourCoupleMonday.setCellValue(CoupleFourMonday);
+        cellFourCoupleMonday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightFourCouple < HeightFourCouple){
+//            MaxHeightFourCouple = HeightFourCouple;
+//        }
+
+        rowFour.setHeightInPoints(HeightPoints);
+
+        Cell cellFiveCoupleMonday = rowFive.createCell(ClassroomNumber);
+        cellFiveCoupleMonday.setCellValue(CoupleFiveMonday);
+        cellFiveCoupleMonday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightFiveCouple < HeightFiveCouple){
+//            MaxHeightFiveCouple = HeightFiveCouple;
+//        }
+
+        rowFive.setHeightInPoints(HeightPoints);
+
+        Cell cellSixCoupleMonday = rowSix.createCell(ClassroomNumber);
+        cellSixCoupleMonday.setCellValue(CoupleSixMonday);
+        cellSixCoupleMonday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightSixCouple < HeightSixCouple){
+//            MaxHeightSixCouple = HeightSixCouple;
+//        }
+
+        rowSix.setHeightInPoints(HeightPoints);
+
+        Cell cellSevenCoupleMonday = rowSeven.createCell(ClassroomNumber);
+        cellSevenCoupleMonday.setCellValue(CoupleSevenMonday);
+        cellSevenCoupleMonday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightSevenCouple < HeightSevenCouple){
+//            MaxHeightSevenCouple = HeightSevenCouple;
+//        }
+
+        rowSeven.setHeightInPoints(HeightPoints);
+
+        CoupleOne.clear();
+        CoupleTwo.clear();
+        CoupleThree.clear();
+        CoupleFour.clear();
+        CoupleFive.clear();
+        CoupleSix.clear();
+        CoupleSeven.clear();
+
+//        HeightOneCouple = HeightPoints;
+//        HeightTwoCouple = HeightPoints;
+//        HeightThreeCouple = HeightPoints;
+//        HeightFourCouple = HeightPoints;
+//        HeightFiveCouple = HeightPoints;
+//        HeightSixCouple = HeightPoints;
+//        HeightSevenCouple = HeightPoints;
+
+        // Cell Tuesday
+
+        String CoupleOneTuesday = "";
+        String CoupleTwoTuesday = "";
+        String CoupleThreeTuesday = "";
+        String CoupleFourTuesday = "";
+        String CoupleFiveTuesday = "";
+        String CoupleSixTuesday = "";
+        String CoupleSevenTuesday = "";
+
+        for(int index2 = 0; index2 < ArrayTuesday.size(); index2++){
+
+            switch (ArrayTuesday.get(index2).GetCoupleNumber()) {
+                case (1): {
+                    CoupleOne.add(ArrayTuesday.get(index2));
+                    break;
+                }
+                case (2): {
+                    CoupleTwo.add(ArrayTuesday.get(index2));
+                    break;
+                }
+                case (3): {
+                    CoupleThree.add(ArrayTuesday.get(index2));
+                    break;
+                }
+                case (4): {
+                    CoupleFour.add(ArrayTuesday.get(index2));
+                    break;
+                }
+                case (5): {
+                    CoupleFive.add(ArrayTuesday.get(index2));
+                    break;
+                }
+                case (6): {
+                    CoupleSix.add(ArrayTuesday.get(index2));
+                    break;
+                }
+                case (7): {
+                    CoupleSeven.add(ArrayTuesday.get(index2));
+                    break;
+                }
+            }
+        }
+
+        ArrayList<String> ArrayStrTuesday = ConcatCoupleDayWeek(CoupleOne,CoupleTwo,CoupleThree,CoupleFour,CoupleFive,CoupleSix,CoupleSeven);
+
+        CoupleOneTuesday = ArrayStrTuesday.get(0);
+        CoupleTwoTuesday = ArrayStrTuesday.get(1);
+        CoupleThreeTuesday = ArrayStrTuesday.get(2);
+        CoupleFourTuesday = ArrayStrTuesday.get(3);
+        CoupleFiveTuesday = ArrayStrTuesday.get(4);
+        CoupleSixTuesday = ArrayStrTuesday.get(5);
+        CoupleSevenTuesday = ArrayStrTuesday.get(6);
+
+        Cell cellOneCoupleTuesday = rowEight.createCell(ClassroomNumber);
+        cellOneCoupleTuesday.setCellValue(CoupleOneTuesday);
+        cellOneCoupleTuesday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightOneCouple < HeightOneCouple){
+//            MaxHeightOneCouple = HeightOneCouple;
+//        }
+
+        rowEight.setHeightInPoints(HeightPoints);
+
+        Cell cellTwoCoupleTuesday = rowNine.createCell(ClassroomNumber);
+        cellTwoCoupleTuesday.setCellValue(CoupleTwoTuesday);
+        cellTwoCoupleTuesday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightTwoCouple < HeightTwoCouple){
+//            MaxHeightTwoCouple = HeightTwoCouple;
+//        }
+
+        rowNine.setHeightInPoints(HeightPoints);
+
+        Cell cellThreeCoupleTuesday = rowTen.createCell(ClassroomNumber);
+        cellThreeCoupleTuesday.setCellValue(CoupleThreeTuesday);
+        cellThreeCoupleTuesday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightThreeCouple < HeightThreeCouple){
+//            MaxHeightThreeCouple = HeightThreeCouple;
+//        }
+
+        rowTen.setHeightInPoints(HeightPoints);
+
+        Cell cellFourCoupleTuesday = rowEleven.createCell(ClassroomNumber);
+        cellFourCoupleTuesday.setCellValue(CoupleFourTuesday);
+        cellFourCoupleTuesday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightFourCouple < HeightFourCouple){
+//            MaxHeightFourCouple = HeightFourCouple;
+//        }
+
+        rowEleven.setHeightInPoints(HeightPoints);
+
+        Cell cellFiveCoupleTuesday = rowTwelve.createCell(ClassroomNumber);
+        cellFiveCoupleTuesday.setCellValue(CoupleFiveTuesday);
+        cellFiveCoupleTuesday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightFiveCouple < HeightFiveCouple){
+//            MaxHeightFiveCouple = HeightFiveCouple;
+//        }
+
+        rowTwelve.setHeightInPoints(HeightPoints);
+
+        Cell cellSixCoupleTuesday = rowThirteen.createCell(ClassroomNumber);
+        cellSixCoupleTuesday.setCellValue(CoupleSixTuesday);
+        cellSixCoupleTuesday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightSixCouple < HeightSixCouple){
+//            MaxHeightSixCouple = HeightSixCouple;
+//        }
+
+        rowThirteen.setHeightInPoints(HeightPoints);
+
+        Cell cellSevenCoupleTuesday = rowFourteen.createCell(ClassroomNumber);
+        cellSevenCoupleTuesday.setCellValue(CoupleSevenTuesday);
+        cellSevenCoupleTuesday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightSevenCouple < HeightSevenCouple){
+//            MaxHeightSevenCouple = HeightSevenCouple;
+//        }
+
+        rowFourteen.setHeightInPoints(HeightPoints);
+
+        CoupleOne.clear();
+        CoupleTwo.clear();
+        CoupleThree.clear();
+        CoupleFour.clear();
+        CoupleFive.clear();
+        CoupleSix.clear();
+        CoupleSeven.clear();
+
+//        HeightOneCouple = HeightPoints;
+//        HeightTwoCouple = HeightPoints;
+//        HeightThreeCouple = HeightPoints;
+//        HeightFourCouple = HeightPoints;
+//        HeightFiveCouple = HeightPoints;
+//        HeightSixCouple = HeightPoints;
+//        HeightSevenCouple = HeightPoints;
+
+        // Cell Wednesday
+
+        String CoupleOneWednesday = "";
+        String CoupleTwoWednesday = "";
+        String CoupleThreeWednesday = "";
+        String CoupleFourWednesday = "";
+        String CoupleFiveWednesday = "";
+        String CoupleSixWednesday = "";
+        String CoupleSevenWednesday = "";
+
+        for(int index2 = 0; index2 < ArrayWednesday.size(); index2++){
+
+            switch (ArrayWednesday.get(index2).GetCoupleNumber()) {
+                case (1): {
+                    CoupleOne.add(ArrayWednesday.get(index2));
+                    break;
+                }
+                case (2): {
+                    CoupleTwo.add(ArrayWednesday.get(index2));
+                    break;
+                }
+                case (3): {
+                    CoupleThree.add(ArrayWednesday.get(index2));
+                    break;
+                }
+                case (4): {
+                    CoupleFour.add(ArrayWednesday.get(index2));
+                    break;
+                }
+                case (5): {
+                    CoupleFive.add(ArrayWednesday.get(index2));
+                    break;
+                }
+                case (6): {
+                    CoupleSix.add(ArrayWednesday.get(index2));
+                    break;
+                }
+                case (7): {
+                    CoupleSeven.add(ArrayWednesday.get(index2));
+                    break;
+                }
+            }
+        }
+
+        ArrayList<String> ArrayStrWednesday = ConcatCoupleDayWeek(CoupleOne,CoupleTwo,CoupleThree,CoupleFour,CoupleFive,CoupleSix,CoupleSeven);
+
+        CoupleOneWednesday = ArrayStrWednesday.get(0);
+        CoupleTwoWednesday = ArrayStrWednesday.get(1);
+        CoupleThreeWednesday = ArrayStrWednesday.get(2);
+        CoupleFourWednesday = ArrayStrWednesday.get(3);
+        CoupleFiveWednesday = ArrayStrWednesday.get(4);
+        CoupleSixWednesday = ArrayStrWednesday.get(5);
+        CoupleSevenWednesday = ArrayStrWednesday.get(6);
+
+        Cell cellOneCoupleWednesday = rowfifteen.createCell(ClassroomNumber);
+        cellOneCoupleWednesday.setCellValue(CoupleOneWednesday);
+        cellOneCoupleWednesday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightOneCouple < HeightOneCouple){
+//            MaxHeightOneCouple = HeightOneCouple;
+//        }
+
+        rowfifteen.setHeightInPoints(HeightPoints);
+
+        Cell cellTwoCoupleWednesday = rowSixteen.createCell(ClassroomNumber);
+        cellTwoCoupleWednesday.setCellValue(CoupleTwoWednesday);
+        cellTwoCoupleWednesday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightTwoCouple < HeightTwoCouple){
+//            MaxHeightTwoCouple = HeightTwoCouple;
+//        }
+
+        rowSixteen.setHeightInPoints(HeightPoints);
+
+        Cell cellThreeCoupleWednesday = rowSeventeen.createCell(ClassroomNumber);
+        cellThreeCoupleWednesday.setCellValue(CoupleThreeWednesday);
+        cellThreeCoupleWednesday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightThreeCouple < HeightThreeCouple){
+//            MaxHeightThreeCouple = HeightThreeCouple;
+//        }
+
+        rowSeventeen.setHeightInPoints(HeightPoints);
+
+        Cell cellFourCoupleWednesday = rowEighteen.createCell(ClassroomNumber);
+        cellFourCoupleWednesday.setCellValue(CoupleFourWednesday);
+        cellFourCoupleWednesday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightFourCouple < HeightFourCouple){
+//            MaxHeightFourCouple = HeightFourCouple;
+//        }
+
+        rowEighteen.setHeightInPoints(HeightPoints);
+
+        Cell cellFiveCoupleWednesday = rowNineteen.createCell(ClassroomNumber);
+        cellFiveCoupleWednesday.setCellValue(CoupleFiveWednesday);
+        cellFiveCoupleWednesday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightFiveCouple < HeightFiveCouple){
+//            MaxHeightFiveCouple = HeightFiveCouple;
+//        }
+
+        rowNineteen.setHeightInPoints(HeightPoints);
+
+        Cell cellSixCoupleWednesday = rowTwenty.createCell(ClassroomNumber);
+        cellSixCoupleWednesday.setCellValue(CoupleSixWednesday);
+        cellSixCoupleWednesday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightSixCouple < HeightSixCouple){
+//            MaxHeightSixCouple = HeightSixCouple;
+//        }
+
+        rowTwenty.setHeightInPoints(HeightPoints);
+
+        Cell cellSevenCoupleWednesday = rowTwentyOne.createCell(ClassroomNumber);
+        cellSevenCoupleWednesday.setCellValue(CoupleSevenWednesday);
+        cellSevenCoupleWednesday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightSevenCouple < HeightSevenCouple){
+//            MaxHeightSevenCouple = HeightSevenCouple;
+//        }
+
+        rowTwentyOne.setHeightInPoints(HeightPoints);
+
+        CoupleOne.clear();
+        CoupleTwo.clear();
+        CoupleThree.clear();
+        CoupleFour.clear();
+        CoupleFive.clear();
+        CoupleSix.clear();
+        CoupleSeven.clear();
+
+//        HeightOneCouple = HeightPoints;
+//        HeightTwoCouple = HeightPoints;
+//        HeightThreeCouple = HeightPoints;
+//        HeightFourCouple = HeightPoints;
+//        HeightFiveCouple = HeightPoints;
+//        HeightSixCouple = HeightPoints;
+//        HeightSevenCouple = HeightPoints;
+
+        // Cell Thursday
+
+        String CoupleOneThursday = "";
+        String CoupleTwoThursday = "";
+        String CoupleThreeThursday = "";
+        String CoupleFourThursday = "";
+        String CoupleFiveThursday = "";
+        String CoupleSixThursday = "";
+        String CoupleSevenThursday = "";
+
+        for(int index2 = 0; index2 < ArrayThursday.size(); index2++){
+
+            switch (ArrayThursday.get(index2).GetCoupleNumber()) {
+                case (1): {
+                    CoupleOne.add(ArrayThursday.get(index2));
+                    break;
+                }
+                case (2): {
+                    CoupleTwo.add(ArrayThursday.get(index2));
+                    break;
+                }
+                case (3): {
+                    CoupleThree.add(ArrayThursday.get(index2));
+                    break;
+                }
+                case (4): {
+                    CoupleFour.add(ArrayThursday.get(index2));
+                    break;
+                }
+                case (5): {
+                    CoupleFive.add(ArrayThursday.get(index2));
+                    break;
+                }
+                case (6): {
+                    CoupleSix.add(ArrayThursday.get(index2));
+                    break;
+                }
+                case (7): {
+                    CoupleSeven.add(ArrayThursday.get(index2));
+                    break;
+                }
+            }
+        }
+
+        ArrayList<String> ArrayStrThursday = ConcatCoupleDayWeek(CoupleOne,CoupleTwo,CoupleThree,CoupleFour,CoupleFive,CoupleSix,CoupleSeven);
+
+        CoupleOneThursday = ArrayStrThursday.get(0);
+        CoupleTwoThursday = ArrayStrThursday.get(1);
+        CoupleThreeThursday = ArrayStrThursday.get(2);
+        CoupleFourThursday = ArrayStrThursday.get(3);
+        CoupleFiveThursday = ArrayStrThursday.get(4);
+        CoupleSixThursday = ArrayStrThursday.get(5);
+        CoupleSevenThursday = ArrayStrThursday.get(6);
+
+        Cell cellOneCoupleThursday = rowTwentyTwo.createCell(ClassroomNumber);
+        cellOneCoupleThursday.setCellValue(CoupleOneThursday);
+        cellOneCoupleThursday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightOneCouple < HeightOneCouple){
+//            MaxHeightOneCouple = HeightOneCouple;
+//        }
+
+        rowTwentyTwo.setHeightInPoints(HeightPoints);
+
+        Cell cellTwoCoupleThursday = rowTwentyThree.createCell(ClassroomNumber);
+        cellTwoCoupleThursday.setCellValue(CoupleTwoThursday);
+        cellTwoCoupleThursday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightTwoCouple < HeightTwoCouple){
+//            MaxHeightTwoCouple = HeightTwoCouple;
+//        }
+
+        rowTwentyThree.setHeightInPoints(HeightPoints);
+
+        Cell cellThreeCoupleThursday = rowTwentyFour.createCell(ClassroomNumber);
+        cellThreeCoupleThursday.setCellValue(CoupleThreeThursday);
+        cellThreeCoupleThursday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightThreeCouple < HeightThreeCouple){
+//            MaxHeightThreeCouple = HeightThreeCouple;
+//        }
+
+        rowTwentyFour.setHeightInPoints(HeightPoints);
+
+        Cell cellFourCoupleThursday = rowTwentyFive.createCell(ClassroomNumber);
+        cellFourCoupleThursday.setCellValue(CoupleFourThursday);
+        cellFourCoupleThursday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightFourCouple < HeightFourCouple){
+//            MaxHeightFourCouple = HeightFourCouple;
+//        }
+
+        rowTwentyFive.setHeightInPoints(HeightPoints);
+
+        Cell cellFiveCoupleThursday = rowTwentySix.createCell(ClassroomNumber);
+        cellFiveCoupleThursday.setCellValue(CoupleFiveThursday);
+        cellFiveCoupleThursday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightFiveCouple < HeightFiveCouple){
+//            MaxHeightFiveCouple = HeightFiveCouple;
+//        }
+
+        rowTwentySix.setHeightInPoints(HeightPoints);
+
+        Cell cellSixCoupleThursday = rowTwentySeven.createCell(ClassroomNumber);
+        cellSixCoupleThursday.setCellValue(CoupleSixThursday);
+        cellSixCoupleThursday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightSixCouple < HeightSixCouple){
+//            MaxHeightSixCouple = HeightSixCouple;
+//        }
+
+        rowTwentySeven.setHeightInPoints(HeightPoints);
+
+        Cell cellSevenCoupleThursday = rowTwentyEight.createCell(ClassroomNumber);
+        cellSevenCoupleThursday.setCellValue(CoupleSevenThursday);
+        cellSevenCoupleThursday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightSevenCouple < HeightSevenCouple){
+//            MaxHeightSevenCouple = HeightSevenCouple;
+//        }
+
+        rowTwentyEight.setHeightInPoints(HeightPoints);
+
+        CoupleOne.clear();
+        CoupleTwo.clear();
+        CoupleThree.clear();
+        CoupleFour.clear();
+        CoupleFive.clear();
+        CoupleSix.clear();
+        CoupleSeven.clear();
+
+//        HeightOneCouple = HeightPoints;
+//        HeightTwoCouple = HeightPoints;
+//        HeightThreeCouple = HeightPoints;
+//        HeightFourCouple = HeightPoints;
+//        HeightFiveCouple = HeightPoints;
+//        HeightSixCouple = HeightPoints;
+//        HeightSevenCouple = HeightPoints;
+
+        // Cell Friday
+
+        String CoupleOneFriday = "";
+        String CoupleTwoFriday = "";
+        String CoupleThreeFriday = "";
+        String CoupleFourFriday = "";
+        String CoupleFiveFriday = "";
+        String CoupleSixFriday = "";
+        String CoupleSevenFriday = "";
+
+        for(int index2 = 0; index2 < ArrayFriday.size(); index2++){
+
+            switch (ArrayFriday.get(index2).GetCoupleNumber()) {
+                case (1): {
+                    CoupleOne.add(ArrayFriday.get(index2));
+                    break;
+                }
+                case (2): {
+                    CoupleTwo.add(ArrayFriday.get(index2));
+                    break;
+                }
+                case (3): {
+                    CoupleThree.add(ArrayFriday.get(index2));
+                    break;
+                }
+                case (4): {
+                    CoupleFour.add(ArrayFriday.get(index2));
+                    break;
+                }
+                case (5): {
+                    CoupleFive.add(ArrayFriday.get(index2));
+                    break;
+                }case (6): {
+                    CoupleSix.add(ArrayFriday.get(index2));
+                    break;
+                }
+                case (7): {
+                    CoupleSeven.add(ArrayFriday.get(index2));
+                    break;
+                }
+            }
+        }
+
+        ArrayList<String> ArrayStrFriday = ConcatCoupleDayWeek(CoupleOne,CoupleTwo,CoupleThree,CoupleFour,CoupleFive,CoupleSix,CoupleSeven);
+
+        CoupleOneFriday = ArrayStrFriday.get(0);
+        CoupleTwoFriday = ArrayStrFriday.get(1);
+        CoupleThreeFriday = ArrayStrFriday.get(2);
+        CoupleFourFriday = ArrayStrFriday.get(3);
+        CoupleFiveFriday = ArrayStrFriday.get(4);
+        CoupleSixFriday = ArrayStrFriday.get(5);
+        CoupleSevenFriday = ArrayStrFriday.get(6);
+
+        Cell cellOneCoupleFriday = rowTwentyNine.createCell(ClassroomNumber);
+        cellOneCoupleFriday.setCellValue(CoupleOneFriday);
+        cellOneCoupleFriday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightOneCouple < HeightOneCouple){
+//            MaxHeightOneCouple = HeightOneCouple;
+//        }
+
+        rowTwentyNine.setHeightInPoints(HeightPoints);
+
+        Cell cellTwoCoupleFriday = rowThirty.createCell(ClassroomNumber);
+        cellTwoCoupleFriday.setCellValue(CoupleTwoFriday);
+        cellTwoCoupleFriday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightTwoCouple < HeightTwoCouple){
+//            MaxHeightTwoCouple = HeightTwoCouple;
+//        }
+
+        rowThirty.setHeightInPoints(HeightPoints);
+
+        Cell cellThreeCoupleFriday = rowThirtyOne.createCell(ClassroomNumber);
+        cellThreeCoupleFriday.setCellValue(CoupleThreeFriday);
+        cellThreeCoupleFriday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightThreeCouple < HeightThreeCouple){
+//            MaxHeightThreeCouple = HeightThreeCouple;
+//        }
+
+        rowThirtyOne.setHeightInPoints(HeightPoints);
+
+
+        Cell cellFourCoupleFriday = rowThirtyTwo.createCell(ClassroomNumber);
+        cellFourCoupleFriday.setCellValue(CoupleFourFriday);
+        cellFourCoupleFriday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightFourCouple < HeightFourCouple){
+//            MaxHeightFourCouple = HeightFourCouple;
+//        }
+
+        rowThirtyTwo.setHeightInPoints(HeightPoints);
+
+        Cell cellFiveCoupleFriday = rowThirtyThree.createCell(ClassroomNumber);
+        cellFiveCoupleFriday.setCellValue(CoupleFiveFriday);
+        cellFiveCoupleFriday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightFiveCouple < HeightFiveCouple){
+//            MaxHeightFiveCouple = HeightFiveCouple;
+//        }
+
+        rowThirtyThree.setHeightInPoints(HeightPoints);
+
+        Cell cellSixCoupleFriday = rowThirtyFour.createCell(ClassroomNumber);
+        cellSixCoupleFriday.setCellValue(CoupleSixFriday);
+        cellSixCoupleFriday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightSixCouple < HeightSixCouple){
+//            MaxHeightSixCouple = HeightSixCouple;
+//        }
+
+        rowThirtyFour.setHeightInPoints(HeightPoints);
+
+        Cell cellSevenCoupleFriday = rowThirtyFive.createCell(ClassroomNumber);
+        cellSevenCoupleFriday.setCellValue(CoupleSevenFriday);
+        cellSevenCoupleFriday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightSevenCouple < HeightSevenCouple){
+//            MaxHeightSevenCouple = HeightSevenCouple;
+//        }
+
+        rowThirtyFive.setHeightInPoints(HeightPoints);
+
+        CoupleOne.clear();
+        CoupleTwo.clear();
+        CoupleThree.clear();
+        CoupleFour.clear();
+        CoupleFive.clear();
+        CoupleSix.clear();
+        CoupleSeven.clear();
+
+//        HeightOneCouple = HeightPoints;
+//        HeightTwoCouple = HeightPoints;
+//        HeightThreeCouple = HeightPoints;
+//        HeightFourCouple = HeightPoints;
+//        HeightFiveCouple = HeightPoints;
+//        HeightSixCouple = HeightPoints;
+//        HeightSevenCouple = HeightPoints;
+
+        // Cell Saturday
+
+        String CoupleOneSaturday = "";
+        String CoupleTwoSaturday = "";
+        String CoupleThreeSaturday = "";
+        String CoupleFourSaturday = "";
+        String CoupleFiveSaturday = "";
+        String CoupleSixSaturday = "";
+        String CoupleSevenSaturday = "";
+
+        for(int index2 = 0; index2 < ArraySaturday.size(); index2++){
+
+            switch (ArraySaturday.get(index2).GetCoupleNumber()) {
+                case (1): {
+                    CoupleOne.add(ArraySaturday.get(index2));
+                    break;
+                }
+                case (2): {
+                    CoupleTwo.add(ArraySaturday.get(index2));
+                    break;
+                }
+                case (3): {
+                    CoupleThree.add(ArraySaturday.get(index2));
+                    break;
+                }
+                case (4): {
+                    CoupleFour.add(ArraySaturday.get(index2));
+                    break;
+                }
+                case (5): {
+                    CoupleFive.add(ArraySaturday.get(index2));
+                    break;
+                }
+                case (6): {
+                    CoupleSix.add(ArraySaturday.get(index2));
+                    break;
+                }
+                case (7): {
+                    CoupleSeven.add(ArraySaturday.get(index2));
+                    break;
+                }
+            }
+        }
+
+        ArrayList<String> ArrayStrSaturday = ConcatCoupleDayWeek(CoupleOne,CoupleTwo,CoupleThree,CoupleFour,CoupleFive,CoupleSix,CoupleSeven);
+
+        CoupleOneSaturday = ArrayStrSaturday.get(0);
+        CoupleTwoSaturday = ArrayStrSaturday.get(1);
+        CoupleThreeSaturday = ArrayStrSaturday.get(2);
+        CoupleFourSaturday = ArrayStrSaturday.get(3);
+        CoupleFiveSaturday = ArrayStrSaturday.get(4);
+        CoupleSixSaturday = ArrayStrSaturday.get(5);
+        CoupleSevenSaturday = ArrayStrSaturday.get(6);
+
+        Cell cellOneCoupleSaturday = rowThirtySix.createCell(ClassroomNumber);
+        cellOneCoupleSaturday.setCellValue(CoupleOneSaturday);
+        cellOneCoupleSaturday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightOneCouple < HeightOneCouple){
+//            MaxHeightOneCouple = HeightOneCouple;
+//        }
+
+        rowThirtySix.setHeightInPoints(HeightPoints);
+
+        Cell cellTwoCoupleSaturday = rowThirtySeven.createCell(ClassroomNumber);
+        cellTwoCoupleSaturday.setCellValue(CoupleTwoSaturday);
+        cellTwoCoupleSaturday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightTwoCouple < HeightTwoCouple){
+//            MaxHeightTwoCouple = HeightTwoCouple;
+//        }
+
+        rowThirtySeven.setHeightInPoints(HeightPoints);
+
+        Cell cellThreeCoupleSaturday = rowThirtyEight.createCell(ClassroomNumber);
+        cellThreeCoupleSaturday.setCellValue(CoupleThreeSaturday);
+        cellThreeCoupleSaturday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightThreeCouple < HeightThreeCouple){
+//            MaxHeightThreeCouple = HeightThreeCouple;
+//        }
+
+        rowThirtyEight.setHeightInPoints(HeightPoints);
+
+        Cell cellFourCoupleSaturday = rowThirtyNine.createCell(ClassroomNumber);
+        cellFourCoupleSaturday.setCellValue(CoupleFourSaturday);
+        cellFourCoupleSaturday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightFourCouple < HeightFourCouple){
+//            MaxHeightFourCouple = HeightFourCouple;
+//        }
+
+        rowThirtyNine.setHeightInPoints(HeightPoints);
+
+        Cell cellFiveCoupleSaturday = rowForty.createCell(ClassroomNumber);
+        cellFiveCoupleSaturday.setCellValue(CoupleFiveSaturday);
+        cellFiveCoupleSaturday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightFiveCouple < HeightFiveCouple){
+//            MaxHeightFiveCouple = HeightFiveCouple;
+//        }
+
+        rowForty.setHeightInPoints(HeightPoints);
+
+        Cell cellSixCoupleSaturday = rowFortyOne.createCell(ClassroomNumber);
+        cellSixCoupleSaturday.setCellValue(CoupleSixSaturday);
+        cellSixCoupleSaturday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightSixCouple < HeightSixCouple){
+//            MaxHeightSixCouple = HeightSixCouple;
+//        }
+
+        rowFortyOne.setHeightInPoints(HeightPoints);
+
+        Cell cellSevenCoupleSaturday = rowFortyTwo.createCell(ClassroomNumber);
+        cellSevenCoupleSaturday.setCellValue(CoupleSevenSaturday);
+        cellSevenCoupleSaturday.setCellStyle(cellStyle);
+        Classroom.setColumnWidth(ClassroomNumber,ColumnWidth);
+
+//        if(MaxHeightSevenCouple < HeightSevenCouple){
+//            MaxHeightSevenCouple = HeightSevenCouple;
+//        }
+
+        rowFortyTwo.setHeightInPoints(HeightPoints);
+
+        CoupleOne.clear();
+        CoupleTwo.clear();
+        CoupleThree.clear();
+        CoupleFour.clear();
+        CoupleFive.clear();
+        CoupleSix.clear();
+        CoupleSeven.clear();
+
+//        ArrayList<Integer> ArrayMax = new ArrayList<>(7);
+//        ArrayMax.add(MaxHeightOneCouple);
+//        ArrayMax.add(MaxHeightTwoCouple);
+//        ArrayMax.add(MaxHeightThreeCouple);
+//        ArrayMax.add(MaxHeightFourCouple);
+//        ArrayMax.add(MaxHeightFiveCouple);
+//        ArrayMax.add(MaxHeightSixCouple);
+//        ArrayMax.add(MaxHeightSevenCouple);
+
+    }
+
     public void CreateTableExelClassroom(ArrayList<CoupleGroup> ArrayCouple, ArrayList<CheckBox> ArrayClassroomCheckBox) throws IOException {
 
         CellStyle cellStyle = workbookClassroom.createCellStyle();
@@ -275,9 +1313,27 @@ public class CreatorTableExelClassrooms {
             }
         }
 
+        int HeightOneCouple = 0;
+        int HeightTwoCouple = 0;
+        int HeightThreeCouple = 0;
+        int HeightFourCouple= 0;
+        int HeightFiveCouple = 0;
+        int HeightSixCouple = 0;
+        int HeightSevenCouple = 0;
+
         int ClassroomNumber = 2;
 
         for(int i = 0; i < ArrayClassroomCheckBox.size(); i++){
+
+            if(i == 0){
+                HeightOneCouple = 40;
+                HeightTwoCouple = 40;
+                HeightThreeCouple = 40;
+                HeightFourCouple = 40;
+                HeightFiveCouple = 40;
+                HeightSixCouple = 40;
+                HeightSevenCouple = 40;
+            }
 
             if(ArrayClassroomCheckBox.get(i).isSelected()) {
 
@@ -285,2790 +1341,66 @@ public class CreatorTableExelClassrooms {
                 cell.setCellValue(ArrayClassroomCheckBox.get(i).getText());
 
                 if (ArrayClassroomCheckBox.get(i).getText().equals("410/2")) {
-
-                    ArrayList<CoupleGroup> ArrayMonday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArrayTuesday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArrayWednesday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArrayThursday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArrayFriday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArraySaturday = new ArrayList<>();
-
-                    for (int index = 0; index < Array410.size(); index++) {
-
-                        int IdDay = Array410.get(index).GetIDDay();
-
-                        switch (IdDay) {
-                            case (1): {
-                                ArrayMonday.add(Array410.get(index));
-                                break;
-                            }
-                            case (2): {
-                                ArrayTuesday.add(Array410.get(index));
-                                break;
-                            }
-                            case (3): {
-                                ArrayWednesday.add(Array410.get(index));
-                                break;
-                            }
-                            case (4): {
-                                ArrayThursday.add(Array410.get(index));
-                                break;
-                            }
-                            case (5): {
-                                ArrayFriday.add(Array410.get(index));
-                                break;
-                            }
-                            case (6): {
-                                ArraySaturday.add(Array410.get(index));
-                                break;
-                            }
-                        }
-                    }
-
-                    String CoupleOneMonday = "";
-                    String CoupleTwoMonday = "";
-                    String CoupleThreeMonday = "";
-                    String CoupleFourMonday = "";
-                    String CoupleFiveMonday = "";
-                    String CoupleSixMonday = "";
-                    String CoupleSevenMonday = "";
-
-                    for (int index2 = 0; index2 < ArrayMonday.size(); index2++) {
-
-                        switch (ArrayMonday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneMonday = CoupleOneMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoMonday = CoupleTwoMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeMonday = CoupleThreeMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourMonday = CoupleFourMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveMonday = CoupleFiveMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixMonday = CoupleSixMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenMonday = CoupleSevenMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleMonday = rowOne.createCell(ClassroomNumber);
-                    cellOneCoupleMonday.setCellValue(CoupleOneMonday);
-                    cellOneCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowOne.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleMonday = rowTwo.createCell(ClassroomNumber);
-                    cellTwoCoupleMonday.setCellValue(CoupleTwoMonday);
-                    cellTwoCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwo.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleMonday = rowThree.createCell(ClassroomNumber);
-                    cellThreeCoupleMonday.setCellValue(CoupleThreeMonday);
-                    cellThreeCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThree.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleMonday = rowFour.createCell(ClassroomNumber);
-                    cellFourCoupleMonday.setCellValue(CoupleFourMonday);
-                    cellFourCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFour.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleMonday = rowFive.createCell(ClassroomNumber);
-                    cellFiveCoupleMonday.setCellValue(CoupleFiveMonday);
-                    cellFiveCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFive.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleMonday = rowSix.createCell(ClassroomNumber);
-                    cellSixCoupleMonday.setCellValue(CoupleSixMonday);
-                    cellSixCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowSix.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleMonday = rowSeven.createCell(ClassroomNumber);
-                    cellSevenCoupleMonday.setCellValue(CoupleSevenMonday);
-                    cellSevenCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowSeven.setHeightInPoints(HeightPoints);
-
-                    // Cell Tuesday
-
-                    String CoupleOneTuesday = "";
-                    String CoupleTwoTuesday = "";
-                    String CoupleThreeTuesday = "";
-                    String CoupleFourTuesday = "";
-                    String CoupleFiveTuesday = "";
-                    String CoupleSixTuesday = "";
-                    String CoupleSevenTuesday = "";
-
-                    for(int index2 = 0; index2 < ArrayTuesday.size(); index2++){
-
-                        switch (ArrayTuesday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneTuesday = CoupleOneTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoTuesday = CoupleTwoTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeTuesday = CoupleThreeTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourTuesday = CoupleFourTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveTuesday = CoupleFiveTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixTuesday = CoupleSixTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenTuesday = CoupleSevenTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleTuesday = rowEight.createCell(ClassroomNumber);
-                    cellOneCoupleTuesday.setCellValue(CoupleOneTuesday);
-                    cellOneCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowEight.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleTuesday = rowNine.createCell(ClassroomNumber);
-                    cellTwoCoupleTuesday.setCellValue(CoupleTwoTuesday);
-                    cellTwoCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowNine.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleTuesday = rowTen.createCell(ClassroomNumber);
-                    cellThreeCoupleTuesday.setCellValue(CoupleThreeTuesday);
-                    cellThreeCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTen.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleTuesday = rowEleven.createCell(ClassroomNumber);
-                    cellFourCoupleTuesday.setCellValue(CoupleFourTuesday);
-                    cellFourCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowEleven.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleTuesday = rowTwelve.createCell(ClassroomNumber);
-                    cellFiveCoupleTuesday.setCellValue(CoupleFiveTuesday);
-                    cellFiveCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwelve.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleTuesday = rowThirteen.createCell(ClassroomNumber);
-                    cellSixCoupleTuesday.setCellValue(CoupleSixTuesday);
-                    cellSixCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleTuesday = rowFourteen.createCell(ClassroomNumber);
-                    cellSevenCoupleTuesday.setCellValue(CoupleSevenTuesday);
-                    cellSevenCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFourteen.setHeightInPoints(HeightPoints);
-
-                    // Cell Wednesday
-
-                    String CoupleOneWednesday = "";
-                    String CoupleTwoWednesday = "";
-                    String CoupleThreeWednesday = "";
-                    String CoupleFourWednesday = "";
-                    String CoupleFiveWednesday = "";
-                    String CoupleSixWednesday = "";
-                    String CoupleSevenWednesday = "";
-
-                    for(int index2 = 0; index2 < ArrayWednesday.size(); index2++){
-
-                        switch (ArrayWednesday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneWednesday = CoupleOneWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoWednesday = CoupleTwoWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeWednesday = CoupleThreeWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourWednesday = CoupleFourWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveWednesday = CoupleFiveWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixWednesday = CoupleSixWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenWednesday = CoupleSevenWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                        Cell cellOneCoupleWednesday = rowfifteen.createCell(ClassroomNumber);
-                    cellOneCoupleWednesday.setCellValue(CoupleOneWednesday);
-                    cellOneCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowfifteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleWednesday = rowSixteen.createCell(ClassroomNumber);
-                    cellTwoCoupleWednesday.setCellValue(CoupleTwoWednesday);
-                    cellTwoCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowSixteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleWednesday = rowSeventeen.createCell(ClassroomNumber);
-                    cellThreeCoupleWednesday.setCellValue(CoupleThreeWednesday);
-                    cellThreeCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowSeventeen.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleWednesday = rowEighteen.createCell(ClassroomNumber);
-                    cellFourCoupleWednesday.setCellValue(CoupleFourWednesday);
-                    cellFourCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowEighteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleWednesday = rowNineteen.createCell(ClassroomNumber);
-                    cellFiveCoupleWednesday.setCellValue(CoupleFiveWednesday);
-                    cellFiveCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowNineteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleWednesday = rowTwenty.createCell(ClassroomNumber);
-                    cellSixCoupleWednesday.setCellValue(CoupleSixWednesday);
-                    cellSixCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwenty.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleWednesday = rowTwentyOne.createCell(ClassroomNumber);
-                    cellSevenCoupleWednesday.setCellValue(CoupleSevenWednesday);
-                    cellSevenCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyOne.setHeightInPoints(HeightPoints);
-
-                    // Cell Thursday
-
-                    String CoupleOneThursday = "";
-                    String CoupleTwoThursday = "";
-                    String CoupleThreeThursday = "";
-                    String CoupleFourThursday = "";
-                    String CoupleFiveThursday = "";
-                    String CoupleSixThursday = "";
-                    String CoupleSevenThursday = "";
-
-                    for(int index2 = 0; index2 < ArrayThursday.size(); index2++){
-
-                        switch (ArrayThursday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneThursday = CoupleOneThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoThursday = CoupleTwoThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeThursday = CoupleThreeThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourThursday = CoupleFourThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveThursday = CoupleFiveThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixThursday = CoupleSixThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenThursday = CoupleSevenThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                        Cell cellOneCoupleThursday = rowTwentyTwo.createCell(ClassroomNumber);
-                    cellOneCoupleThursday.setCellValue(CoupleOneThursday);
-                    cellOneCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyTwo.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleThursday = rowTwentyThree.createCell(ClassroomNumber);
-                    cellTwoCoupleThursday.setCellValue(CoupleTwoThursday);
-                    cellTwoCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyThree.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleThursday = rowTwentyFour.createCell(ClassroomNumber);
-                    cellThreeCoupleThursday.setCellValue(CoupleThreeThursday);
-                    cellThreeCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyFour.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleThursday = rowTwentyFive.createCell(ClassroomNumber);
-                    cellFourCoupleThursday.setCellValue(CoupleFourThursday);
-                    cellFourCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyFive.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleThursday = rowTwentySix.createCell(ClassroomNumber);
-                    cellFiveCoupleThursday.setCellValue(CoupleFiveThursday);
-                    cellFiveCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentySix.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleThursday = rowTwentySeven.createCell(ClassroomNumber);
-                    cellSixCoupleThursday.setCellValue(CoupleSixThursday);
-                    cellSixCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentySeven.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleThursday = rowTwentyEight.createCell(ClassroomNumber);
-                    cellSevenCoupleThursday.setCellValue(CoupleSevenThursday);
-                    cellSevenCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyEight.setHeightInPoints(HeightPoints);
-
-                    // Cell Friday
-
-                    String CoupleOneFriday = "";
-                    String CoupleTwoFriday = "";
-                    String CoupleThreeFriday = "";
-                    String CoupleFourFriday = "";
-                    String CoupleFiveFriday = "";
-                    String CoupleSixFriday = "";
-                    String CoupleSevenFriday = "";
-
-                    for(int index2 = 0; index2 < ArrayFriday.size(); index2++){
-
-                        switch (ArrayFriday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneFriday = CoupleOneFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoFriday = CoupleTwoFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeFriday = CoupleThreeFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourFriday = CoupleFourFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveFriday = CoupleFiveFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }case (6): {
-                                CoupleSixFriday = CoupleSixFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenFriday = CoupleSevenFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleFriday = rowTwentyNine.createCell(ClassroomNumber);
-                    cellOneCoupleFriday.setCellValue(CoupleOneFriday);
-                    cellOneCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyNine.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleFriday = rowThirty.createCell(ClassroomNumber);
-                    cellTwoCoupleFriday.setCellValue(CoupleTwoFriday);
-                    cellTwoCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirty.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleFriday = rowThirtyOne.createCell(ClassroomNumber);
-                    cellThreeCoupleFriday.setCellValue(CoupleThreeFriday);
-                    cellThreeCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyOne.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleFriday = rowThirtyTwo.createCell(ClassroomNumber);
-                    cellFourCoupleFriday.setCellValue(CoupleFourFriday);
-                    cellFourCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyTwo.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleFriday = rowThirtyThree.createCell(ClassroomNumber);
-                    cellFiveCoupleFriday.setCellValue(CoupleFiveFriday);
-                    cellFiveCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyThree.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleFriday = rowThirtyFour.createCell(ClassroomNumber);
-                    cellSixCoupleFriday.setCellValue(CoupleSixFriday);
-                    cellSixCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyFour.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleFriday = rowThirtyFive.createCell(ClassroomNumber);
-                    cellSevenCoupleFriday.setCellValue(CoupleSevenFriday);
-                    cellSevenCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyFive.setHeightInPoints(HeightPoints);
-
-                    // Cell Saturday
-
-                    String CoupleOneSaturday = "";
-                    String CoupleTwoSaturday = "";
-                    String CoupleThreeSaturday = "";
-                    String CoupleFourSaturday = "";
-                    String CoupleFiveSaturday = "";
-                    String CoupleSixSaturday = "";
-                    String CoupleSevenSaturday = "";
-
-                    for(int index2 = 0; index2 < ArraySaturday.size(); index2++){
-
-                        switch (ArraySaturday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneSaturday = CoupleOneSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoSaturday = CoupleTwoSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeSaturday = CoupleThreeSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourSaturday = CoupleFourSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveSaturday = CoupleFiveSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixSaturday = CoupleSixSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenSaturday = CoupleSevenSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleSaturday = rowThirtySix.createCell(ClassroomNumber);
-                    cellOneCoupleSaturday.setCellValue(CoupleOneSaturday);
-                    cellOneCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtySix.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleSaturday = rowThirtySeven.createCell(ClassroomNumber);
-                    cellTwoCoupleSaturday.setCellValue(CoupleTwoSaturday);
-                    cellTwoCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtySeven.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleSaturday = rowThirtyEight.createCell(ClassroomNumber);
-                    cellThreeCoupleSaturday.setCellValue(CoupleThreeSaturday);
-                    cellThreeCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyEight.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleSaturday = rowThirtyNine.createCell(ClassroomNumber);
-                    cellFourCoupleSaturday.setCellValue(CoupleFourSaturday);
-                    cellFourCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyNine.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleSaturday = rowForty.createCell(ClassroomNumber);
-                    cellFiveCoupleSaturday.setCellValue(CoupleFiveSaturday);
-                    cellFiveCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowForty.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleSaturday = rowFortyOne.createCell(ClassroomNumber);
-                    cellSixCoupleSaturday.setCellValue(CoupleSixSaturday);
-                    cellSixCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFortyOne.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleSaturday = rowFortyTwo.createCell(ClassroomNumber);
-                    cellSevenCoupleSaturday.setCellValue(CoupleSevenSaturday);
-                    cellSevenCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFortyTwo.setHeightInPoints(HeightPoints);
-
-                    // -------------------------------------------------------------------------------------------------
+                    CreatorTable(ClassroomNumber,Array410);
+//                    HeightOneCouple = Array.get(0);
+//                    HeightTwoCouple = Array.get(1);
+//                    HeightThreeCouple = Array.get(2);
+//                    HeightFourCouple = Array.get(3);
+//                    HeightFiveCouple = Array.get(4);
+//                    HeightSixCouple = Array.get(5);
+//                    HeightSevenCouple = Array.get(6);
                 }
 
                 if(ArrayClassroomCheckBox.get(i).getText().equals("411/2")) {
-
-                    ArrayList<CoupleGroup> ArrayMonday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArrayTuesday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArrayWednesday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArrayThursday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArrayFriday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArraySaturday = new ArrayList<>();
-
-                    for (int index = 0; index < Array411.size(); index++) {
-
-                        int IdDay = Array411.get(index).GetIDDay();
-
-                        switch (IdDay) {
-                            case (1): {
-                                ArrayMonday.add(Array411.get(index));
-                                break;
-                            }
-                            case (2): {
-                                ArrayTuesday.add(Array411.get(index));
-                                break;
-                            }
-                            case (3): {
-                                ArrayWednesday.add(Array411.get(index));
-                                break;
-                            }
-                            case (4): {
-                                ArrayThursday.add(Array411.get(index));
-                                break;
-                            }
-                            case (5): {
-                                ArrayFriday.add(Array411.get(index));
-                                break;
-                            }
-                            case (6): {
-                                ArraySaturday.add(Array411.get(index));
-                                break;
-                            }
-                        }
-                    }
-
-                    String CoupleOneMonday = "";
-                    String CoupleTwoMonday = "";
-                    String CoupleThreeMonday = "";
-                    String CoupleFourMonday = "";
-                    String CoupleFiveMonday = "";
-                    String CoupleSixMonday = "";
-                    String CoupleSevenMonday = "";
-
-                    for (int index2 = 0; index2 < ArrayMonday.size(); index2++) {
-
-                        switch (ArrayMonday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneMonday = CoupleOneMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoMonday = CoupleTwoMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeMonday = CoupleThreeMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourMonday = CoupleFourMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveMonday = CoupleFiveMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixMonday = CoupleSixMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenMonday = CoupleSevenMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleMonday = rowOne.createCell(ClassroomNumber);
-                    cellOneCoupleMonday.setCellValue(CoupleOneMonday);
-                    cellOneCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowOne.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleMonday = rowTwo.createCell(ClassroomNumber);
-                    cellTwoCoupleMonday.setCellValue(CoupleTwoMonday);
-                    cellTwoCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwo.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleMonday = rowThree.createCell(ClassroomNumber);
-                    cellThreeCoupleMonday.setCellValue(CoupleThreeMonday);
-                    cellThreeCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThree.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleMonday = rowFour.createCell(ClassroomNumber);
-                    cellFourCoupleMonday.setCellValue(CoupleFourMonday);
-                    cellFourCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFour.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleMonday = rowFive.createCell(ClassroomNumber);
-                    cellFiveCoupleMonday.setCellValue(CoupleFiveMonday);
-                    cellFiveCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFive.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleMonday = rowSix.createCell(ClassroomNumber);
-                    cellSixCoupleMonday.setCellValue(CoupleSixMonday);
-                    cellSixCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowSix.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleMonday = rowSeven.createCell(ClassroomNumber);
-                    cellSevenCoupleMonday.setCellValue(CoupleSevenMonday);
-                    cellSevenCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowSeven.setHeightInPoints(HeightPoints);
-
-                    // Cell Tuesday
-
-                    String CoupleOneTuesday = "";
-                    String CoupleTwoTuesday = "";
-                    String CoupleThreeTuesday = "";
-                    String CoupleFourTuesday = "";
-                    String CoupleFiveTuesday = "";
-                    String CoupleSixTuesday = "";
-                    String CoupleSevenTuesday = "";
-
-                    for(int index2 = 0; index2 < ArrayTuesday.size(); index2++){
-
-                        switch (ArrayTuesday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneTuesday = CoupleOneTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoTuesday = CoupleTwoTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeTuesday = CoupleThreeTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourTuesday = CoupleFourTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveTuesday = CoupleFiveTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixTuesday = CoupleSixTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenTuesday = CoupleSevenTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleTuesday = rowEight.createCell(ClassroomNumber);
-                    cellOneCoupleTuesday.setCellValue(CoupleOneTuesday);
-                    cellOneCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowEight.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleTuesday = rowNine.createCell(ClassroomNumber);
-                    cellTwoCoupleTuesday.setCellValue(CoupleTwoTuesday);
-                    cellTwoCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowNine.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleTuesday = rowTen.createCell(ClassroomNumber);
-                    cellThreeCoupleTuesday.setCellValue(CoupleThreeTuesday);
-                    cellThreeCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTen.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleTuesday = rowEleven.createCell(ClassroomNumber);
-                    cellFourCoupleTuesday.setCellValue(CoupleFourTuesday);
-                    cellFourCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowEleven.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleTuesday = rowTwelve.createCell(ClassroomNumber);
-                    cellFiveCoupleTuesday.setCellValue(CoupleFiveTuesday);
-                    cellFiveCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwelve.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleTuesday = rowThirteen.createCell(ClassroomNumber);
-                    cellSixCoupleTuesday.setCellValue(CoupleSixTuesday);
-                    cellSixCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleTuesday = rowFourteen.createCell(ClassroomNumber);
-                    cellSevenCoupleTuesday.setCellValue(CoupleSevenTuesday);
-                    cellSevenCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFourteen.setHeightInPoints(HeightPoints);
-
-                    // Cell Wednesday
-
-                    String CoupleOneWednesday = "";
-                    String CoupleTwoWednesday = "";
-                    String CoupleThreeWednesday = "";
-                    String CoupleFourWednesday = "";
-                    String CoupleFiveWednesday = "";
-                    String CoupleSixWednesday = "";
-                    String CoupleSevenWednesday = "";
-
-                    for(int index2 = 0; index2 < ArrayWednesday.size(); index2++){
-
-                        switch (ArrayWednesday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneWednesday = CoupleOneWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoWednesday = CoupleTwoWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeWednesday = CoupleThreeWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourWednesday = CoupleFourWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveWednesday = CoupleFiveWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixWednesday = CoupleSixWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenWednesday = CoupleSevenWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleWednesday = rowfifteen.createCell(ClassroomNumber);
-                    cellOneCoupleWednesday.setCellValue(CoupleOneWednesday);
-                    cellOneCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowfifteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleWednesday = rowSixteen.createCell(ClassroomNumber);
-                    cellTwoCoupleWednesday.setCellValue(CoupleTwoWednesday);
-                    cellTwoCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowSixteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleWednesday = rowSeventeen.createCell(ClassroomNumber);
-                    cellThreeCoupleWednesday.setCellValue(CoupleThreeWednesday);
-                    cellThreeCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowSeventeen.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleWednesday = rowEighteen.createCell(ClassroomNumber);
-                    cellFourCoupleWednesday.setCellValue(CoupleFourWednesday);
-                    cellFourCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowEighteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleWednesday = rowNineteen.createCell(ClassroomNumber);
-                    cellFiveCoupleWednesday.setCellValue(CoupleFiveWednesday);
-                    cellFiveCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowNineteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleWednesday = rowTwenty.createCell(ClassroomNumber);
-                    cellSixCoupleWednesday.setCellValue(CoupleSixWednesday);
-                    cellSixCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwenty.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleWednesday = rowTwentyOne.createCell(ClassroomNumber);
-                    cellSevenCoupleWednesday.setCellValue(CoupleSevenWednesday);
-                    cellSevenCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyOne.setHeightInPoints(HeightPoints);
-
-                    // Cell Thursday
-
-                    String CoupleOneThursday = "";
-                    String CoupleTwoThursday = "";
-                    String CoupleThreeThursday = "";
-                    String CoupleFourThursday = "";
-                    String CoupleFiveThursday = "";
-                    String CoupleSixThursday = "";
-                    String CoupleSevenThursday = "";
-
-                    for(int index2 = 0; index2 < ArrayThursday.size(); index2++){
-
-                        switch (ArrayThursday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneThursday = CoupleOneThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoThursday = CoupleTwoThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeThursday = CoupleThreeThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourThursday = CoupleFourThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveThursday = CoupleFiveThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixThursday = CoupleSixThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenThursday = CoupleSevenThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleThursday = rowTwentyTwo.createCell(ClassroomNumber);
-                    cellOneCoupleThursday.setCellValue(CoupleOneThursday);
-                    cellOneCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyTwo.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleThursday = rowTwentyThree.createCell(ClassroomNumber);
-                    cellTwoCoupleThursday.setCellValue(CoupleTwoThursday);
-                    cellTwoCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyThree.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleThursday = rowTwentyFour.createCell(ClassroomNumber);
-                    cellThreeCoupleThursday.setCellValue(CoupleThreeThursday);
-                    cellThreeCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyFour.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleThursday = rowTwentyFive.createCell(ClassroomNumber);
-                    cellFourCoupleThursday.setCellValue(CoupleFourThursday);
-                    cellFourCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyFive.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleThursday = rowTwentySix.createCell(ClassroomNumber);
-                    cellFiveCoupleThursday.setCellValue(CoupleFiveThursday);
-                    cellFiveCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentySix.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleThursday = rowTwentySeven.createCell(ClassroomNumber);
-                    cellSixCoupleThursday.setCellValue(CoupleSixThursday);
-                    cellSixCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentySeven.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleThursday = rowTwentyEight.createCell(ClassroomNumber);
-                    cellSevenCoupleThursday.setCellValue(CoupleSevenThursday);
-                    cellSevenCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyEight.setHeightInPoints(HeightPoints);
-
-                    // Cell Friday
-
-                    String CoupleOneFriday = "";
-                    String CoupleTwoFriday = "";
-                    String CoupleThreeFriday = "";
-                    String CoupleFourFriday = "";
-                    String CoupleFiveFriday = "";
-                    String CoupleSixFriday = "";
-                    String CoupleSevenFriday = "";
-
-                    for(int index2 = 0; index2 < ArrayFriday.size(); index2++){
-
-                        switch (ArrayFriday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneFriday = CoupleOneFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoFriday = CoupleTwoFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeFriday = CoupleThreeFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourFriday = CoupleFourFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveFriday = CoupleFiveFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }case (6): {
-                                CoupleSixFriday = CoupleSixFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenFriday = CoupleSevenFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleFriday = rowTwentyNine.createCell(ClassroomNumber);
-                    cellOneCoupleFriday.setCellValue(CoupleOneFriday);
-                    cellOneCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyNine.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleFriday = rowThirty.createCell(ClassroomNumber);
-                    cellTwoCoupleFriday.setCellValue(CoupleTwoFriday);
-                    cellTwoCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirty.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleFriday = rowThirtyOne.createCell(ClassroomNumber);
-                    cellThreeCoupleFriday.setCellValue(CoupleThreeFriday);
-                    cellThreeCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyOne.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleFriday = rowThirtyTwo.createCell(ClassroomNumber);
-                    cellFourCoupleFriday.setCellValue(CoupleFourFriday);
-                    cellFourCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyTwo.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleFriday = rowThirtyThree.createCell(ClassroomNumber);
-                    cellFiveCoupleFriday.setCellValue(CoupleFiveFriday);
-                    cellFiveCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyThree.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleFriday = rowThirtyFour.createCell(ClassroomNumber);
-                    cellSixCoupleFriday.setCellValue(CoupleSixFriday);
-                    cellSixCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyFour.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleFriday = rowThirtyFive.createCell(ClassroomNumber);
-                    cellSevenCoupleFriday.setCellValue(CoupleSevenFriday);
-                    cellSevenCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyFive.setHeightInPoints(HeightPoints);
-
-                    // Cell Saturday
-
-                    String CoupleOneSaturday = "";
-                    String CoupleTwoSaturday = "";
-                    String CoupleThreeSaturday = "";
-                    String CoupleFourSaturday = "";
-                    String CoupleFiveSaturday = "";
-                    String CoupleSixSaturday = "";
-                    String CoupleSevenSaturday = "";
-
-                    for(int index2 = 0; index2 < ArraySaturday.size(); index2++){
-
-                        switch (ArraySaturday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneSaturday = CoupleOneSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoSaturday = CoupleTwoSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeSaturday = CoupleThreeSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourSaturday = CoupleFourSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveSaturday = CoupleFiveSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixSaturday = CoupleSixSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenSaturday = CoupleSevenSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleSaturday = rowThirtySix.createCell(ClassroomNumber);
-                    cellOneCoupleSaturday.setCellValue(CoupleOneSaturday);
-                    cellOneCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtySix.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleSaturday = rowThirtySeven.createCell(ClassroomNumber);
-                    cellTwoCoupleSaturday.setCellValue(CoupleTwoSaturday);
-                    cellTwoCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtySeven.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleSaturday = rowThirtyEight.createCell(ClassroomNumber);
-                    cellThreeCoupleSaturday.setCellValue(CoupleThreeSaturday);
-                    cellThreeCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyEight.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleSaturday = rowThirtyNine.createCell(ClassroomNumber);
-                    cellFourCoupleSaturday.setCellValue(CoupleFourSaturday);
-                    cellFourCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyNine.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleSaturday = rowForty.createCell(ClassroomNumber);
-                    cellFiveCoupleSaturday.setCellValue(CoupleFiveSaturday);
-                    cellFiveCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowForty.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleSaturday = rowFortyOne.createCell(ClassroomNumber);
-                    cellSixCoupleSaturday.setCellValue(CoupleSixSaturday);
-                    cellSixCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFortyOne.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleSaturday = rowFortyTwo.createCell(ClassroomNumber);
-                    cellSevenCoupleSaturday.setCellValue(CoupleSevenSaturday);
-                    cellSevenCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFortyTwo.setHeightInPoints(HeightPoints);
-
+                    CreatorTable(ClassroomNumber,Array411);
+//                    HeightOneCouple = Array.get(0);
+//                    HeightTwoCouple = Array.get(1);
+//                    HeightThreeCouple = Array.get(2);
+//                    HeightFourCouple = Array.get(3);
+//                    HeightFiveCouple = Array.get(4);
+//                    HeightSixCouple = Array.get(5);
+//                    HeightSevenCouple = Array.get(6);
                 }
 
                 if(ArrayClassroomCheckBox.get(i).getText().equals("413/2")) {
-
-                    ArrayList<CoupleGroup> ArrayMonday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArrayTuesday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArrayWednesday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArrayThursday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArrayFriday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArraySaturday = new ArrayList<>();
-
-                    for (int index = 0; index < Array413.size(); index++) {
-
-                        int IdDay = Array413.get(index).GetIDDay();
-
-                        switch (IdDay) {
-                            case (1): {
-                                ArrayMonday.add(Array413.get(index));
-                                break;
-                            }
-                            case (2): {
-                                ArrayTuesday.add(Array413.get(index));
-                                break;
-                            }
-                            case (3): {
-                                ArrayWednesday.add(Array413.get(index));
-                                break;
-                            }
-                            case (4): {
-                                ArrayThursday.add(Array413.get(index));
-                                break;
-                            }
-                            case (5): {
-                                ArrayFriday.add(Array413.get(index));
-                                break;
-                            }
-                            case (6): {
-                                ArraySaturday.add(Array413.get(index));
-                                break;
-                            }
-                        }
-                    }
-
-                    String CoupleOneMonday = "";
-                    String CoupleTwoMonday = "";
-                    String CoupleThreeMonday = "";
-                    String CoupleFourMonday = "";
-                    String CoupleFiveMonday = "";
-                    String CoupleSixMonday = "";
-                    String CoupleSevenMonday = "";
-
-                    for (int index2 = 0; index2 < ArrayMonday.size(); index2++) {
-
-                        switch (ArrayMonday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneMonday = CoupleOneMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoMonday = CoupleTwoMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeMonday = CoupleThreeMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourMonday = CoupleFourMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveMonday = CoupleFiveMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixMonday = CoupleSixMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenMonday = CoupleSevenMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleMonday = rowOne.createCell(ClassroomNumber);
-                    cellOneCoupleMonday.setCellValue(CoupleOneMonday);
-                    cellOneCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowOne.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleMonday = rowTwo.createCell(ClassroomNumber);
-                    cellTwoCoupleMonday.setCellValue(CoupleTwoMonday);
-                    cellTwoCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwo.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleMonday = rowThree.createCell(ClassroomNumber);
-                    cellThreeCoupleMonday.setCellValue(CoupleThreeMonday);
-                    cellThreeCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThree.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleMonday = rowFour.createCell(ClassroomNumber);
-                    cellFourCoupleMonday.setCellValue(CoupleFourMonday);
-                    cellFourCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFour.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleMonday = rowFive.createCell(ClassroomNumber);
-                    cellFiveCoupleMonday.setCellValue(CoupleFiveMonday);
-                    cellFiveCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFive.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleMonday = rowSix.createCell(ClassroomNumber);
-                    cellSixCoupleMonday.setCellValue(CoupleSixMonday);
-                    cellSixCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowSix.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleMonday = rowSeven.createCell(ClassroomNumber);
-                    cellSevenCoupleMonday.setCellValue(CoupleSevenMonday);
-                    cellSevenCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowSeven.setHeightInPoints(HeightPoints);
-
-                    // Cell Tuesday
-
-                    String CoupleOneTuesday = "";
-                    String CoupleTwoTuesday = "";
-                    String CoupleThreeTuesday = "";
-                    String CoupleFourTuesday = "";
-                    String CoupleFiveTuesday = "";
-                    String CoupleSixTuesday = "";
-                    String CoupleSevenTuesday = "";
-
-                    for(int index2 = 0; index2 < ArrayTuesday.size(); index2++){
-
-                        switch (ArrayTuesday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneTuesday = CoupleOneTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoTuesday = CoupleTwoTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeTuesday = CoupleThreeTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourTuesday = CoupleFourTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveTuesday = CoupleFiveTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixTuesday = CoupleSixTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenTuesday = CoupleSevenTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleTuesday = rowEight.createCell(ClassroomNumber);
-                    cellOneCoupleTuesday.setCellValue(CoupleOneTuesday);
-                    cellOneCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowEight.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleTuesday = rowNine.createCell(ClassroomNumber);
-                    cellTwoCoupleTuesday.setCellValue(CoupleTwoTuesday);
-                    cellTwoCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowNine.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleTuesday = rowTen.createCell(ClassroomNumber);
-                    cellThreeCoupleTuesday.setCellValue(CoupleThreeTuesday);
-                    cellThreeCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTen.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleTuesday = rowEleven.createCell(ClassroomNumber);
-                    cellFourCoupleTuesday.setCellValue(CoupleFourTuesday);
-                    cellFourCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowEleven.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleTuesday = rowTwelve.createCell(ClassroomNumber);
-                    cellFiveCoupleTuesday.setCellValue(CoupleFiveTuesday);
-                    cellFiveCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwelve.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleTuesday = rowThirteen.createCell(ClassroomNumber);
-                    cellSixCoupleTuesday.setCellValue(CoupleSixTuesday);
-                    cellSixCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleTuesday = rowFourteen.createCell(ClassroomNumber);
-                    cellSevenCoupleTuesday.setCellValue(CoupleSevenTuesday);
-                    cellSevenCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFourteen.setHeightInPoints(HeightPoints);
-
-                    // Cell Wednesday
-
-                    String CoupleOneWednesday = "";
-                    String CoupleTwoWednesday = "";
-                    String CoupleThreeWednesday = "";
-                    String CoupleFourWednesday = "";
-                    String CoupleFiveWednesday = "";
-                    String CoupleSixWednesday = "";
-                    String CoupleSevenWednesday = "";
-
-                    for(int index2 = 0; index2 < ArrayWednesday.size(); index2++){
-
-                        switch (ArrayWednesday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneWednesday = CoupleOneWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoWednesday = CoupleTwoWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeWednesday = CoupleThreeWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourWednesday = CoupleFourWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveWednesday = CoupleFiveWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixWednesday = CoupleSixWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenWednesday = CoupleSevenWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleWednesday = rowfifteen.createCell(ClassroomNumber);
-                    cellOneCoupleWednesday.setCellValue(CoupleOneWednesday);
-                    cellOneCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowfifteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleWednesday = rowSixteen.createCell(ClassroomNumber);
-                    cellTwoCoupleWednesday.setCellValue(CoupleTwoWednesday);
-                    cellTwoCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowSixteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleWednesday = rowSeventeen.createCell(ClassroomNumber);
-                    cellThreeCoupleWednesday.setCellValue(CoupleThreeWednesday);
-                    cellThreeCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowSeventeen.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleWednesday = rowEighteen.createCell(ClassroomNumber);
-                    cellFourCoupleWednesday.setCellValue(CoupleFourWednesday);
-                    cellFourCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowEighteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleWednesday = rowNineteen.createCell(ClassroomNumber);
-                    cellFiveCoupleWednesday.setCellValue(CoupleFiveWednesday);
-                    cellFiveCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowNineteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleWednesday = rowTwenty.createCell(ClassroomNumber);
-                    cellSixCoupleWednesday.setCellValue(CoupleSixWednesday);
-                    cellSixCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwenty.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleWednesday = rowTwentyOne.createCell(ClassroomNumber);
-                    cellSevenCoupleWednesday.setCellValue(CoupleSevenWednesday);
-                    cellSevenCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyOne.setHeightInPoints(HeightPoints);
-
-                    // Cell Thursday
-
-                    String CoupleOneThursday = "";
-                    String CoupleTwoThursday = "";
-                    String CoupleThreeThursday = "";
-                    String CoupleFourThursday = "";
-                    String CoupleFiveThursday = "";
-                    String CoupleSixThursday = "";
-                    String CoupleSevenThursday = "";
-
-                    for(int index2 = 0; index2 < ArrayThursday.size(); index2++){
-
-                        switch (ArrayThursday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneThursday = CoupleOneThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoThursday = CoupleTwoThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeThursday = CoupleThreeThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourThursday = CoupleFourThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveThursday = CoupleFiveThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixThursday = CoupleSixThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenThursday = CoupleSevenThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleThursday = rowTwentyTwo.createCell(ClassroomNumber);
-                    cellOneCoupleThursday.setCellValue(CoupleOneThursday);
-                    cellOneCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyTwo.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleThursday = rowTwentyThree.createCell(ClassroomNumber);
-                    cellTwoCoupleThursday.setCellValue(CoupleTwoThursday);
-                    cellTwoCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyThree.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleThursday = rowTwentyFour.createCell(ClassroomNumber);
-                    cellThreeCoupleThursday.setCellValue(CoupleThreeThursday);
-                    cellThreeCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyFour.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleThursday = rowTwentyFive.createCell(ClassroomNumber);
-                    cellFourCoupleThursday.setCellValue(CoupleFourThursday);
-                    cellFourCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyFive.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleThursday = rowTwentySix.createCell(ClassroomNumber);
-                    cellFiveCoupleThursday.setCellValue(CoupleFiveThursday);
-                    cellFiveCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentySix.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleThursday = rowTwentySeven.createCell(ClassroomNumber);
-                    cellSixCoupleThursday.setCellValue(CoupleSixThursday);
-                    cellSixCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentySeven.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleThursday = rowTwentyEight.createCell(ClassroomNumber);
-                    cellSevenCoupleThursday.setCellValue(CoupleSevenThursday);
-                    cellSevenCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyEight.setHeightInPoints(HeightPoints);
-
-                    // Cell Friday
-
-                    String CoupleOneFriday = "";
-                    String CoupleTwoFriday = "";
-                    String CoupleThreeFriday = "";
-                    String CoupleFourFriday = "";
-                    String CoupleFiveFriday = "";
-                    String CoupleSixFriday = "";
-                    String CoupleSevenFriday = "";
-
-                    for(int index2 = 0; index2 < ArrayFriday.size(); index2++){
-
-                        switch (ArrayFriday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneFriday = CoupleOneFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoFriday = CoupleTwoFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeFriday = CoupleThreeFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourFriday = CoupleFourFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveFriday = CoupleFiveFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }case (6): {
-                                CoupleSixFriday = CoupleSixFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenFriday = CoupleSevenFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleFriday = rowTwentyNine.createCell(ClassroomNumber);
-                    cellOneCoupleFriday.setCellValue(CoupleOneFriday);
-                    cellOneCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyNine.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleFriday = rowThirty.createCell(ClassroomNumber);
-                    cellTwoCoupleFriday.setCellValue(CoupleTwoFriday);
-                    cellTwoCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirty.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleFriday = rowThirtyOne.createCell(ClassroomNumber);
-                    cellThreeCoupleFriday.setCellValue(CoupleThreeFriday);
-                    cellThreeCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyOne.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleFriday = rowThirtyTwo.createCell(ClassroomNumber);
-                    cellFourCoupleFriday.setCellValue(CoupleFourFriday);
-                    cellFourCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyTwo.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleFriday = rowThirtyThree.createCell(ClassroomNumber);
-                    cellFiveCoupleFriday.setCellValue(CoupleFiveFriday);
-                    cellFiveCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyThree.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleFriday = rowThirtyFour.createCell(ClassroomNumber);
-                    cellSixCoupleFriday.setCellValue(CoupleSixFriday);
-                    cellSixCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyFour.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleFriday = rowThirtyFive.createCell(ClassroomNumber);
-                    cellSevenCoupleFriday.setCellValue(CoupleSevenFriday);
-                    cellSevenCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyFive.setHeightInPoints(HeightPoints);
-
-                    // Cell Saturday
-
-                    String CoupleOneSaturday = "";
-                    String CoupleTwoSaturday = "";
-                    String CoupleThreeSaturday = "";
-                    String CoupleFourSaturday = "";
-                    String CoupleFiveSaturday = "";
-                    String CoupleSixSaturday = "";
-                    String CoupleSevenSaturday = "";
-
-                    for(int index2 = 0; index2 < ArraySaturday.size(); index2++){
-
-                        switch (ArraySaturday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneSaturday = CoupleOneSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoSaturday = CoupleTwoSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeSaturday = CoupleThreeSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourSaturday = CoupleFourSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveSaturday = CoupleFiveSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixSaturday = CoupleSixSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenSaturday = CoupleSevenSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleSaturday = rowThirtySix.createCell(ClassroomNumber);
-                    cellOneCoupleSaturday.setCellValue(CoupleOneSaturday);
-                    cellOneCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtySix.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleSaturday = rowThirtySeven.createCell(ClassroomNumber);
-                    cellTwoCoupleSaturday.setCellValue(CoupleTwoSaturday);
-                    cellTwoCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtySeven.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleSaturday = rowThirtyEight.createCell(ClassroomNumber);
-                    cellThreeCoupleSaturday.setCellValue(CoupleThreeSaturday);
-                    cellThreeCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyEight.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleSaturday = rowThirtyNine.createCell(ClassroomNumber);
-                    cellFourCoupleSaturday.setCellValue(CoupleFourSaturday);
-                    cellFourCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyNine.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleSaturday = rowForty.createCell(ClassroomNumber);
-                    cellFiveCoupleSaturday.setCellValue(CoupleFiveSaturday);
-                    cellFiveCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowForty.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleSaturday = rowFortyOne.createCell(ClassroomNumber);
-                    cellSixCoupleSaturday.setCellValue(CoupleSixSaturday);
-                    cellSixCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFortyOne.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleSaturday = rowFortyTwo.createCell(ClassroomNumber);
-                    cellSevenCoupleSaturday.setCellValue(CoupleSevenSaturday);
-                    cellSevenCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFortyTwo.setHeightInPoints(HeightPoints);
-
+                    CreatorTable(ClassroomNumber,Array413);
+//                    HeightOneCouple = Array.get(0);
+//                    HeightTwoCouple = Array.get(1);
+//                    HeightThreeCouple = Array.get(2);
+//                    HeightFourCouple = Array.get(3);
+//                    HeightFiveCouple = Array.get(4);
+//                    HeightSixCouple = Array.get(5);
+//                    HeightSevenCouple = Array.get(6);
                 }
 
                 if(ArrayClassroomCheckBox.get(i).getText().equals("416/2")) {
-
-                    ArrayList<CoupleGroup> ArrayMonday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArrayTuesday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArrayWednesday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArrayThursday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArrayFriday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArraySaturday = new ArrayList<>();
-
-                    for (int index = 0; index < Array416.size(); index++) {
-
-                        int IdDay = Array416.get(index).GetIDDay();
-
-                        switch (IdDay) {
-                            case (1): {
-                                ArrayMonday.add(Array416.get(index));
-                                break;
-                            }
-                            case (2): {
-                                ArrayTuesday.add(Array416.get(index));
-                                break;
-                            }
-                            case (3): {
-                                ArrayWednesday.add(Array416.get(index));
-                                break;
-                            }
-                            case (4): {
-                                ArrayThursday.add(Array416.get(index));
-                                break;
-                            }
-                            case (5): {
-                                ArrayFriday.add(Array416.get(index));
-                                break;
-                            }
-                            case (6): {
-                                ArraySaturday.add(Array416.get(index));
-                                break;
-                            }
-                        }
-                    }
-
-                    String CoupleOneMonday = "";
-                    String CoupleTwoMonday = "";
-                    String CoupleThreeMonday = "";
-                    String CoupleFourMonday = "";
-                    String CoupleFiveMonday = "";
-                    String CoupleSixMonday = "";
-                    String CoupleSevenMonday = "";
-
-                    for (int index2 = 0; index2 < ArrayMonday.size(); index2++) {
-
-                        switch (ArrayMonday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneMonday = CoupleOneMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoMonday = CoupleTwoMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeMonday = CoupleThreeMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourMonday = CoupleFourMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveMonday = CoupleFiveMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixMonday = CoupleSixMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenMonday = CoupleSevenMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleMonday = rowOne.createCell(ClassroomNumber);
-                    cellOneCoupleMonday.setCellValue(CoupleOneMonday);
-                    cellOneCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowOne.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleMonday = rowTwo.createCell(ClassroomNumber);
-                    cellTwoCoupleMonday.setCellValue(CoupleTwoMonday);
-                    cellTwoCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwo.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleMonday = rowThree.createCell(ClassroomNumber);
-                    cellThreeCoupleMonday.setCellValue(CoupleThreeMonday);
-                    cellThreeCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThree.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleMonday = rowFour.createCell(ClassroomNumber);
-                    cellFourCoupleMonday.setCellValue(CoupleFourMonday);
-                    cellFourCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFour.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleMonday = rowFive.createCell(ClassroomNumber);
-                    cellFiveCoupleMonday.setCellValue(CoupleFiveMonday);
-                    cellFiveCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFive.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleMonday = rowSix.createCell(ClassroomNumber);
-                    cellSixCoupleMonday.setCellValue(CoupleSixMonday);
-                    cellSixCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowSix.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleMonday = rowSeven.createCell(ClassroomNumber);
-                    cellSevenCoupleMonday.setCellValue(CoupleSevenMonday);
-                    cellSevenCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowSeven.setHeightInPoints(HeightPoints);
-
-                    // Cell Tuesday
-
-                    String CoupleOneTuesday = "";
-                    String CoupleTwoTuesday = "";
-                    String CoupleThreeTuesday = "";
-                    String CoupleFourTuesday = "";
-                    String CoupleFiveTuesday = "";
-                    String CoupleSixTuesday = "";
-                    String CoupleSevenTuesday = "";
-
-                    for(int index2 = 0; index2 < ArrayTuesday.size(); index2++){
-
-                        switch (ArrayTuesday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneTuesday = CoupleOneTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoTuesday = CoupleTwoTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeTuesday = CoupleThreeTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourTuesday = CoupleFourTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveTuesday = CoupleFiveTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixTuesday = CoupleSixTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenTuesday = CoupleSevenTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleTuesday = rowEight.createCell(ClassroomNumber);
-                    cellOneCoupleTuesday.setCellValue(CoupleOneTuesday);
-                    cellOneCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowEight.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleTuesday = rowNine.createCell(ClassroomNumber);
-                    cellTwoCoupleTuesday.setCellValue(CoupleTwoTuesday);
-                    cellTwoCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowNine.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleTuesday = rowTen.createCell(ClassroomNumber);
-                    cellThreeCoupleTuesday.setCellValue(CoupleThreeTuesday);
-                    cellThreeCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTen.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleTuesday = rowEleven.createCell(ClassroomNumber);
-                    cellFourCoupleTuesday.setCellValue(CoupleFourTuesday);
-                    cellFourCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowEleven.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleTuesday = rowTwelve.createCell(ClassroomNumber);
-                    cellFiveCoupleTuesday.setCellValue(CoupleFiveTuesday);
-                    cellFiveCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwelve.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleTuesday = rowThirteen.createCell(ClassroomNumber);
-                    cellSixCoupleTuesday.setCellValue(CoupleSixTuesday);
-                    cellSixCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleTuesday = rowFourteen.createCell(ClassroomNumber);
-                    cellSevenCoupleTuesday.setCellValue(CoupleSevenTuesday);
-                    cellSevenCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFourteen.setHeightInPoints(HeightPoints);
-
-                    // Cell Wednesday
-
-                    String CoupleOneWednesday = "";
-                    String CoupleTwoWednesday = "";
-                    String CoupleThreeWednesday = "";
-                    String CoupleFourWednesday = "";
-                    String CoupleFiveWednesday = "";
-                    String CoupleSixWednesday = "";
-                    String CoupleSevenWednesday = "";
-
-                    for(int index2 = 0; index2 < ArrayWednesday.size(); index2++){
-
-                        switch (ArrayWednesday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneWednesday = CoupleOneWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoWednesday = CoupleTwoWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeWednesday = CoupleThreeWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourWednesday = CoupleFourWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveWednesday = CoupleFiveWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixWednesday = CoupleSixWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenWednesday = CoupleSevenWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleWednesday = rowfifteen.createCell(ClassroomNumber);
-                    cellOneCoupleWednesday.setCellValue(CoupleOneWednesday);
-                    cellOneCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowfifteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleWednesday = rowSixteen.createCell(ClassroomNumber);
-                    cellTwoCoupleWednesday.setCellValue(CoupleTwoWednesday);
-                    cellTwoCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowSixteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleWednesday = rowSeventeen.createCell(ClassroomNumber);
-                    cellThreeCoupleWednesday.setCellValue(CoupleThreeWednesday);
-                    cellThreeCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowSeventeen.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleWednesday = rowEighteen.createCell(ClassroomNumber);
-                    cellFourCoupleWednesday.setCellValue(CoupleFourWednesday);
-                    cellFourCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowEighteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleWednesday = rowNineteen.createCell(ClassroomNumber);
-                    cellFiveCoupleWednesday.setCellValue(CoupleFiveWednesday);
-                    cellFiveCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowNineteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleWednesday = rowTwenty.createCell(ClassroomNumber);
-                    cellSixCoupleWednesday.setCellValue(CoupleSixWednesday);
-                    cellSixCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwenty.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleWednesday = rowTwentyOne.createCell(ClassroomNumber);
-                    cellSevenCoupleWednesday.setCellValue(CoupleSevenWednesday);
-                    cellSevenCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyOne.setHeightInPoints(HeightPoints);
-
-                    // Cell Thursday
-
-                    String CoupleOneThursday = "";
-                    String CoupleTwoThursday = "";
-                    String CoupleThreeThursday = "";
-                    String CoupleFourThursday = "";
-                    String CoupleFiveThursday = "";
-                    String CoupleSixThursday = "";
-                    String CoupleSevenThursday = "";
-
-                    for(int index2 = 0; index2 < ArrayThursday.size(); index2++){
-
-                        switch (ArrayThursday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneThursday = CoupleOneThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoThursday = CoupleTwoThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeThursday = CoupleThreeThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourThursday = CoupleFourThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveThursday = CoupleFiveThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixThursday = CoupleSixThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenThursday = CoupleSevenThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleThursday = rowTwentyTwo.createCell(ClassroomNumber);
-                    cellOneCoupleThursday.setCellValue(CoupleOneThursday);
-                    cellOneCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyTwo.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleThursday = rowTwentyThree.createCell(ClassroomNumber);
-                    cellTwoCoupleThursday.setCellValue(CoupleTwoThursday);
-                    cellTwoCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyThree.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleThursday = rowTwentyFour.createCell(ClassroomNumber);
-                    cellThreeCoupleThursday.setCellValue(CoupleThreeThursday);
-                    cellThreeCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyFour.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleThursday = rowTwentyFive.createCell(ClassroomNumber);
-                    cellFourCoupleThursday.setCellValue(CoupleFourThursday);
-                    cellFourCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyFive.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleThursday = rowTwentySix.createCell(ClassroomNumber);
-                    cellFiveCoupleThursday.setCellValue(CoupleFiveThursday);
-                    cellFiveCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentySix.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleThursday = rowTwentySeven.createCell(ClassroomNumber);
-                    cellSixCoupleThursday.setCellValue(CoupleSixThursday);
-                    cellSixCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentySeven.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleThursday = rowTwentyEight.createCell(ClassroomNumber);
-                    cellSevenCoupleThursday.setCellValue(CoupleSevenThursday);
-                    cellSevenCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyEight.setHeightInPoints(HeightPoints);
-
-                    // Cell Friday
-
-                    String CoupleOneFriday = "";
-                    String CoupleTwoFriday = "";
-                    String CoupleThreeFriday = "";
-                    String CoupleFourFriday = "";
-                    String CoupleFiveFriday = "";
-                    String CoupleSixFriday = "";
-                    String CoupleSevenFriday = "";
-
-                    for(int index2 = 0; index2 < ArrayFriday.size(); index2++){
-
-                        switch (ArrayFriday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneFriday = CoupleOneFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoFriday = CoupleTwoFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeFriday = CoupleThreeFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourFriday = CoupleFourFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveFriday = CoupleFiveFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }case (6): {
-                                CoupleSixFriday = CoupleSixFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenFriday = CoupleSevenFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleFriday = rowTwentyNine.createCell(ClassroomNumber);
-                    cellOneCoupleFriday.setCellValue(CoupleOneFriday);
-                    cellOneCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyNine.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleFriday = rowThirty.createCell(ClassroomNumber);
-                    cellTwoCoupleFriday.setCellValue(CoupleTwoFriday);
-                    cellTwoCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirty.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleFriday = rowThirtyOne.createCell(ClassroomNumber);
-                    cellThreeCoupleFriday.setCellValue(CoupleThreeFriday);
-                    cellThreeCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyOne.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleFriday = rowThirtyTwo.createCell(ClassroomNumber);
-                    cellFourCoupleFriday.setCellValue(CoupleFourFriday);
-                    cellFourCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyTwo.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleFriday = rowThirtyThree.createCell(ClassroomNumber);
-                    cellFiveCoupleFriday.setCellValue(CoupleFiveFriday);
-                    cellFiveCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyThree.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleFriday = rowThirtyFour.createCell(ClassroomNumber);
-                    cellSixCoupleFriday.setCellValue(CoupleSixFriday);
-                    cellSixCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyFour.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleFriday = rowThirtyFive.createCell(ClassroomNumber);
-                    cellSevenCoupleFriday.setCellValue(CoupleSevenFriday);
-                    cellSevenCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyFive.setHeightInPoints(HeightPoints);
-
-                    // Cell Saturday
-
-                    String CoupleOneSaturday = "";
-                    String CoupleTwoSaturday = "";
-                    String CoupleThreeSaturday = "";
-                    String CoupleFourSaturday = "";
-                    String CoupleFiveSaturday = "";
-                    String CoupleSixSaturday = "";
-                    String CoupleSevenSaturday = "";
-
-                    for(int index2 = 0; index2 < ArraySaturday.size(); index2++){
-
-                        switch (ArraySaturday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneSaturday = CoupleOneSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoSaturday = CoupleTwoSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeSaturday = CoupleThreeSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourSaturday = CoupleFourSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveSaturday = CoupleFiveSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixSaturday = CoupleSixSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenSaturday = CoupleSevenSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleSaturday = rowThirtySix.createCell(ClassroomNumber);
-                    cellOneCoupleSaturday.setCellValue(CoupleOneSaturday);
-                    cellOneCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtySix.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleSaturday = rowThirtySeven.createCell(ClassroomNumber);
-                    cellTwoCoupleSaturday.setCellValue(CoupleTwoSaturday);
-                    cellTwoCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtySeven.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleSaturday = rowThirtyEight.createCell(ClassroomNumber);
-                    cellThreeCoupleSaturday.setCellValue(CoupleThreeSaturday);
-                    cellThreeCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyEight.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleSaturday = rowThirtyNine.createCell(ClassroomNumber);
-                    cellFourCoupleSaturday.setCellValue(CoupleFourSaturday);
-                    cellFourCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyNine.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleSaturday = rowForty.createCell(ClassroomNumber);
-                    cellFiveCoupleSaturday.setCellValue(CoupleFiveSaturday);
-                    cellFiveCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowForty.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleSaturday = rowFortyOne.createCell(ClassroomNumber);
-                    cellSixCoupleSaturday.setCellValue(CoupleSixSaturday);
-                    cellSixCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFortyOne.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleSaturday = rowFortyTwo.createCell(ClassroomNumber);
-                    cellSevenCoupleSaturday.setCellValue(CoupleSevenSaturday);
-                    cellSevenCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFortyTwo.setHeightInPoints(HeightPoints);
-
+                    CreatorTable(ClassroomNumber,Array416);
+//                    HeightOneCouple = Array.get(0);
+//                    HeightTwoCouple = Array.get(1);
+//                    HeightThreeCouple = Array.get(2);
+//                    HeightFourCouple = Array.get(3);
+//                    HeightFiveCouple = Array.get(4);
+//                    HeightSixCouple = Array.get(5);
+//                    HeightSevenCouple = Array.get(6);
                 }
 
                 if(ArrayClassroomCheckBox.get(i).getText().equals("417/2")) {
-
-                    ArrayList<CoupleGroup> ArrayMonday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArrayTuesday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArrayWednesday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArrayThursday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArrayFriday = new ArrayList<>();
-                    ArrayList<CoupleGroup> ArraySaturday = new ArrayList<>();
-
-                    for (int index = 0; index < Array417.size(); index++) {
-
-                        int IdDay = Array417.get(index).GetIDDay();
-
-                        switch (IdDay) {
-                            case (1): {
-                                ArrayMonday.add(Array417.get(index));
-                                break;
-                            }
-                            case (2): {
-                                ArrayTuesday.add(Array417.get(index));
-                                break;
-                            }
-                            case (3): {
-                                ArrayWednesday.add(Array417.get(index));
-                                break;
-                            }
-                            case (4): {
-                                ArrayThursday.add(Array417.get(index));
-                                break;
-                            }
-                            case (5): {
-                                ArrayFriday.add(Array417.get(index));
-                                break;
-                            }
-                            case (6): {
-                                ArraySaturday.add(Array417.get(index));
-                                break;
-                            }
-                        }
-                    }
-
-                    String CoupleOneMonday = "";
-                    String CoupleTwoMonday = "";
-                    String CoupleThreeMonday = "";
-                    String CoupleFourMonday = "";
-                    String CoupleFiveMonday = "";
-                    String CoupleSixMonday = "";
-                    String CoupleSevenMonday = "";
-
-                    for (int index2 = 0; index2 < ArrayMonday.size(); index2++) {
-
-                        switch (ArrayMonday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneMonday = CoupleOneMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoMonday = CoupleTwoMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeMonday = CoupleThreeMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourMonday = CoupleFourMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveMonday = CoupleFiveMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixMonday = CoupleSixMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenMonday = CoupleSevenMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetCoupleType() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetTeacherName() + " " + ArrayMonday.get(index2).GetAud() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleMonday = rowOne.createCell(ClassroomNumber);
-                    cellOneCoupleMonday.setCellValue(CoupleOneMonday);
-                    cellOneCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowOne.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleMonday = rowTwo.createCell(ClassroomNumber);
-                    cellTwoCoupleMonday.setCellValue(CoupleTwoMonday);
-                    cellTwoCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwo.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleMonday = rowThree.createCell(ClassroomNumber);
-                    cellThreeCoupleMonday.setCellValue(CoupleThreeMonday);
-                    cellThreeCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThree.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleMonday = rowFour.createCell(ClassroomNumber);
-                    cellFourCoupleMonday.setCellValue(CoupleFourMonday);
-                    cellFourCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFour.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleMonday = rowFive.createCell(ClassroomNumber);
-                    cellFiveCoupleMonday.setCellValue(CoupleFiveMonday);
-                    cellFiveCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFive.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleMonday = rowSix.createCell(ClassroomNumber);
-                    cellSixCoupleMonday.setCellValue(CoupleSixMonday);
-                    cellSixCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowSix.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleMonday = rowSeven.createCell(ClassroomNumber);
-                    cellSevenCoupleMonday.setCellValue(CoupleSevenMonday);
-                    cellSevenCoupleMonday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowSeven.setHeightInPoints(HeightPoints);
-
-                    // Cell Tuesday
-
-                    String CoupleOneTuesday = "";
-                    String CoupleTwoTuesday = "";
-                    String CoupleThreeTuesday = "";
-                    String CoupleFourTuesday = "";
-                    String CoupleFiveTuesday = "";
-                    String CoupleSixTuesday = "";
-                    String CoupleSevenTuesday = "";
-
-                    for(int index2 = 0; index2 < ArrayTuesday.size(); index2++){
-
-                        switch (ArrayTuesday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneTuesday = CoupleOneTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoTuesday = CoupleTwoTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeTuesday = CoupleThreeTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourTuesday = CoupleFourTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveTuesday = CoupleFiveTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixTuesday = CoupleSixTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenTuesday = CoupleSevenTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetCoupleType() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetTeacherName() + " " + ArrayTuesday.get(index2).GetAud() + " (" +  ArrayTuesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleTuesday = rowEight.createCell(ClassroomNumber);
-                    cellOneCoupleTuesday.setCellValue(CoupleOneTuesday);
-                    cellOneCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowEight.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleTuesday = rowNine.createCell(ClassroomNumber);
-                    cellTwoCoupleTuesday.setCellValue(CoupleTwoTuesday);
-                    cellTwoCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowNine.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleTuesday = rowTen.createCell(ClassroomNumber);
-                    cellThreeCoupleTuesday.setCellValue(CoupleThreeTuesday);
-                    cellThreeCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTen.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleTuesday = rowEleven.createCell(ClassroomNumber);
-                    cellFourCoupleTuesday.setCellValue(CoupleFourTuesday);
-                    cellFourCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowEleven.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleTuesday = rowTwelve.createCell(ClassroomNumber);
-                    cellFiveCoupleTuesday.setCellValue(CoupleFiveTuesday);
-                    cellFiveCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwelve.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleTuesday = rowThirteen.createCell(ClassroomNumber);
-                    cellSixCoupleTuesday.setCellValue(CoupleSixTuesday);
-                    cellSixCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleTuesday = rowFourteen.createCell(ClassroomNumber);
-                    cellSevenCoupleTuesday.setCellValue(CoupleSevenTuesday);
-                    cellSevenCoupleTuesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFourteen.setHeightInPoints(HeightPoints);
-
-                    // Cell Wednesday
-
-                    String CoupleOneWednesday = "";
-                    String CoupleTwoWednesday = "";
-                    String CoupleThreeWednesday = "";
-                    String CoupleFourWednesday = "";
-                    String CoupleFiveWednesday = "";
-                    String CoupleSixWednesday = "";
-                    String CoupleSevenWednesday = "";
-
-                    for(int index2 = 0; index2 < ArrayWednesday.size(); index2++){
-
-                        switch (ArrayWednesday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneWednesday = CoupleOneWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoWednesday = CoupleTwoWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeWednesday = CoupleThreeWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourWednesday = CoupleFourWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveWednesday = CoupleFiveWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixWednesday = CoupleSixWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenWednesday = CoupleSevenWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetCoupleType() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetTeacherName() + " " + ArrayWednesday.get(index2).GetAud() + " (" +  ArrayWednesday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleWednesday = rowfifteen.createCell(ClassroomNumber);
-                    cellOneCoupleWednesday.setCellValue(CoupleOneWednesday);
-                    cellOneCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowfifteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleWednesday = rowSixteen.createCell(ClassroomNumber);
-                    cellTwoCoupleWednesday.setCellValue(CoupleTwoWednesday);
-                    cellTwoCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowSixteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleWednesday = rowSeventeen.createCell(ClassroomNumber);
-                    cellThreeCoupleWednesday.setCellValue(CoupleThreeWednesday);
-                    cellThreeCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowSeventeen.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleWednesday = rowEighteen.createCell(ClassroomNumber);
-                    cellFourCoupleWednesday.setCellValue(CoupleFourWednesday);
-                    cellFourCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowEighteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleWednesday = rowNineteen.createCell(ClassroomNumber);
-                    cellFiveCoupleWednesday.setCellValue(CoupleFiveWednesday);
-                    cellFiveCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowNineteen.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleWednesday = rowTwenty.createCell(ClassroomNumber);
-                    cellSixCoupleWednesday.setCellValue(CoupleSixWednesday);
-                    cellSixCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwenty.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleWednesday = rowTwentyOne.createCell(ClassroomNumber);
-                    cellSevenCoupleWednesday.setCellValue(CoupleSevenWednesday);
-                    cellSevenCoupleWednesday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyOne.setHeightInPoints(HeightPoints);
-
-                    // Cell Thursday
-
-                    String CoupleOneThursday = "";
-                    String CoupleTwoThursday = "";
-                    String CoupleThreeThursday = "";
-                    String CoupleFourThursday = "";
-                    String CoupleFiveThursday = "";
-                    String CoupleSixThursday = "";
-                    String CoupleSevenThursday = "";
-
-                    for(int index2 = 0; index2 < ArrayThursday.size(); index2++){
-
-                        switch (ArrayThursday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneThursday = CoupleOneThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoThursday = CoupleTwoThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeThursday = CoupleThreeThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourThursday = CoupleFourThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveThursday = CoupleFiveThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixThursday = CoupleSixThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenThursday = CoupleSevenThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetCoupleType() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetTeacherName() + " " + ArrayThursday.get(index2).GetAud() + " (" +  ArrayThursday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleThursday = rowTwentyTwo.createCell(ClassroomNumber);
-                    cellOneCoupleThursday.setCellValue(CoupleOneThursday);
-                    cellOneCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyTwo.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleThursday = rowTwentyThree.createCell(ClassroomNumber);
-                    cellTwoCoupleThursday.setCellValue(CoupleTwoThursday);
-                    cellTwoCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyThree.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleThursday = rowTwentyFour.createCell(ClassroomNumber);
-                    cellThreeCoupleThursday.setCellValue(CoupleThreeThursday);
-                    cellThreeCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyFour.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleThursday = rowTwentyFive.createCell(ClassroomNumber);
-                    cellFourCoupleThursday.setCellValue(CoupleFourThursday);
-                    cellFourCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyFive.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleThursday = rowTwentySix.createCell(ClassroomNumber);
-                    cellFiveCoupleThursday.setCellValue(CoupleFiveThursday);
-                    cellFiveCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentySix.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleThursday = rowTwentySeven.createCell(ClassroomNumber);
-                    cellSixCoupleThursday.setCellValue(CoupleSixThursday);
-                    cellSixCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentySeven.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleThursday = rowTwentyEight.createCell(ClassroomNumber);
-                    cellSevenCoupleThursday.setCellValue(CoupleSevenThursday);
-                    cellSevenCoupleThursday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyEight.setHeightInPoints(HeightPoints);
-
-                    // Cell Friday
-
-                    String CoupleOneFriday = "";
-                    String CoupleTwoFriday = "";
-                    String CoupleThreeFriday = "";
-                    String CoupleFourFriday = "";
-                    String CoupleFiveFriday = "";
-                    String CoupleSixFriday = "";
-                    String CoupleSevenFriday = "";
-
-                    for(int index2 = 0; index2 < ArrayFriday.size(); index2++){
-
-                        switch (ArrayFriday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneFriday = CoupleOneFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoFriday = CoupleTwoFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeFriday = CoupleThreeFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourFriday = CoupleFourFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveFriday = CoupleFiveFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }case (6): {
-                                CoupleSixFriday = CoupleSixFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenFriday = CoupleSevenFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetCoupleType() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetTeacherName() + " " + ArrayFriday.get(index2).GetAud() + " (" +  ArrayFriday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleFriday = rowTwentyNine.createCell(ClassroomNumber);
-                    cellOneCoupleFriday.setCellValue(CoupleOneFriday);
-                    cellOneCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowTwentyNine.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleFriday = rowThirty.createCell(ClassroomNumber);
-                    cellTwoCoupleFriday.setCellValue(CoupleTwoFriday);
-                    cellTwoCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirty.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleFriday = rowThirtyOne.createCell(ClassroomNumber);
-                    cellThreeCoupleFriday.setCellValue(CoupleThreeFriday);
-                    cellThreeCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyOne.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleFriday = rowThirtyTwo.createCell(ClassroomNumber);
-                    cellFourCoupleFriday.setCellValue(CoupleFourFriday);
-                    cellFourCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyTwo.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleFriday = rowThirtyThree.createCell(ClassroomNumber);
-                    cellFiveCoupleFriday.setCellValue(CoupleFiveFriday);
-                    cellFiveCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyThree.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleFriday = rowThirtyFour.createCell(ClassroomNumber);
-                    cellSixCoupleFriday.setCellValue(CoupleSixFriday);
-                    cellSixCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyFour.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleFriday = rowThirtyFive.createCell(ClassroomNumber);
-                    cellSevenCoupleFriday.setCellValue(CoupleSevenFriday);
-                    cellSevenCoupleFriday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyFive.setHeightInPoints(HeightPoints);
-
-                    // Cell Saturday
-
-                    String CoupleOneSaturday = "";
-                    String CoupleTwoSaturday = "";
-                    String CoupleThreeSaturday = "";
-                    String CoupleFourSaturday = "";
-                    String CoupleFiveSaturday = "";
-                    String CoupleSixSaturday = "";
-                    String CoupleSevenSaturday = "";
-
-                    for(int index2 = 0; index2 < ArraySaturday.size(); index2++){
-
-                        switch (ArraySaturday.get(index2).GetCoupleNumber()) {
-                            case (1): {
-                                CoupleOneSaturday = CoupleOneSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (2): {
-                                CoupleTwoSaturday = CoupleTwoSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (3): {
-                                CoupleThreeSaturday = CoupleThreeSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (4): {
-                                CoupleFourSaturday = CoupleFourSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (5): {
-                                CoupleFiveSaturday = CoupleFiveSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (6): {
-                                CoupleSixSaturday = CoupleSixSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                            case (7): {
-                                CoupleSevenSaturday = CoupleSevenSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetCoupleType() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetTeacherName() + " " + ArraySaturday.get(index2).GetAud() + " (" +  ArraySaturday.get(index2).GetTypeWeek() + ")" + "\n" + "\n";
-                                break;
-                            }
-                        }
-                    }
-
-                    Cell cellOneCoupleSaturday = rowThirtySix.createCell(ClassroomNumber);
-                    cellOneCoupleSaturday.setCellValue(CoupleOneSaturday);
-                    cellOneCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtySix.setHeightInPoints(HeightPoints);
-
-                    Cell cellTwoCoupleSaturday = rowThirtySeven.createCell(ClassroomNumber);
-                    cellTwoCoupleSaturday.setCellValue(CoupleTwoSaturday);
-                    cellTwoCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtySeven.setHeightInPoints(HeightPoints);
-
-                    Cell cellThreeCoupleSaturday = rowThirtyEight.createCell(ClassroomNumber);
-                    cellThreeCoupleSaturday.setCellValue(CoupleThreeSaturday);
-                    cellThreeCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyEight.setHeightInPoints(HeightPoints);
-
-                    Cell cellFourCoupleSaturday = rowThirtyNine.createCell(ClassroomNumber);
-                    cellFourCoupleSaturday.setCellValue(CoupleFourSaturday);
-                    cellFourCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowThirtyNine.setHeightInPoints(HeightPoints);
-
-                    Cell cellFiveCoupleSaturday = rowForty.createCell(ClassroomNumber);
-                    cellFiveCoupleSaturday.setCellValue(CoupleFiveSaturday);
-                    cellFiveCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowForty.setHeightInPoints(HeightPoints);
-
-                    Cell cellSixCoupleSaturday = rowFortyOne.createCell(ClassroomNumber);
-                    cellSixCoupleSaturday.setCellValue(CoupleSixSaturday);
-                    cellSixCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFortyOne.setHeightInPoints(HeightPoints);
-
-                    Cell cellSevenCoupleSaturday = rowFortyTwo.createCell(ClassroomNumber);
-                    cellSevenCoupleSaturday.setCellValue(CoupleSevenSaturday);
-                    cellSevenCoupleSaturday.setCellStyle(cellStyle);
-                    Classroom.setColumnWidth(ClassroomNumber, ColumnWidth);
-                    rowFortyTwo.setHeightInPoints(HeightPoints);
-
+                    CreatorTable(ClassroomNumber,Array417);
+//                    HeightOneCouple = Array.get(0);
+//                    HeightTwoCouple = Array.get(1);
+//                    HeightThreeCouple = Array.get(2);
+//                    HeightFourCouple = Array.get(3);
+//                    HeightFiveCouple = Array.get(4);
+//                    HeightSixCouple = Array.get(5);
+//                    HeightSevenCouple = Array.get(6);
                 }
+                ClassroomNumber++;
             }
-            ClassroomNumber++;
         }
 
-        FileOutputStream fileOutputStream = new FileOutputStream("AllClassroomExelDoc");
+        String separator = File.separator;
+
+        FileOutputStream fileOutputStream = new FileOutputStream("TableClassroom(s)" + separator + "AllClassroomExelDoc");
 
         workbookClassroom.write(fileOutputStream);
         fileOutputStream.close();

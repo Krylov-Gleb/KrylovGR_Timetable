@@ -4,14 +4,12 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class CreatorTableExelTeachers {
-
-    int HeightPoints = 250;
-    int ColumnWidth = 10000;
 
     private Workbook workbookTeachers = new HSSFWorkbook();
 
@@ -163,7 +161,103 @@ public class CreatorTableExelTeachers {
     private Row rowFortyTwo = Teachers.createRow(42);
     private Cell CoupleSevenSaturday = rowFortyTwo.createCell(1);
 
+    public ArrayList<String> ConcatCoupleDayWeek(ArrayList<CoupleTeacher> CoupleOne,ArrayList<CoupleTeacher> CoupleTwo,ArrayList<CoupleTeacher> CoupleThree,ArrayList<CoupleTeacher> CoupleFour, ArrayList<CoupleTeacher> CoupleFive,ArrayList<CoupleTeacher> CoupleSix,ArrayList<CoupleTeacher> CoupleSeven){
+
+        String CoupleOneDayWeekOne = "";
+        String CoupleTwoDayWeekTwo = "";
+        String CoupleThreeDayWeekThree = "";
+        String CoupleFourDayWeekFour = "";
+        String CoupleFiveDayWeekFive = "";
+        String CoupleSixDayWeekSix = "";
+        String CoupleSevenDayWeekSeven = "";
+
+        for(int i = 0; i < CoupleOne.size(); i++){
+            if(i < CoupleOne.size()-1) {
+                CoupleOneDayWeekOne = CoupleOneDayWeekOne + CoupleOne.get(i).GetDiscipline() + " (" + CoupleOne.get(i).GetType() + ")\n" + CoupleOne.get(i).GetNumberWeek() + " " + CoupleOne.get(i).GetGroupName() + " " + CoupleOne.get(i).GetAud() + "\n" + "\n";
+            }
+            else{
+                CoupleOneDayWeekOne = CoupleOneDayWeekOne + CoupleOne.get(i).GetDiscipline() + " (" + CoupleOne.get(i).GetType() + ")\n" + CoupleOne.get(i).GetNumberWeek() + " " + CoupleOne.get(i).GetGroupName() + " " + CoupleOne.get(i).GetAud();
+            }
+        }
+
+        for(int i = 0; i < CoupleTwo.size(); i++){
+            if(i < CoupleTwo.size()-1) {
+                CoupleTwoDayWeekTwo = CoupleTwoDayWeekTwo + CoupleTwo.get(i).GetDiscipline() + " (" + CoupleTwo.get(i).GetType() + ")\n" + CoupleTwo.get(i).GetNumberWeek() + " " + CoupleTwo.get(i).GetGroupName() + " " + CoupleTwo.get(i).GetAud() + "\n" + "\n";
+            }
+            else{
+                CoupleTwoDayWeekTwo = CoupleTwoDayWeekTwo + CoupleTwo.get(i).GetDiscipline() + " (" + CoupleTwo.get(i).GetType() + ")\n" + CoupleTwo.get(i).GetNumberWeek() + " " + CoupleTwo.get(i).GetGroupName() + " " + CoupleTwo.get(i).GetAud();
+            }
+        }
+
+        for(int i = 0; i < CoupleThree.size(); i++){
+            if(i < CoupleThree.size()-1) {
+                CoupleThreeDayWeekThree = CoupleThreeDayWeekThree + CoupleThree.get(i).GetDiscipline() + " (" + CoupleThree.get(i).GetType() + ")\n" + CoupleThree.get(i).GetNumberWeek() + " " + CoupleThree.get(i).GetGroupName() + " " + CoupleThree.get(i).GetAud() + "\n" + "\n";
+            }
+            else{
+                CoupleThreeDayWeekThree = CoupleThreeDayWeekThree + CoupleThree.get(i).GetDiscipline() + " (" + CoupleThree.get(i).GetType() + ")\n" + CoupleThree.get(i).GetNumberWeek() + " " + CoupleThree.get(i).GetGroupName() + " " + CoupleThree.get(i).GetAud();
+            }
+        }
+
+        for(int i = 0; i < CoupleFour.size(); i++){
+            if(i < CoupleFour.size()-1) {
+                CoupleFourDayWeekFour = CoupleFourDayWeekFour + CoupleFour.get(i).GetDiscipline() + " (" + CoupleFour.get(i).GetType() + ")\n" + CoupleFour.get(i).GetNumberWeek() + " " + CoupleFour.get(i).GetGroupName() + " " + CoupleFour.get(i).GetAud() + "\n" + "\n";
+            }
+            else{
+                CoupleFourDayWeekFour = CoupleFourDayWeekFour + CoupleFour.get(i).GetDiscipline() + " (" + CoupleFour.get(i).GetType() + ")\n" + CoupleFour.get(i).GetNumberWeek() + " " + CoupleFour.get(i).GetGroupName() + " " + CoupleFour.get(i).GetAud();
+            }
+        }
+
+        for(int i = 0; i < CoupleFive.size(); i++){
+            if(i < CoupleFive.size()-1) {
+                CoupleFiveDayWeekFive = CoupleFiveDayWeekFive + CoupleFive.get(i).GetDiscipline() + " (" + CoupleFive.get(i).GetType() + ")\n" + CoupleFive.get(i).GetNumberWeek() + " " + CoupleFive.get(i).GetGroupName() + " " + CoupleFive.get(i).GetAud() + "\n" + "\n";
+            }
+            else{
+                CoupleFiveDayWeekFive = CoupleFiveDayWeekFive + CoupleFive.get(i).GetDiscipline() + " (" + CoupleFive.get(i).GetType() + ")\n" + CoupleFive.get(i).GetNumberWeek() + " " + CoupleFive.get(i).GetGroupName() + " " + CoupleFive.get(i).GetAud();
+            }
+        }
+
+        for(int i = 0; i < CoupleSix.size(); i++){
+            if(i < CoupleSix.size()-1) {
+                CoupleSixDayWeekSix = CoupleSixDayWeekSix + CoupleSix.get(i).GetDiscipline() + " (" + CoupleSix.get(i).GetType() + ")\n" + CoupleSix.get(i).GetNumberWeek() + " " + CoupleSix.get(i).GetGroupName() + " " + CoupleSix.get(i).GetAud() + "\n" + "\n";
+            }
+            else{
+                CoupleSixDayWeekSix = CoupleSixDayWeekSix + CoupleSix.get(i).GetDiscipline() + " (" + CoupleSix.get(i).GetType() + ")\n" + CoupleSix.get(i).GetNumberWeek() + " " + CoupleSix.get(i).GetGroupName() + " " + CoupleSix.get(i).GetAud();
+            }
+        }
+
+        for(int i = 0; i < CoupleSeven.size(); i++){
+            if(i < CoupleSeven.size()-1) {
+                CoupleSevenDayWeekSeven = CoupleSevenDayWeekSeven + CoupleSeven.get(i).GetDiscipline() + " (" + CoupleSeven.get(i).GetType() + ")\n" + CoupleSeven.get(i).GetNumberWeek() + " " + CoupleSeven.get(i).GetGroupName() + " " + CoupleSeven.get(i).GetAud() + "\n" + "\n";
+            }
+            else{
+                CoupleSevenDayWeekSeven = CoupleSevenDayWeekSeven + CoupleSeven.get(i).GetDiscipline() + " (" + CoupleSeven.get(i).GetType() + ")\n" + CoupleSeven.get(i).GetNumberWeek() + " " + CoupleSeven.get(i).GetGroupName() + " " + CoupleSeven.get(i).GetAud();
+            }
+        }
+
+        ArrayList<String> CoupleDayWeek = new ArrayList<>();
+        CoupleDayWeek.add(CoupleOneDayWeekOne);
+        CoupleDayWeek.add(CoupleTwoDayWeekTwo);
+        CoupleDayWeek.add(CoupleThreeDayWeekThree);
+        CoupleDayWeek.add(CoupleFourDayWeekFour);
+        CoupleDayWeek.add(CoupleFiveDayWeekFive);
+        CoupleDayWeek.add(CoupleSixDayWeekSix);
+        CoupleDayWeek.add(CoupleSevenDayWeekSeven);
+
+        return CoupleDayWeek;
+    }
+
     public void CreateTimeTableTeachers(ArrayList<Teacher> ArrayTeacher) throws IOException {
+
+        int HeightPoints = 50;
+        int ColumnWidth = 12000;
+
+        ArrayList<CoupleTeacher> CoupleOne = new ArrayList<>();
+        ArrayList<CoupleTeacher> CoupleTwo = new ArrayList<>();
+        ArrayList<CoupleTeacher> CoupleThree = new ArrayList<>();
+        ArrayList<CoupleTeacher> CoupleFour = new ArrayList<>();
+        ArrayList<CoupleTeacher> CoupleFive = new ArrayList<>();
+        ArrayList<CoupleTeacher> CoupleSix = new ArrayList<>();
+        ArrayList<CoupleTeacher> CoupleSeven = new ArrayList<>();
 
         CellStyle cellStyle = workbookTeachers.createCellStyle();
         cellStyle.setWrapText(true);
@@ -256,36 +350,37 @@ public class CreatorTableExelTeachers {
 
             ArrayList<CoupleTeacher> ArrayCouple = ArrayTeacher.get(i).GetArrayCoupleTeacher();
 
-            for(int index = 0; index < ArrayCouple.size(); index++){
+            for(int index = 0; index < ArrayCouple.size(); index++) {
 
                 int IdDay = ArrayCouple.get(index).GetIdDay();
 
-                switch (IdDay){
-                    case (1):{
+                switch (IdDay) {
+                    case (1): {
                         ArrayMonday.add(ArrayCouple.get(index));
                         break;
                     }
-                    case (2):{
+                    case (2): {
                         ArrayTuesday.add(ArrayCouple.get(index));
                         break;
                     }
-                    case (3):{
+                    case (3): {
                         ArrayWednesday.add(ArrayCouple.get(index));
                         break;
                     }
-                    case (4):{
+                    case (4): {
                         ArrayThursday.add(ArrayCouple.get(index));
                         break;
                     }
-                    case (5):{
+                    case (5): {
                         ArrayFriday.add(ArrayCouple.get(index));
                         break;
                     }
-                    case (6):{
+                    case (6): {
                         ArraySaturday.add(ArrayCouple.get(index));
                         break;
                     }
                 }
+            }
 
                 // Couple Monday
 
@@ -301,35 +396,45 @@ public class CreatorTableExelTeachers {
 
                     switch (ArrayMonday.get(index2).GetNumberCouple()) {
                         case (1): {
-                            CoupleOneMonday = CoupleOneMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetGroupName() + " " + ArrayMonday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleOne.add(ArrayMonday.get(index2));
                             break;
                         }
                         case (2): {
-                            CoupleTwoMonday = CoupleTwoMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetGroupName() + " " + ArrayMonday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleTwo.add(ArrayMonday.get(index2));
                             break;
                         }
                         case (3): {
-                            CoupleThreeMonday = CoupleThreeMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetGroupName() + " " + ArrayMonday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleThree.add(ArrayMonday.get(index2));
                             break;
                         }
                         case (4): {
-                            CoupleFourMonday = CoupleFourMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetGroupName() + " " + ArrayMonday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleFour.add(ArrayMonday.get(index2));
                             break;
                         }
                         case (5): {
-                            CoupleFiveMonday = CoupleFiveMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetGroupName() + " " + ArrayMonday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleFive.add(ArrayMonday.get(index2));
                             break;
                         }
                         case (6): {
-                            CoupleSixMonday = CoupleSixMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetGroupName() + " " + ArrayMonday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleSix.add(ArrayMonday.get(index2));
                             break;
                         }
                         case (7): {
-                            CoupleSevenMonday = CoupleSevenMonday + ArrayMonday.get(index2).GetDiscipline() + " (" + ArrayMonday.get(index2).GetTypeWeek() + ")\n" + ArrayMonday.get(index2).GetNumberWeek() + " " + ArrayMonday.get(index2).GetGroupName() + " " + ArrayMonday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleSeven.add(ArrayMonday.get(index2));
                             break;
                         }
                     }
                 }
+
+                ArrayList<String> ArrayStrMonday = ConcatCoupleDayWeek(CoupleOne,CoupleTwo,CoupleThree,CoupleFour,CoupleFive,CoupleSix,CoupleSeven);
+
+                CoupleOneMonday = ArrayStrMonday.get(0);
+                CoupleTwoMonday = ArrayStrMonday.get(1);
+                CoupleThreeMonday = ArrayStrMonday.get(2);
+                CoupleFourMonday = ArrayStrMonday.get(3);
+                CoupleFiveMonday = ArrayStrMonday.get(4);
+                CoupleSixMonday = ArrayStrMonday.get(5);
+                CoupleSevenMonday = ArrayStrMonday.get(6);
 
                 Cell cellOneCoupleMonday = rowOne.createCell(numberTeacher);
                 cellOneCoupleMonday.setCellValue(CoupleOneMonday);
@@ -373,6 +478,14 @@ public class CreatorTableExelTeachers {
                 Teachers.setColumnWidth(numberTeacher, ColumnWidth);
                 rowSeven.setHeightInPoints(HeightPoints);
 
+                CoupleOne.clear();
+                CoupleTwo.clear();
+                CoupleThree.clear();
+                CoupleFour.clear();
+                CoupleFive.clear();
+                CoupleSix.clear();
+                CoupleSeven.clear();
+
                 // Cell Tuesday
 
                 String CoupleOneTuesday = "";
@@ -387,35 +500,45 @@ public class CreatorTableExelTeachers {
 
                     switch (ArrayTuesday.get(index2).GetNumberCouple()) {
                         case (1): {
-                            CoupleOneTuesday = CoupleOneTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetTypeWeek() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetGroupName() + " " + ArrayTuesday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleOne.add(ArrayTuesday.get(index2));
                             break;
                         }
                         case (2): {
-                            CoupleTwoTuesday = CoupleTwoTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetTypeWeek() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetGroupName() + " " + ArrayTuesday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleTwo.add(ArrayTuesday.get(index2));
                             break;
                         }
                         case (3): {
-                            CoupleThreeTuesday = CoupleThreeTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetTypeWeek() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetGroupName() + " " + ArrayTuesday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleThree.add(ArrayTuesday.get(index2));
                             break;
                         }
                         case (4): {
-                            CoupleFourTuesday = CoupleFourTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetTypeWeek() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetGroupName() + " " + ArrayTuesday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleFour.add(ArrayTuesday.get(index2));
                             break;
                         }
                         case (5): {
-                            CoupleFiveTuesday = CoupleFiveTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetTypeWeek() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetGroupName() + " " + ArrayTuesday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleFive.add(ArrayTuesday.get(index2));
                             break;
                         }
                         case (6): {
-                            CoupleSixTuesday = CoupleSixTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetTypeWeek() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetGroupName() + " " + ArrayTuesday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleSix.add(ArrayTuesday.get(index2));
                             break;
                         }
                         case (7): {
-                            CoupleSevenTuesday = CoupleSevenTuesday + ArrayTuesday.get(index2).GetDiscipline() + " (" + ArrayTuesday.get(index2).GetTypeWeek() + ")\n" + ArrayTuesday.get(index2).GetNumberWeek() + " " + ArrayTuesday.get(index2).GetGroupName() + " " + ArrayTuesday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleSeven.add(ArrayTuesday.get(index2));
                             break;
                         }
                     }
                 }
+
+                ArrayList<String> ArrayStrTuesday = ConcatCoupleDayWeek(CoupleOne,CoupleTwo,CoupleThree,CoupleFour,CoupleFive,CoupleSix,CoupleSeven);
+
+                CoupleOneTuesday = ArrayStrTuesday.get(0);
+                CoupleTwoTuesday = ArrayStrTuesday.get(1);
+                CoupleThreeTuesday = ArrayStrTuesday.get(2);
+                CoupleFourTuesday = ArrayStrTuesday.get(3);
+                CoupleFiveTuesday = ArrayStrTuesday.get(4);
+                CoupleSixTuesday = ArrayStrTuesday.get(5);
+                CoupleSevenTuesday = ArrayStrTuesday.get(6);
 
                 Cell cellOneCoupleTuesday = rowEight.createCell(numberTeacher);
                 cellOneCoupleTuesday.setCellValue(CoupleOneTuesday);
@@ -459,6 +582,14 @@ public class CreatorTableExelTeachers {
                 Teachers.setColumnWidth(numberTeacher, ColumnWidth);
                 rowFourteen.setHeightInPoints(HeightPoints);
 
+                CoupleOne.clear();
+                CoupleTwo.clear();
+                CoupleThree.clear();
+                CoupleFour.clear();
+                CoupleFive.clear();
+                CoupleSix.clear();
+                CoupleSeven.clear();
+
                 // Cell Wednesday
 
                 String CoupleOneWednesday = "";
@@ -473,35 +604,45 @@ public class CreatorTableExelTeachers {
 
                     switch (ArrayWednesday.get(index2).GetNumberCouple()) {
                         case (1): {
-                            CoupleOneWednesday = CoupleOneWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetTypeWeek() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetGroupName() + " " + ArrayWednesday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleOne.add(ArrayWednesday.get(index2));
                             break;
                         }
                         case (2): {
-                            CoupleTwoWednesday = CoupleTwoWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetTypeWeek() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetGroupName() + " " + ArrayWednesday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleTwo.add(ArrayWednesday.get(index2));
                             break;
                         }
                         case (3): {
-                            CoupleThreeWednesday = CoupleThreeWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetTypeWeek() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetGroupName() + " " + ArrayWednesday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleThree.add(ArrayWednesday.get(index2));
                             break;
                         }
                         case (4): {
-                            CoupleFourWednesday = CoupleFourWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetTypeWeek() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetGroupName() + " " + ArrayWednesday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleFour.add(ArrayWednesday.get(index2));
                             break;
                         }
                         case (5): {
-                            CoupleFiveWednesday = CoupleFiveWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetTypeWeek() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetGroupName() + " " + ArrayWednesday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleFive.add(ArrayWednesday.get(index2));
                             break;
                         }
                         case (6): {
-                            CoupleSixWednesday = CoupleSixWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetTypeWeek() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetGroupName() + " " + ArrayWednesday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleSix.add(ArrayWednesday.get(index2));
                             break;
                         }
                         case (7): {
-                            CoupleSevenWednesday = CoupleSevenWednesday + ArrayWednesday.get(index2).GetDiscipline() + " (" + ArrayWednesday.get(index2).GetTypeWeek() + ")\n" + ArrayWednesday.get(index2).GetNumberWeek() + " " + ArrayWednesday.get(index2).GetGroupName() + " " + ArrayWednesday.get(index2).GetAud() + "\n" + "\n";
+                            CoupleSeven.add(ArrayWednesday.get(index2));
                             break;
                         }
                     }
                 }
+
+                ArrayList<String> ArrayStrWednesday = ConcatCoupleDayWeek(CoupleOne,CoupleTwo,CoupleThree,CoupleFour,CoupleFive,CoupleSix,CoupleSeven);
+
+                CoupleOneWednesday = ArrayStrWednesday.get(0);
+                CoupleTwoWednesday = ArrayStrWednesday.get(1);
+                CoupleThreeWednesday = ArrayStrWednesday.get(2);
+                CoupleFourWednesday = ArrayStrWednesday.get(3);
+                CoupleFiveWednesday = ArrayStrWednesday.get(4);
+                CoupleSixWednesday = ArrayStrWednesday.get(5);
+                CoupleSevenWednesday = ArrayStrWednesday.get(6);
 
                 Cell cellOneCoupleWednesday = rowfifteen.createCell(numberTeacher);
                 cellOneCoupleWednesday.setCellValue(CoupleOneWednesday);
@@ -545,7 +686,13 @@ public class CreatorTableExelTeachers {
                 Teachers.setColumnWidth(numberTeacher, ColumnWidth);
                 rowTwentyOne.setHeightInPoints(HeightPoints);
 
-            }
+                CoupleOne.clear();
+                CoupleTwo.clear();
+                CoupleThree.clear();
+                CoupleFour.clear();
+                CoupleFive.clear();
+                CoupleSix.clear();
+                CoupleSeven.clear();
 
             // Cell Thursday
 
@@ -561,35 +708,45 @@ public class CreatorTableExelTeachers {
 
                 switch (ArrayThursday.get(index2).GetNumberCouple()) {
                     case (1): {
-                        CoupleOneThursday = CoupleOneThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetTypeWeek() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetGroupName() + " " + ArrayThursday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleOne.add(ArrayThursday.get(index2));
                         break;
                     }
                     case (2): {
-                        CoupleTwoThursday = CoupleTwoThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetTypeWeek() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetGroupName() + " " + ArrayThursday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleTwo.add(ArrayThursday.get(index2));
                         break;
                     }
                     case (3): {
-                        CoupleThreeThursday = CoupleThreeThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetTypeWeek() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetGroupName() + " " + ArrayThursday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleThree.add(ArrayThursday.get(index2));
                         break;
                     }
                     case (4): {
-                        CoupleFourThursday = CoupleFourThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetTypeWeek() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetGroupName() + " " + ArrayThursday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleFour.add(ArrayThursday.get(index2));
                         break;
                     }
                     case (5): {
-                        CoupleFiveThursday = CoupleFiveThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetTypeWeek() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetGroupName() + " " + ArrayThursday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleFive.add(ArrayThursday.get(index2));
                         break;
                     }
                     case (6): {
-                        CoupleSixThursday = CoupleSixThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetTypeWeek() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetGroupName() + " " + ArrayThursday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleSix.add(ArrayThursday.get(index2));
                         break;
                     }
                     case (7): {
-                        CoupleSevenThursday = CoupleSevenThursday + ArrayThursday.get(index2).GetDiscipline() + " (" + ArrayThursday.get(index2).GetTypeWeek() + ")\n" + ArrayThursday.get(index2).GetNumberWeek() + " " + ArrayThursday.get(index2).GetGroupName() + " " + ArrayThursday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleSeven.add(ArrayThursday.get(index2));
                         break;
                     }
                 }
             }
+
+            ArrayList<String> ArrayStrThursday = ConcatCoupleDayWeek(CoupleOne,CoupleTwo,CoupleThree,CoupleFour,CoupleFive,CoupleSix,CoupleSeven);
+
+            CoupleOneThursday = ArrayStrThursday.get(0);
+            CoupleTwoThursday = ArrayStrThursday.get(1);
+            CoupleThreeThursday = ArrayStrThursday.get(2);
+            CoupleFourThursday = ArrayStrThursday.get(3);
+            CoupleFiveThursday = ArrayStrThursday.get(4);
+            CoupleSixThursday = ArrayStrThursday.get(5);
+            CoupleSevenThursday = ArrayStrThursday.get(6);
 
             Cell cellOneCoupleThursday = rowTwentyTwo.createCell(numberTeacher);
             cellOneCoupleThursday.setCellValue(CoupleOneThursday);
@@ -633,6 +790,14 @@ public class CreatorTableExelTeachers {
             Teachers.setColumnWidth(numberTeacher, ColumnWidth);
             rowTwentyEight.setHeightInPoints(HeightPoints);
 
+            CoupleOne.clear();
+            CoupleTwo.clear();
+            CoupleThree.clear();
+            CoupleFour.clear();
+            CoupleFive.clear();
+            CoupleSix.clear();
+            CoupleSeven.clear();
+
             // Cell Friday
 
             String CoupleOneFriday = "";
@@ -647,34 +812,44 @@ public class CreatorTableExelTeachers {
 
                 switch (ArrayFriday.get(index2).GetNumberCouple()) {
                     case (1): {
-                        CoupleOneFriday = CoupleOneFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetTypeWeek() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetGroupName() + " " + ArrayFriday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleOne.add(ArrayFriday.get(index2));
                         break;
                     }
                     case (2): {
-                        CoupleTwoFriday = CoupleTwoFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetTypeWeek() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetGroupName() + " " + ArrayFriday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleTwo.add(ArrayFriday.get(index2));
                         break;
                     }
                     case (3): {
-                        CoupleThreeFriday = CoupleThreeFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetTypeWeek() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetGroupName() + " " + ArrayFriday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleThree.add(ArrayFriday.get(index2));
                         break;
                     }
                     case (4): {
-                        CoupleFourFriday = CoupleFourFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetTypeWeek() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetGroupName() + " " + ArrayFriday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleFour.add(ArrayFriday.get(index2));
                         break;
                     }
                     case (5): {
-                        CoupleFiveFriday = CoupleFiveFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetTypeWeek() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetGroupName() + " " + ArrayFriday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleFive.add(ArrayFriday.get(index2));
                         break;
                     }case (6): {
-                        CoupleSixFriday = CoupleSixFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetTypeWeek() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetGroupName() + " " + ArrayFriday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleSix.add(ArrayFriday.get(index2));
                         break;
                     }
                     case (7): {
-                        CoupleSevenFriday = CoupleSevenFriday + ArrayFriday.get(index2).GetDiscipline() + " (" + ArrayFriday.get(index2).GetTypeWeek() + ")\n" + ArrayFriday.get(index2).GetNumberWeek() + " " + ArrayFriday.get(index2).GetGroupName() + " " + ArrayFriday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleSeven.add(ArrayFriday.get(index2));
                         break;
                     }
                 }
             }
+
+            ArrayList<String> ArrayStrFriday = ConcatCoupleDayWeek(CoupleOne,CoupleTwo,CoupleThree,CoupleFour,CoupleFive,CoupleSix,CoupleSeven);
+
+            CoupleOneFriday = ArrayStrFriday.get(0);
+            CoupleTwoFriday = ArrayStrFriday.get(1);
+            CoupleThreeFriday = ArrayStrFriday.get(2);
+            CoupleFourFriday = ArrayStrFriday.get(3);
+            CoupleFiveFriday = ArrayStrFriday.get(4);
+            CoupleSixFriday = ArrayStrFriday.get(5);
+            CoupleSevenFriday = ArrayStrFriday.get(6);
 
             Cell cellOneCoupleFriday = rowTwentyNine.createCell(numberTeacher);
             cellOneCoupleFriday.setCellValue(CoupleOneFriday);
@@ -718,6 +893,14 @@ public class CreatorTableExelTeachers {
             Teachers.setColumnWidth(numberTeacher, ColumnWidth);
             rowThirtyFive.setHeightInPoints(HeightPoints);
 
+            CoupleOne.clear();
+            CoupleTwo.clear();
+            CoupleThree.clear();
+            CoupleFour.clear();
+            CoupleFive.clear();
+            CoupleSix.clear();
+            CoupleSeven.clear();
+
             // Cell Saturday
 
             String CoupleOneSaturday = "";
@@ -732,35 +915,45 @@ public class CreatorTableExelTeachers {
 
                 switch (ArraySaturday.get(index2).GetNumberCouple()) {
                     case (1): {
-                        CoupleOneSaturday = CoupleOneSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetTypeWeek() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetGroupName() + " " + ArraySaturday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleOne.add(ArraySaturday.get(index2));
                         break;
                     }
                     case (2): {
-                        CoupleTwoSaturday = CoupleTwoSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetTypeWeek() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetGroupName() + " " + ArraySaturday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleTwo.add(ArraySaturday.get(index2));
                         break;
                     }
                     case (3): {
-                        CoupleThreeSaturday = CoupleThreeSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetTypeWeek() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetGroupName() + " " + ArraySaturday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleThree.add(ArraySaturday.get(index2));
                         break;
                     }
                     case (4): {
-                        CoupleFourSaturday = CoupleFourSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetTypeWeek() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetGroupName() + " " + ArraySaturday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleFour.add(ArraySaturday.get(index2));
                         break;
                     }
                     case (5): {
-                        CoupleFiveSaturday = CoupleFiveSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetTypeWeek() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetGroupName() + " " + ArraySaturday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleFive.add(ArraySaturday.get(index2));
                         break;
                     }
                     case (6): {
-                        CoupleSixSaturday = CoupleSixSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetTypeWeek() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetGroupName() + " " + ArraySaturday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleSix.add(ArraySaturday.get(index2));
                         break;
                     }
                     case (7): {
-                        CoupleSevenSaturday = CoupleSevenSaturday + ArraySaturday.get(index2).GetDiscipline() + " (" + ArraySaturday.get(index2).GetTypeWeek() + ")\n" + ArraySaturday.get(index2).GetNumberWeek() + " " + ArraySaturday.get(index2).GetGroupName() + " " + ArraySaturday.get(index2).GetAud() + "\n" + "\n";
+                        CoupleSeven.add(ArraySaturday.get(index2));
                         break;
                     }
                 }
             }
+
+            ArrayList<String> ArrayStrSaturday = ConcatCoupleDayWeek(CoupleOne,CoupleTwo,CoupleThree,CoupleFour,CoupleFive,CoupleSix,CoupleSeven);
+
+            CoupleOneSaturday = ArrayStrSaturday.get(0);
+            CoupleTwoSaturday = ArrayStrSaturday.get(1);
+            CoupleThreeSaturday = ArrayStrSaturday.get(2);
+            CoupleFourSaturday = ArrayStrSaturday.get(3);
+            CoupleFiveSaturday = ArrayStrSaturday.get(4);
+            CoupleSixSaturday = ArrayStrSaturday.get(5);
+            CoupleSevenSaturday = ArrayStrSaturday.get(6);
 
             Cell cellOneCoupleSaturday = rowThirtySix.createCell(numberTeacher);
             cellOneCoupleSaturday.setCellValue(CoupleOneSaturday);
@@ -804,13 +997,23 @@ public class CreatorTableExelTeachers {
             Teachers.setColumnWidth(numberTeacher, ColumnWidth);
             rowFortyTwo.setHeightInPoints(HeightPoints);
 
+            CoupleOne.clear();
+            CoupleTwo.clear();
+            CoupleThree.clear();
+            CoupleFour.clear();
+            CoupleFive.clear();
+            CoupleSix.clear();
+            CoupleSeven.clear();
+
             cell = rowZero.createCell(numberTeacher);
             cell.setCellValue(TeacherName);
             numberTeacher++;
 
         }
 
-        FileOutputStream fileOutputStream = new FileOutputStream("AllTeachersExelDoc");
+        String separator = File.separator;
+
+        FileOutputStream fileOutputStream = new FileOutputStream("TableTeacher(s)" + separator + "AllTeachersExelDoc");
 
         workbookTeachers.write(fileOutputStream);
         workbookTeachers.close();

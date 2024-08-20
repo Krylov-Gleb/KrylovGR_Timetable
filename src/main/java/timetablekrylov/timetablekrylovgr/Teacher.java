@@ -52,7 +52,7 @@ public class Teacher {
     public void CreatorCouples(String Json){
 
         // Using a regular expression, I get teacher classes in Json format.
-        Pattern pattern = Pattern.compile("\"id_day\":\"\\d\",\"number_para\":\"\\d\",\"discipline\":\"[A-zА-я \\.\\-\\/]+\",\"type\":\"[А-яA-z]+\",\"type_week\":\"[А-яA-z]+\",\"aud\":\"[А-я\\. 0-9\\/\\-]+\",\"number_week\":\"([0-9\\/\\,\\-]+|)\",\"comment\":\"(|[A-zА-я\\.\\/\\,\\-])\",\"zaoch\":(true|false),\"name\":\"([A-zА-яё. ]|)\",\"under_group\":\"(|([0-9п\\/г \\,]|)+)\",\"under_group_1\":\"(|([0-9п\\/г \\,]|)+)\",\"under_group_2\":\"(|([0-9п\\/г \\,]|)+)\",\"group_name\":\"(|[А-я\\-\\d\\, ]+)\"");
+        Pattern pattern = Pattern.compile("\"id_day\":\"\\d\",\"number_para\":\"\\d\",\"discipline\":\"[A-zА-я \\.\\-\\/\\(\\)]+\",\"type\":\"[А-яA-z]+\",\"type_week\":\"[А-яA-z]+\",\"aud\":\"[А-я\\. 0-9\\/\\-]+\",\"number_week\":\"([0-9\\/\\,\\-]+|)\",\"comment\":\"(|[A-zА-я\\.\\/\\,\\-])\",\"zaoch\":(true|false),\"name\":\"([A-zА-яё. ]|)\",\"under_group\":\"(|([0-9п\\/г \\,]|)+)\",\"under_group_1\":\"(|([0-9п\\/г \\,]|)+)\",\"under_group_2\":\"(|([0-9п\\/г \\,]|)+)\",\"group_name\":\"(|[А-я\\-\\d\\, ]+)\"");
 
         // I use an expression on a Json string
         Matcher matcher = pattern.matcher(Json);
@@ -75,20 +75,6 @@ public class Teacher {
         // We set the name of the teacher
         SetNameTeacher(Json);
 
-    }
-
-    // The method for getting the teacher's schedule
-    public void GetCoupleTeacher(){
-        System.out.print("\n");
-
-        // Output TeacherName
-        System.out.println(TeacherName);
-        System.out.println("\n");
-
-        // Output values from the ArrayTeacherCouples array (Pairs)
-        for(int i = 0; i < ArrayTeacherCouples.size(); i++){
-            ArrayTeacherCouples.get(i).GetCouple();
-        }
     }
 
     public ArrayList<CoupleTeacher> GetArrayCoupleTeacher(){

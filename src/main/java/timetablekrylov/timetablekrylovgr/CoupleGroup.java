@@ -35,20 +35,6 @@ public class CoupleGroup {
         SetTeacherName(Json);
     }
 
-    // Method for output couple
-    public void GetCouple(){
-        System.out.println("День недели = " + IDDay);
-        System.out.println("Номер пары = " + CoupleNumber);
-        System.out.println("Дисциплина = " + Discipline);
-        System.out.println("Тип занятия = " + CoupleType);
-        System.out.println("Тип недели = " + TypeWeek);
-        System.out.println("Номер аудитории = " + Aud);
-        System.out.println("Недели = " + NumberWeek);
-        System.out.println("Заочная форма = " + Zaoch);
-        System.out.println("Преподаватель = " + TeacherName);
-        System.out.println("\n");
-    }
-
     // Method for changing the IdDay value
     private void SetIdDay(String Json){
 
@@ -105,7 +91,7 @@ public class CoupleGroup {
     private void SetDiscipline(String Json){
 
         // I use regular expressions
-        Pattern pattern = Pattern.compile("\"discipline\":\"[A-zА-яё\\.\\-\\, ]+\"");
+        Pattern pattern = Pattern.compile("\"discipline\":\"[A-zА-я \\.\\-\\/\\(\\)]+\"");
         Matcher matcher = pattern.matcher(Json);
 
         String RegX = "";
@@ -116,7 +102,7 @@ public class CoupleGroup {
         }
 
         // I use regular expressions
-        Pattern pattern1 = Pattern.compile("[А-я\\-\\.\\, ]+");
+        Pattern pattern1 = Pattern.compile("[А-я\\-\\.\\, ]+(\\([А-яA-z\\-\\.\\, ]+\\)|)([А-я\\-\\.\\, ]+|)");
         Matcher matcher1 = pattern1.matcher(RegX);
 
         // Getting the value
@@ -183,7 +169,7 @@ public class CoupleGroup {
     private void SetAud(String Json){
 
         // I use regular expressions
-        Pattern pattern = Pattern.compile("\"aud\":\"[А-я\\. 0-9\\/\\-]+\"");
+        Pattern pattern = Pattern.compile("\"aud\":\"[А-яA-z\\. 0-9\\/\\-]+\"");
         Matcher matcher = pattern.matcher(Json);
 
         String RegX = "";
@@ -209,7 +195,7 @@ public class CoupleGroup {
     private void SetNumberWeek(String Json){
 
         // I use regular expressions
-        Pattern pattern = Pattern.compile("\"number_week\":\"[\\d\\-\\/\\,]+\"");
+        Pattern pattern = Pattern.compile("\"number_week\":\"([0-9\\/\\,\\-]+|)\"");
         Matcher matcher = pattern.matcher(Json);
 
         String RegX = "";
@@ -220,7 +206,7 @@ public class CoupleGroup {
         }
 
         // I use regular expressions
-        Pattern pattern1 = Pattern.compile("[\\d\\-\\/\\,]+");
+        Pattern pattern1 = Pattern.compile("\"([\\d\\-\\/\\,]+|)\"");
         Matcher matcher1 = pattern1.matcher(RegX);
 
         // Getting the value
