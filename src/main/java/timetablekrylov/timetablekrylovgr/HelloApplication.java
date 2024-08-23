@@ -8,7 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import org.apache.poi.ss.formula.functions.T;
+
 
 import java.io.*;
 import java.net.MalformedURLException;
@@ -16,6 +16,8 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -42,6 +44,8 @@ public class HelloApplication extends Application {
         // ArraysCheckBox
         // ---------------------------------------------------------------------------------------
 
+        Comparator<CheckBox> CheckBoxComparator = new ComparatorCheckBox();
+
         // I get an array (Checkbox) of the Faculty of FITR (from ReadGroupFITR)
         ArrayList<CheckBox> ArrayCheckBoxGrFITR = ReadGroupFITR(separator);
         // Setting the CheckBoxes style
@@ -49,30 +53,42 @@ public class HelloApplication extends Application {
         // For the convenience of work, I pass the values to a new variable
         ArrayList<CheckBox> finalArrayCheckBoxGrFITR = ArrayCheckBoxGrFITR;
 
+        Collections.sort(finalArrayCheckBoxGrFITR,CheckBoxComparator);
+
         // I get an array (Checkbox) of the Faculty of SPO (from ReadGroupSPO)
         ArrayList<CheckBox> ArrayCheckBoxGrSPO = ReadGroupSPO(separator);
         ArrayCheckBoxGrSPO = CheckBoxStyleChanges(ArrayCheckBoxGrSPO);
         ArrayList<CheckBox> finalArrayCheckBoxGrSPO = ArrayCheckBoxGrSPO;
+
+        Collections.sort(finalArrayCheckBoxGrSPO,CheckBoxComparator);
 
         // I get an array (Checkbox) of the Faculty of GF (from ReadGroupGF)
         ArrayList<CheckBox> ArrayCheckBoxGF = ReadGroupGF(separator);
         ArrayCheckBoxGF = CheckBoxStyleChanges(ArrayCheckBoxGF);
         ArrayList<CheckBox> finalArrayCheckBoxGF = ArrayCheckBoxGF;
 
+        Collections.sort(finalArrayCheckBoxGF,CheckBoxComparator);
+
         // I get an array (Checkbox) of the Faculty of MSF (from ReadGroupMSF)
         ArrayList<CheckBox> ArrayCheckBoxMSF = ReadGroupMSF(separator);
         ArrayCheckBoxMSF = CheckBoxStyleChanges(ArrayCheckBoxMSF);
         ArrayList<CheckBox> finalArrayCheckBoxMSF = ArrayCheckBoxMSF;
+
+        Collections.sort(finalArrayCheckBoxMSF,CheckBoxComparator);
 
         // I get an array (Checkbox) of the Teachers (from ReadTeacher)
         ArrayList<CheckBox> ArrayCheckBoxTeacher = ReadTeacher(separator);
         ArrayCheckBoxTeacher = CheckBoxStyleChanges(ArrayCheckBoxTeacher);
         ArrayList<CheckBox> finalArrayCheckBoxTeacher = ArrayCheckBoxTeacher;
 
+        Collections.sort(finalArrayCheckBoxTeacher,CheckBoxComparator);
+
         // I get an array (Checkbox) of the Classroom (from ReadClassroom)
         ArrayList<CheckBox> ArrayCheckBoxClassroom = ReadClassroom(separator);
         ArrayCheckBoxClassroom = CheckBoxStyleChanges(ArrayCheckBoxClassroom);
         ArrayList<CheckBox> finalArrayCheckBoxClassroom = ArrayCheckBoxClassroom;
+
+        Collections.sort(finalArrayCheckBoxClassroom,CheckBoxComparator);
 
         // Creating a (head) text
         Label TitleGroup = SetStyleTitle("Расписание групп:");
@@ -99,10 +115,10 @@ public class HelloApplication extends Application {
         ComboBoxBoxFaculty.getItems().addAll("Информационные технологии и радиоэлектроника (ФИТР)","Машиностроительный (МСФ)","Гуманитарный (ГФ)","Определение среднего профессионального образования (СПО)");
 
         // Adding the hbox layout to control the choicebox
-        HBox ChoiceBoxControl = new HBox();
-        ChoiceBoxControl.setAlignment(Pos.CENTER);
-        ChoiceBoxControl.getChildren().add(ComboBoxBoxFaculty);
-        ChoiceBoxControl.setPadding(new Insets(-20,-20,-20,-20));
+        HBox ComboBoxControl = new HBox();
+        ComboBoxControl.setAlignment(Pos.CENTER);
+        ComboBoxControl.getChildren().add(ComboBoxBoxFaculty);
+        ComboBoxControl.setPadding(new Insets(-20,-20,-20,-20));
 
         // --------------------------------------------------------------------------------------
 
@@ -159,7 +175,7 @@ public class HelloApplication extends Application {
         // Creating a vbox to add all the elements scene
         VBox VBoxGroup  = new VBox(50);
         VBoxGroup.setAlignment(Pos.BASELINE_CENTER);
-        VBoxGroup.getChildren().addAll(TitleGroup,ButtonHBoxGroup,ChoiceBoxControl,GroupScrollPane,BottomMenuTimeTableControl);
+        VBoxGroup.getChildren().addAll(TitleGroup,ButtonHBoxGroup,ComboBoxControl,GroupScrollPane,BottomMenuTimeTableControl);
 
         // Creating a group scene
         Scene sceneGroup = new Scene(VBoxGroup,1300,900);
@@ -204,6 +220,10 @@ public class HelloApplication extends Application {
         TextFieldYearTeacher.setMinSize(468,40);
         TextFieldYearTeacher.setMaxSize(468,40);
 
+        CheckBox checkBoxDistantFalse = new CheckBox();
+        checkBoxDistantFalse.setText("Не учитывать заочную форму");
+        checkBoxDistantFalse.setFont(new Font("Arial",15));
+
         // Creating a button for creating a schedule
         Button buttonCreatorTimeTableTeacherOne = CreatorButtonCreatorTimetable("Создать индивидуальное расписание",ButtonFontSize);
 
@@ -211,7 +231,7 @@ public class HelloApplication extends Application {
         Button buttonCreatorTimeTableTeacherTwo = CreatorButtonCreatorTimetable("Создать групповое расписание",ButtonFontSize);
 
         // I use the function to form the bottom menu (CreatorBottomMenu)
-        VBox BottomMenuTimeTableControlTeacher = CreatorBottomMenu(ComboBoxSemesterTeacher,TextFieldYearTeacher,buttonCreatorTimeTableTeacherOne,buttonCreatorTimeTableTeacherTwo);
+        VBox BottomMenuTimeTableControlTeacher = CreatorBottomMenuTeacher(ComboBoxSemesterTeacher,TextFieldYearTeacher,checkBoxDistantFalse,buttonCreatorTimeTableTeacherOne,buttonCreatorTimeTableTeacherTwo);
 
         // Creating the final template for the teachers' scene
         VBox VBoxTeacher = new VBox(50);
@@ -368,7 +388,7 @@ public class HelloApplication extends Application {
         buttonCreatorTimeTableTeacherOne.setOnAction(Event -> {
             try {
                 String Json = CreatorURLTeacherOne(finalArrayCheckBoxTeacher,ComboBoxSemesterTeacher,TextFieldYearTeacher);
-                Teacher teacher = new Teacher();
+                Teacher teacher = new Teacher(checkBoxDistantFalse.isSelected());
                 teacher.CreatorCouples(Json);
 
                 CreatorTableExelTeacher creatorTableExelTeacher = new CreatorTableExelTeacher();
@@ -386,7 +406,7 @@ public class HelloApplication extends Application {
                 ArrayList<Teacher> ArrayTeacher = new ArrayList<>();
 
                 for(int i = 0; i < ArrayJsonTeachers.size(); i++){
-                    ArrayTeacher.add(new Teacher());
+                    ArrayTeacher.add(new Teacher(checkBoxDistantFalse.isSelected()));
                 }
 
                 for(int i = 0; i < ArrayTeacher.size(); i++){
@@ -710,7 +730,6 @@ public class HelloApplication extends Application {
         return comboBox;
     }
 
-    // Method for creating ПкшвЗфту
     public GridPane CreatorGridPaneCheckBox(ArrayList<CheckBox> Array){
 
         GridPane gridPane = new GridPane();
@@ -1185,21 +1204,23 @@ public class HelloApplication extends Application {
     // Method for creating Bottom Menu
     public VBox CreatorBottomMenu(ComboBox<String> choiceBox,TextField textField,Button button1,Button button2){
 
-        VBox ControlChoiceBox = new VBox();
-        ControlChoiceBox.setAlignment(Pos.CENTER);
-        ControlChoiceBox.setPadding(new Insets(-60,-60,-60,-60));
-        ControlChoiceBox.getChildren().addAll(choiceBox);
-
-        VBox ControlTextFieldYearGroup = new VBox(10);
-        ControlTextFieldYearGroup.setAlignment(Pos.CENTER);
-        ControlTextFieldYearGroup.setPadding(new Insets(-60,-60,-60,-60));
-        ControlTextFieldYearGroup.getChildren().addAll(textField);
-
         // Adding the hbox layout to control the button(buttonCreatorTimeTable)
-        VBox BottomMenuTimeTableControl = new VBox(10);
+        VBox BottomMenuTimeTableControl = new VBox(15);
         BottomMenuTimeTableControl.setAlignment(Pos.CENTER);
         BottomMenuTimeTableControl.setPadding(new Insets(-100,-100,-100,-100));
         BottomMenuTimeTableControl.getChildren().addAll(choiceBox,textField,button1,button2);
+
+        return BottomMenuTimeTableControl;
+    }
+
+    // Method for creating Bottom Menu
+    public VBox CreatorBottomMenuTeacher(ComboBox<String> choiceBox,TextField textField,CheckBox checkBoxDistantFalse,Button button1,Button button2){
+
+        // Adding the hbox layout to control the button(buttonCreatorTimeTable)
+        VBox BottomMenuTimeTableControl = new VBox(15);
+        BottomMenuTimeTableControl.setAlignment(Pos.CENTER);
+        BottomMenuTimeTableControl.setPadding(new Insets(-120,-120,-120,-120));
+        BottomMenuTimeTableControl.getChildren().addAll(choiceBox,textField,checkBoxDistantFalse,button1,button2);
 
         return BottomMenuTimeTableControl;
     }

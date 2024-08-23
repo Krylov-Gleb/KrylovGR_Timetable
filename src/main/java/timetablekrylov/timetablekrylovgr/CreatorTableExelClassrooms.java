@@ -9,11 +9,15 @@ import org.apache.poi.ss.util.CellRangeAddress;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class CreatorTableExelClassrooms {
 
     private Workbook workbookClassroom = new HSSFWorkbook();
+
+    String Aud = "";
 
     private Sheet Classroom = workbookClassroom.createSheet("Аудитории");
 
@@ -176,64 +180,64 @@ public class CreatorTableExelClassrooms {
 
         for(int i = 0; i < CoupleOne.size(); i++){
             if(i < CoupleOne.size()-1) {
-                CoupleOneDayWeekOne = CoupleOneDayWeekOne + CoupleOne.get(i).GetDiscipline() + " (" + CoupleOne.get(i).GetCoupleType() + ")\n" + CoupleOne.get(i).GetNumberWeek() + " " + CoupleOne.get(i).GetTeacherName() + " " + CoupleOne.get(i).GetAud() + "\n" + "\n";
+                CoupleOneDayWeekOne = CoupleOneDayWeekOne + CoupleOne.get(i).GetDiscipline() + " (" + CoupleOne.get(i).GetCoupleType() + ")\n" + "недели. " + CoupleOne.get(i).GetNumberWeek() + " " + CoupleOne.get(i).GetTeacherName() + " " + CoupleOne.get(i).GetAud() + " подгруппы. " + CoupleOne.get(i).GetUnderGroup() + "\n" + "\n";
             }
             else{
-                CoupleOneDayWeekOne = CoupleOneDayWeekOne + CoupleOne.get(i).GetDiscipline() + " (" + CoupleOne.get(i).GetCoupleType() + ")\n" + CoupleOne.get(i).GetNumberWeek() + " " + CoupleOne.get(i).GetTeacherName() + " " + CoupleOne.get(i).GetAud();
+                CoupleOneDayWeekOne = CoupleOneDayWeekOne + CoupleOne.get(i).GetDiscipline() + " (" + CoupleOne.get(i).GetCoupleType() + ")\n" + "недели. " + CoupleOne.get(i).GetNumberWeek() + " " + CoupleOne.get(i).GetTeacherName() + " " + CoupleOne.get(i).GetAud() + " подгруппы. " + CoupleOne.get(i).GetUnderGroup();
             }
         }
 
         for(int i = 0; i < CoupleTwo.size(); i++){
             if(i < CoupleTwo.size()-1) {
-                CoupleTwoDayWeekTwo = CoupleTwoDayWeekTwo + CoupleTwo.get(i).GetDiscipline() + " (" + CoupleTwo.get(i).GetCoupleType() + ")\n" + CoupleTwo.get(i).GetNumberWeek() + " " + CoupleTwo.get(i).GetTeacherName() + " " + CoupleTwo.get(i).GetAud() + "\n" + "\n";
+                CoupleTwoDayWeekTwo = CoupleTwoDayWeekTwo + CoupleTwo.get(i).GetDiscipline() + " (" + CoupleTwo.get(i).GetCoupleType() + ")\n" + "недели. " + CoupleTwo.get(i).GetNumberWeek() + " " + CoupleTwo.get(i).GetTeacherName() + " " + CoupleTwo.get(i).GetAud() + " подгруппы. " + CoupleTwo.get(i).GetUnderGroup() + "\n" + "\n";
             }
             else{
-                CoupleTwoDayWeekTwo = CoupleTwoDayWeekTwo + CoupleTwo.get(i).GetDiscipline() + " (" + CoupleTwo.get(i).GetCoupleType() + ")\n" + CoupleTwo.get(i).GetNumberWeek() + " " + CoupleTwo.get(i).GetTeacherName() + " " + CoupleTwo.get(i).GetAud();
+                CoupleTwoDayWeekTwo = CoupleTwoDayWeekTwo + CoupleTwo.get(i).GetDiscipline() + " (" + CoupleTwo.get(i).GetCoupleType() + ")\n" + "недели. " + CoupleTwo.get(i).GetNumberWeek() + " " + CoupleTwo.get(i).GetTeacherName() + " " + CoupleTwo.get(i).GetAud() + " подгруппы. " + CoupleTwo.get(i).GetUnderGroup();
             }
         }
 
         for(int i = 0; i < CoupleThree.size(); i++){
             if(i < CoupleThree.size()-1) {
-                CoupleThreeDayWeekThree = CoupleThreeDayWeekThree + CoupleThree.get(i).GetDiscipline() + " (" + CoupleThree.get(i).GetCoupleType() + ")\n" + CoupleThree.get(i).GetNumberWeek() + " " + CoupleThree.get(i).GetTeacherName() + " " + CoupleThree.get(i).GetAud() + "\n" + "\n";
+                CoupleThreeDayWeekThree = CoupleThreeDayWeekThree + CoupleThree.get(i).GetDiscipline() + " (" + CoupleThree.get(i).GetCoupleType() + ")\n" + "недели. " + CoupleThree.get(i).GetNumberWeek() + " " + CoupleThree.get(i).GetTeacherName() + " " + CoupleThree.get(i).GetAud() + " подгруппы. " + CoupleThree.get(i).GetUnderGroup() + "\n" + "\n";
             }
             else{
-                CoupleThreeDayWeekThree = CoupleThreeDayWeekThree + CoupleThree.get(i).GetDiscipline() + " (" + CoupleThree.get(i).GetCoupleType() + ")\n" + CoupleThree.get(i).GetNumberWeek() + " " + CoupleThree.get(i).GetTeacherName() + " " + CoupleThree.get(i).GetAud();
+                CoupleThreeDayWeekThree = CoupleThreeDayWeekThree + CoupleThree.get(i).GetDiscipline() + " (" + CoupleThree.get(i).GetCoupleType() + ")\n" + "недели. " + CoupleThree.get(i).GetNumberWeek() + " " + CoupleThree.get(i).GetTeacherName() + " " + CoupleThree.get(i).GetAud() + " подгруппы. " + CoupleThree.get(i).GetUnderGroup();
             }
         }
 
         for(int i = 0; i < CoupleFour.size(); i++){
             if(i < CoupleFour.size()-1) {
-                CoupleFourDayWeekFour = CoupleFourDayWeekFour + CoupleFour.get(i).GetDiscipline() + " (" + CoupleFour.get(i).GetCoupleType() + ")\n" + CoupleFour.get(i).GetNumberWeek() + " " + CoupleFour.get(i).GetTeacherName() + " " + CoupleFour.get(i).GetAud() + "\n" + "\n";
+                CoupleFourDayWeekFour = CoupleFourDayWeekFour + CoupleFour.get(i).GetDiscipline() + " (" + CoupleFour.get(i).GetCoupleType() + ")\n" + "недели. " + CoupleFour.get(i).GetNumberWeek() + " " + CoupleFour.get(i).GetTeacherName() + " " + CoupleFour.get(i).GetAud() + " подгруппы. " + CoupleFour.get(i).GetUnderGroup() + "\n" + "\n";
             }
             else{
-                CoupleFourDayWeekFour = CoupleFourDayWeekFour + CoupleFour.get(i).GetDiscipline() + " (" + CoupleFour.get(i).GetCoupleType() + ")\n" + CoupleFour.get(i).GetNumberWeek() + " " + CoupleFour.get(i).GetTeacherName() + " " + CoupleFour.get(i).GetAud();
+                CoupleFourDayWeekFour = CoupleFourDayWeekFour + CoupleFour.get(i).GetDiscipline() + " (" + CoupleFour.get(i).GetCoupleType() + ")\n" + "недели. " + CoupleFour.get(i).GetNumberWeek() + " " + CoupleFour.get(i).GetTeacherName() + " " + CoupleFour.get(i).GetAud() + " подгруппы. " + CoupleFour.get(i).GetUnderGroup();
             }
         }
 
         for(int i = 0; i < CoupleFive.size(); i++){
             if(i < CoupleFive.size()-1) {
-                CoupleFiveDayWeekFive = CoupleFiveDayWeekFive + CoupleFive.get(i).GetDiscipline() + " (" + CoupleFive.get(i).GetCoupleType() + ")\n" + CoupleFive.get(i).GetNumberWeek() + " " + CoupleFive.get(i).GetTeacherName() + " " + CoupleFive.get(i).GetAud() + "\n" + "\n";
+                CoupleFiveDayWeekFive = CoupleFiveDayWeekFive + CoupleFive.get(i).GetDiscipline() + " (" + CoupleFive.get(i).GetCoupleType() + ")\n" + "недели. " + CoupleFive.get(i).GetNumberWeek() + " " + CoupleFive.get(i).GetTeacherName() + " " + CoupleFive.get(i).GetAud() + " подгруппы. " + CoupleFive.get(i).GetUnderGroup() + "\n" + "\n";
             }
             else{
-                CoupleFiveDayWeekFive = CoupleFiveDayWeekFive + CoupleFive.get(i).GetDiscipline() + " (" + CoupleFive.get(i).GetCoupleType() + ")\n" + CoupleFive.get(i).GetNumberWeek() + " " + CoupleFive.get(i).GetTeacherName() + " " + CoupleFive.get(i).GetAud();
+                CoupleFiveDayWeekFive = CoupleFiveDayWeekFive + CoupleFive.get(i).GetDiscipline() + " (" + CoupleFive.get(i).GetCoupleType() + ")\n" + "недели. " + CoupleFive.get(i).GetNumberWeek() + " " + CoupleFive.get(i).GetTeacherName() + " " + CoupleFive.get(i).GetAud() + " подгруппы. " + CoupleFive.get(i).GetUnderGroup();
             }
         }
 
         for(int i = 0; i < CoupleSix.size(); i++){
             if(i < CoupleSix.size()-1) {
-                CoupleSixDayWeekSix = CoupleSixDayWeekSix + CoupleSix.get(i).GetDiscipline() + " (" + CoupleSix.get(i).GetCoupleType() + ")\n" + CoupleSix.get(i).GetNumberWeek() + " " + CoupleSix.get(i).GetTeacherName() + " " + CoupleSix.get(i).GetAud() + "\n" + "\n";
+                CoupleSixDayWeekSix = CoupleSixDayWeekSix + CoupleSix.get(i).GetDiscipline() + " (" + CoupleSix.get(i).GetCoupleType() + ")\n" + "недели. " + CoupleSix.get(i).GetNumberWeek() + " " + CoupleSix.get(i).GetTeacherName() + " " + CoupleSix.get(i).GetAud() + " подгруппы. " + CoupleSix.get(i).GetUnderGroup() + "\n" + "\n";
             }
             else{
-                CoupleSixDayWeekSix = CoupleSixDayWeekSix + CoupleSix.get(i).GetDiscipline() + " (" + CoupleSix.get(i).GetCoupleType() + ")\n" + CoupleSix.get(i).GetNumberWeek() + " " + CoupleSix.get(i).GetTeacherName() + " " + CoupleSix.get(i).GetAud();
+                CoupleSixDayWeekSix = CoupleSixDayWeekSix + CoupleSix.get(i).GetDiscipline() + " (" + CoupleSix.get(i).GetCoupleType() + ")\n" + "недели. " + CoupleSix.get(i).GetNumberWeek() + " " + CoupleSix.get(i).GetTeacherName() + " " + CoupleSix.get(i).GetAud() + " подгруппы. " + CoupleSix.get(i).GetUnderGroup();
             }
         }
 
         for(int i = 0; i < CoupleSeven.size(); i++){
             if(i < CoupleSeven.size()-1) {
-                CoupleSevenDayWeekSeven = CoupleSevenDayWeekSeven + CoupleSeven.get(i).GetDiscipline() + " (" + CoupleSeven.get(i).GetCoupleType() + ")\n" + CoupleSeven.get(i).GetNumberWeek() + " " + CoupleSeven.get(i).GetTeacherName() + " " + CoupleSeven.get(i).GetAud() + "\n" + "\n";
+                CoupleSevenDayWeekSeven = CoupleSevenDayWeekSeven + CoupleSeven.get(i).GetDiscipline() + " (" + CoupleSeven.get(i).GetCoupleType() + ")\n" + "недели. " + CoupleSeven.get(i).GetNumberWeek() + " " + CoupleSeven.get(i).GetTeacherName() + " " + CoupleSeven.get(i).GetAud() + " подгруппы. " + CoupleSeven.get(i).GetUnderGroup() + "\n" + "\n";
             }
             else{
-                CoupleSevenDayWeekSeven = CoupleSevenDayWeekSeven + CoupleSeven.get(i).GetDiscipline() + " (" + CoupleSeven.get(i).GetCoupleType() + ")\n" + CoupleSeven.get(i).GetNumberWeek() + " " + CoupleSeven.get(i).GetTeacherName() + " " + CoupleSeven.get(i).GetAud();
+                CoupleSevenDayWeekSeven = CoupleSevenDayWeekSeven + CoupleSeven.get(i).GetDiscipline() + " (" + CoupleSeven.get(i).GetCoupleType() + ")\n" + "недели. " + CoupleSeven.get(i).GetNumberWeek() + " " + CoupleSeven.get(i).GetTeacherName() + " " + CoupleSeven.get(i).GetAud() + " подгруппы. " + CoupleSeven.get(i).GetUnderGroup();
             }
         }
 
@@ -261,23 +265,6 @@ public class CreatorTableExelClassrooms {
         ArrayList<CoupleGroup> CoupleFive = new ArrayList<>();
         ArrayList<CoupleGroup> CoupleSix = new ArrayList<>();
         ArrayList<CoupleGroup> CoupleSeven = new ArrayList<>();
-
-
-//        int HeightOneCouple = HeightPoints;
-//        int HeightTwoCouple = HeightPoints;
-//        int HeightThreeCouple = HeightPoints;
-//        int HeightFourCouple = HeightPoints;
-//        int HeightFiveCouple = HeightPoints;
-//        int HeightSixCouple = HeightPoints;
-//        int HeightSevenCouple = HeightPoints;
-//
-//        int MaxHeightOneCouple = UserMaxHeightOneCouple;
-//        int MaxHeightTwoCouple = UserMaxHeightTwoCouple;
-//        int MaxHeightThreeCouple = UserMaxHeightThreeCouple;
-//        int MaxHeightFourCouple = UserMaxHeightFourCouple;
-//        int MaxHeightFiveCouple = UserMaxHeightFiveCouple;
-//        int MaxHeightSixCouple = UserMaxHeightSixCouple;
-//        int MaxHeightSevenCouple = UserMaxHeightSevenCouple;
 
         CellStyle cellStyle = workbookClassroom.createCellStyle();
         cellStyle.setWrapText(true);
@@ -1290,50 +1277,32 @@ public class CreatorTableExelClassrooms {
 
         for(int i = 0; i < ArrayCouple.size(); i++){
             switch(ArrayCouple.get(i).GetAud()){
-                case ("410/2"):{
+                case ("\"ауд. 410/2\""):{
                     Array410.add(ArrayCouple.get(i));
                     break;
                 }
-                case("411/2"):{
+                case("\"ауд. 411/2\""):{
                     Array411.add(ArrayCouple.get(i));
                     break;
                 }
-                case("413/2"):{
+                case("\"ауд. 413/2\""):{
                     Array413.add(ArrayCouple.get(i));
                     break;
                 }
-                case ("416/2"):{
+                case ("\"ауд. 416/2\""):{
                     Array416.add(ArrayCouple.get(i));
                     break;
                 }
-                case("417/2"):{
+                case("\"ауд. 417/2\""):{
                     Array417.add(ArrayCouple.get(i));
                     break;
                 }
             }
         }
 
-        int HeightOneCouple = 0;
-        int HeightTwoCouple = 0;
-        int HeightThreeCouple = 0;
-        int HeightFourCouple= 0;
-        int HeightFiveCouple = 0;
-        int HeightSixCouple = 0;
-        int HeightSevenCouple = 0;
-
         int ClassroomNumber = 2;
 
         for(int i = 0; i < ArrayClassroomCheckBox.size(); i++){
-
-            if(i == 0){
-                HeightOneCouple = 40;
-                HeightTwoCouple = 40;
-                HeightThreeCouple = 40;
-                HeightFourCouple = 40;
-                HeightFiveCouple = 40;
-                HeightSixCouple = 40;
-                HeightSevenCouple = 40;
-            }
 
             if(ArrayClassroomCheckBox.get(i).isSelected()) {
 
@@ -1394,13 +1363,41 @@ public class CreatorTableExelClassrooms {
 //                    HeightSixCouple = Array.get(5);
 //                    HeightSevenCouple = Array.get(6);
                 }
+
+                switch(ArrayClassroomCheckBox.get(i).getText()){
+                    case ("410/2"):{
+                        Aud = Aud + "410 ";
+                        break;
+                    }
+                    case("411/2"):{
+                        Aud = Aud + "411 ";
+                        break;
+                    }
+                    case("413/2"):{
+                        Aud = Aud + "413 ";
+                        break;
+                    }
+                    case ("416/2"):{
+                        Aud = Aud + "416 ";
+                        break;
+                    }
+                    case("417/2"):{
+                        Aud = Aud + "417 ";
+                        break;
+                    }
+                }
+
                 ClassroomNumber++;
             }
         }
 
         String separator = File.separator;
 
-        FileOutputStream fileOutputStream = new FileOutputStream("TableClassroom(s)" + separator + "AllClassroomExelDoc");
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+        File fileDate = new File(simpleDateFormat.format(date));
+
+        FileOutputStream fileOutputStream = new FileOutputStream("TableClassroom(s)" + separator + "Few Classroom" + separator + "Аудитории " + Aud + "(" + fileDate + ")");
 
         workbookClassroom.write(fileOutputStream);
         fileOutputStream.close();

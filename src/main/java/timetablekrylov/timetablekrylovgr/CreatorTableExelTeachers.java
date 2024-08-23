@@ -7,9 +7,13 @@ import org.apache.poi.ss.util.CellRangeAddress;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class CreatorTableExelTeachers {
+
+    String TeacherNames = "";
 
     private Workbook workbookTeachers = new HSSFWorkbook();
 
@@ -173,64 +177,64 @@ public class CreatorTableExelTeachers {
 
         for(int i = 0; i < CoupleOne.size(); i++){
             if(i < CoupleOne.size()-1) {
-                CoupleOneDayWeekOne = CoupleOneDayWeekOne + CoupleOne.get(i).GetDiscipline() + " (" + CoupleOne.get(i).GetType() + ")\n" + CoupleOne.get(i).GetNumberWeek() + " " + CoupleOne.get(i).GetGroupName() + " " + CoupleOne.get(i).GetAud() + "\n" + "\n";
+                CoupleOneDayWeekOne = CoupleOneDayWeekOne + CoupleOne.get(i).GetDiscipline() + " (" + CoupleOne.get(i).GetType() + ")\n" + "недели. " + CoupleOne.get(i).GetNumberWeek() + " " + CoupleOne.get(i).GetGroupName() + " " + CoupleOne.get(i).GetAud() + " подгруппы. " + CoupleOne.get(i).GetUnderGroup() + "\n" + "\n";
             }
             else{
-                CoupleOneDayWeekOne = CoupleOneDayWeekOne + CoupleOne.get(i).GetDiscipline() + " (" + CoupleOne.get(i).GetType() + ")\n" + CoupleOne.get(i).GetNumberWeek() + " " + CoupleOne.get(i).GetGroupName() + " " + CoupleOne.get(i).GetAud();
+                CoupleOneDayWeekOne = CoupleOneDayWeekOne + CoupleOne.get(i).GetDiscipline() + " (" + CoupleOne.get(i).GetType() + ")\n" + "недели. " + CoupleOne.get(i).GetNumberWeek() + " " + CoupleOne.get(i).GetGroupName() + " " + CoupleOne.get(i).GetAud() + " подгруппы. " + CoupleOne.get(i).GetUnderGroup();
             }
         }
 
         for(int i = 0; i < CoupleTwo.size(); i++){
             if(i < CoupleTwo.size()-1) {
-                CoupleTwoDayWeekTwo = CoupleTwoDayWeekTwo + CoupleTwo.get(i).GetDiscipline() + " (" + CoupleTwo.get(i).GetType() + ")\n" + CoupleTwo.get(i).GetNumberWeek() + " " + CoupleTwo.get(i).GetGroupName() + " " + CoupleTwo.get(i).GetAud() + "\n" + "\n";
+                CoupleTwoDayWeekTwo = CoupleTwoDayWeekTwo + CoupleTwo.get(i).GetDiscipline() + " (" + CoupleTwo.get(i).GetType() + ")\n" + "недели. " + CoupleTwo.get(i).GetNumberWeek() + " " + CoupleTwo.get(i).GetGroupName() + " " + CoupleTwo.get(i).GetAud() + " подгруппы. " + CoupleTwo.get(i).GetUnderGroup() + "\n" + "\n";
             }
             else{
-                CoupleTwoDayWeekTwo = CoupleTwoDayWeekTwo + CoupleTwo.get(i).GetDiscipline() + " (" + CoupleTwo.get(i).GetType() + ")\n" + CoupleTwo.get(i).GetNumberWeek() + " " + CoupleTwo.get(i).GetGroupName() + " " + CoupleTwo.get(i).GetAud();
+                CoupleTwoDayWeekTwo = CoupleTwoDayWeekTwo + CoupleTwo.get(i).GetDiscipline() + " (" + CoupleTwo.get(i).GetType() + ")\n" + "недели. " + CoupleTwo.get(i).GetNumberWeek() + " " + CoupleTwo.get(i).GetGroupName() + " " + CoupleTwo.get(i).GetAud() + " подгруппы. " + CoupleTwo.get(i).GetUnderGroup();
             }
         }
 
         for(int i = 0; i < CoupleThree.size(); i++){
             if(i < CoupleThree.size()-1) {
-                CoupleThreeDayWeekThree = CoupleThreeDayWeekThree + CoupleThree.get(i).GetDiscipline() + " (" + CoupleThree.get(i).GetType() + ")\n" + CoupleThree.get(i).GetNumberWeek() + " " + CoupleThree.get(i).GetGroupName() + " " + CoupleThree.get(i).GetAud() + "\n" + "\n";
+                CoupleThreeDayWeekThree = CoupleThreeDayWeekThree + CoupleThree.get(i).GetDiscipline() + " (" + CoupleThree.get(i).GetType() + ")\n" + "недели. " + CoupleThree.get(i).GetNumberWeek() + " " + CoupleThree.get(i).GetGroupName() + " " + CoupleThree.get(i).GetAud() + " подгруппы. " + CoupleThree.get(i).GetUnderGroup() + "\n" + "\n";
             }
             else{
-                CoupleThreeDayWeekThree = CoupleThreeDayWeekThree + CoupleThree.get(i).GetDiscipline() + " (" + CoupleThree.get(i).GetType() + ")\n" + CoupleThree.get(i).GetNumberWeek() + " " + CoupleThree.get(i).GetGroupName() + " " + CoupleThree.get(i).GetAud();
+                CoupleThreeDayWeekThree = CoupleThreeDayWeekThree + CoupleThree.get(i).GetDiscipline() + " (" + CoupleThree.get(i).GetType() + ")\n" + "недели. " + CoupleThree.get(i).GetNumberWeek() + " " + CoupleThree.get(i).GetGroupName() + " " + CoupleThree.get(i).GetAud() + " подгруппы. " + CoupleThree.get(i).GetUnderGroup();
             }
         }
 
         for(int i = 0; i < CoupleFour.size(); i++){
             if(i < CoupleFour.size()-1) {
-                CoupleFourDayWeekFour = CoupleFourDayWeekFour + CoupleFour.get(i).GetDiscipline() + " (" + CoupleFour.get(i).GetType() + ")\n" + CoupleFour.get(i).GetNumberWeek() + " " + CoupleFour.get(i).GetGroupName() + " " + CoupleFour.get(i).GetAud() + "\n" + "\n";
+                CoupleFourDayWeekFour = CoupleFourDayWeekFour + CoupleFour.get(i).GetDiscipline() + " (" + CoupleFour.get(i).GetType() + ")\n" + "недели. " + CoupleFour.get(i).GetNumberWeek() + " " + CoupleFour.get(i).GetGroupName() + " " + CoupleFour.get(i).GetAud() + " подгруппы. " + CoupleFour.get(i).GetUnderGroup() + "\n" + "\n";
             }
             else{
-                CoupleFourDayWeekFour = CoupleFourDayWeekFour + CoupleFour.get(i).GetDiscipline() + " (" + CoupleFour.get(i).GetType() + ")\n" + CoupleFour.get(i).GetNumberWeek() + " " + CoupleFour.get(i).GetGroupName() + " " + CoupleFour.get(i).GetAud();
+                CoupleFourDayWeekFour = CoupleFourDayWeekFour + CoupleFour.get(i).GetDiscipline() + " (" + CoupleFour.get(i).GetType() + ")\n" + "недели. " + CoupleFour.get(i).GetNumberWeek() + " " + CoupleFour.get(i).GetGroupName() + " " + CoupleFour.get(i).GetAud() + " подгруппы. " + CoupleFour.get(i).GetUnderGroup();
             }
         }
 
         for(int i = 0; i < CoupleFive.size(); i++){
             if(i < CoupleFive.size()-1) {
-                CoupleFiveDayWeekFive = CoupleFiveDayWeekFive + CoupleFive.get(i).GetDiscipline() + " (" + CoupleFive.get(i).GetType() + ")\n" + CoupleFive.get(i).GetNumberWeek() + " " + CoupleFive.get(i).GetGroupName() + " " + CoupleFive.get(i).GetAud() + "\n" + "\n";
+                CoupleFiveDayWeekFive = CoupleFiveDayWeekFive + CoupleFive.get(i).GetDiscipline() + " (" + CoupleFive.get(i).GetType() + ")\n" + "недели. " + CoupleFive.get(i).GetNumberWeek() + " " + CoupleFive.get(i).GetGroupName() + " " + CoupleFive.get(i).GetAud() + " подгруппы. " + CoupleFive.get(i).GetUnderGroup() + "\n" + "\n";
             }
             else{
-                CoupleFiveDayWeekFive = CoupleFiveDayWeekFive + CoupleFive.get(i).GetDiscipline() + " (" + CoupleFive.get(i).GetType() + ")\n" + CoupleFive.get(i).GetNumberWeek() + " " + CoupleFive.get(i).GetGroupName() + " " + CoupleFive.get(i).GetAud();
+                CoupleFiveDayWeekFive = CoupleFiveDayWeekFive + CoupleFive.get(i).GetDiscipline() + " (" + CoupleFive.get(i).GetType() + ")\n" + "недели. " + CoupleFive.get(i).GetNumberWeek() + " " + CoupleFive.get(i).GetGroupName() + " " + CoupleFive.get(i).GetAud() + " подгруппы. " + CoupleFive.get(i).GetUnderGroup();
             }
         }
 
         for(int i = 0; i < CoupleSix.size(); i++){
             if(i < CoupleSix.size()-1) {
-                CoupleSixDayWeekSix = CoupleSixDayWeekSix + CoupleSix.get(i).GetDiscipline() + " (" + CoupleSix.get(i).GetType() + ")\n" + CoupleSix.get(i).GetNumberWeek() + " " + CoupleSix.get(i).GetGroupName() + " " + CoupleSix.get(i).GetAud() + "\n" + "\n";
+                CoupleSixDayWeekSix = CoupleSixDayWeekSix + CoupleSix.get(i).GetDiscipline() + " (" + CoupleSix.get(i).GetType() + ")\n" + "недели. " + CoupleSix.get(i).GetNumberWeek() + " " + CoupleSix.get(i).GetGroupName() + " " + CoupleSix.get(i).GetAud() + " подгруппы. " + CoupleSix.get(i).GetUnderGroup() + "\n" + "\n";
             }
             else{
-                CoupleSixDayWeekSix = CoupleSixDayWeekSix + CoupleSix.get(i).GetDiscipline() + " (" + CoupleSix.get(i).GetType() + ")\n" + CoupleSix.get(i).GetNumberWeek() + " " + CoupleSix.get(i).GetGroupName() + " " + CoupleSix.get(i).GetAud();
+                CoupleSixDayWeekSix = CoupleSixDayWeekSix + CoupleSix.get(i).GetDiscipline() + " (" + CoupleSix.get(i).GetType() + ")\n" + "недели. " + CoupleSix.get(i).GetNumberWeek() + " " + CoupleSix.get(i).GetGroupName() + " " + CoupleSix.get(i).GetAud() + " подгруппы. " + CoupleSix.get(i).GetUnderGroup();
             }
         }
 
         for(int i = 0; i < CoupleSeven.size(); i++){
             if(i < CoupleSeven.size()-1) {
-                CoupleSevenDayWeekSeven = CoupleSevenDayWeekSeven + CoupleSeven.get(i).GetDiscipline() + " (" + CoupleSeven.get(i).GetType() + ")\n" + CoupleSeven.get(i).GetNumberWeek() + " " + CoupleSeven.get(i).GetGroupName() + " " + CoupleSeven.get(i).GetAud() + "\n" + "\n";
+                CoupleSevenDayWeekSeven = CoupleSevenDayWeekSeven + CoupleSeven.get(i).GetDiscipline() + " (" + CoupleSeven.get(i).GetType() + ")\n" + "недели. " + CoupleSeven.get(i).GetNumberWeek() + " " + CoupleSeven.get(i).GetGroupName() + " " + CoupleSeven.get(i).GetAud() + " подгруппы. " + CoupleSeven.get(i).GetUnderGroup() + "\n" + "\n";
             }
             else{
-                CoupleSevenDayWeekSeven = CoupleSevenDayWeekSeven + CoupleSeven.get(i).GetDiscipline() + " (" + CoupleSeven.get(i).GetType() + ")\n" + CoupleSeven.get(i).GetNumberWeek() + " " + CoupleSeven.get(i).GetGroupName() + " " + CoupleSeven.get(i).GetAud();
+                CoupleSevenDayWeekSeven = CoupleSevenDayWeekSeven + CoupleSeven.get(i).GetDiscipline() + " (" + CoupleSeven.get(i).GetType() + ")\n" + "недели. " + CoupleSeven.get(i).GetNumberWeek() + " " + CoupleSeven.get(i).GetGroupName() + " " + CoupleSeven.get(i).GetAud() + " подгруппы. " + CoupleSeven.get(i).GetUnderGroup();
             }
         }
 
@@ -1007,13 +1011,19 @@ public class CreatorTableExelTeachers {
 
             cell = rowZero.createCell(numberTeacher);
             cell.setCellValue(TeacherName);
+            TeacherNames = TeacherNames + TeacherName + " ";
+
             numberTeacher++;
 
         }
 
         String separator = File.separator;
 
-        FileOutputStream fileOutputStream = new FileOutputStream("TableTeacher(s)" + separator + "AllTeachersExelDoc");
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+        File fileDate = new File(simpleDateFormat.format(date));
+
+        FileOutputStream fileOutputStream = new FileOutputStream("TableTeacher(s)" + separator + "Few Teacher" + separator + "Преподаватели (" + fileDate + ")");
 
         workbookTeachers.write(fileOutputStream);
         workbookTeachers.close();

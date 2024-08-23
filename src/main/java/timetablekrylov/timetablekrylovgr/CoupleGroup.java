@@ -20,6 +20,7 @@ public class CoupleGroup {
     private String NumberWeek;
     private boolean Zaoch;
     private String TeacherName;
+    private String UnderGroups;
 
     // Creating a method that creates couple
     // To do this, use the Json string
@@ -33,13 +34,14 @@ public class CoupleGroup {
         SetNumberWeek(Json);
         SetZaoch(Json);
         SetTeacherName(Json);
+        SetUnderGroup(Json);
     }
 
     // Method for changing the IdDay value
     private void SetIdDay(String Json){
 
         // I use regular expressions
-        Pattern pattern = Pattern.compile("\"id_day\":\"\\d\"");
+        Pattern pattern = Pattern.compile("\"id_day\":\"(\\d|)\"");
         Matcher matcher = pattern.matcher(Json);
 
         String RegX = "";
@@ -65,7 +67,7 @@ public class CoupleGroup {
     private void SetCoupleNumber(String Json){
 
         // I use regular expressions
-        Pattern pattern = Pattern.compile("\"number_para\":\"\\d\"");
+        Pattern pattern = Pattern.compile("\"number_para\":\"(\\d|)\"");
         Matcher matcher = pattern.matcher(Json);
 
         String RegX = "";
@@ -91,7 +93,7 @@ public class CoupleGroup {
     private void SetDiscipline(String Json){
 
         // I use regular expressions
-        Pattern pattern = Pattern.compile("\"discipline\":\"[A-zА-я \\.\\-\\/\\(\\)]+\"");
+        Pattern pattern = Pattern.compile("\"discipline\":\"([A-zА-яё0-9 \\~\\`\\!\\@\\#\\№\\$\\;\\%\\^\\:\\&\\?\\*\\(\\)\\-\\_\\+\\=\\.\\,\\}\\{\\[\\]\\|\\/]+|)\"");
         Matcher matcher = pattern.matcher(Json);
 
         String RegX = "";
@@ -102,7 +104,7 @@ public class CoupleGroup {
         }
 
         // I use regular expressions
-        Pattern pattern1 = Pattern.compile("[А-я\\-\\.\\, ]+(\\([А-яA-z\\-\\.\\, ]+\\)|)([А-я\\-\\.\\, ]+|)");
+        Pattern pattern1 = Pattern.compile("\"([A-zА-яё0-9 \\~\\`\\!\\@\\#\\№\\$\\;\\%\\^\\\\&\\?\\*\\(\\)\\-\\+\\=\\.\\,\\}\\{\\[\\]\\|\\/]+|)\"");
         Matcher matcher1 = pattern1.matcher(RegX);
 
         // Getting the value
@@ -117,7 +119,7 @@ public class CoupleGroup {
     private void SetTypeCouple(String Json){
 
         // I use regular expressions
-        Pattern pattern = Pattern.compile("\"type\":\"[A-zА-яё]+\"");
+        Pattern pattern = Pattern.compile("\"type\":\"([А-яA-zё0-9 \\~\\`\\!\\@\\#\\№\\$\\;\\%\\^\\:\\&\\?\\*\\(\\)\\-\\_\\+\\=\\.\\,\\}\\{\\[\\]\\|\\/]+|)\"");
         Matcher matcher = pattern.matcher(Json);
 
         String RegX = "";
@@ -128,7 +130,7 @@ public class CoupleGroup {
         }
 
         // I use regular expressions
-        Pattern pattern1 = Pattern.compile("[А-яё]+");
+        Pattern pattern1 = Pattern.compile("\"([A-zА-яё0-9 \\~\\`\\!\\@\\#\\№\\$\\;\\%\\^\\\\&\\?\\*\\(\\)\\-\\+\\=\\.\\,\\}\\{\\[\\]\\|\\/]+|)\"");
         Matcher matcher1 = pattern1.matcher(RegX);
 
         // Getting the value
@@ -143,7 +145,7 @@ public class CoupleGroup {
     private void SetTypeWeek(String Json){
 
         // I use regular expressions
-        Pattern pattern = Pattern.compile("\"type_week\":\"[A-zА-яё]+\"");
+        Pattern pattern = Pattern.compile("\"type_week\":\"([А-яA-zё0-9 \\~\\`\\!\\@\\#\\№\\$\\;\\%\\^\\:\\&\\?\\*\\(\\)\\-\\_\\+\\=\\.\\,\\}\\{\\[\\]\\|\\/]+|)\"");
         Matcher matcher = pattern.matcher(Json);
 
         String RegX = "";
@@ -169,7 +171,7 @@ public class CoupleGroup {
     private void SetAud(String Json){
 
         // I use regular expressions
-        Pattern pattern = Pattern.compile("\"aud\":\"[А-яA-z\\. 0-9\\/\\-]+\"");
+        Pattern pattern = Pattern.compile("\"aud\":\"([А-яA-zё0-9 \\~\\`\\!\\@\\#\\№\\$\\;\\%\\^\\:\\&\\?\\*\\(\\)\\-\\_\\+\\=\\.\\,\\}\\{\\[\\]\\|\\/]+|)\"");
         Matcher matcher = pattern.matcher(Json);
 
         String RegX = "";
@@ -180,7 +182,7 @@ public class CoupleGroup {
         }
 
         // I use regular expressions
-        Pattern pattern1 = Pattern.compile("([\\d]{1,3}(|\\-)([А-яA-z0-9]|)\\/\\d|Зал)");
+        Pattern pattern1 = Pattern.compile("\"([A-zА-яё0-9 \\~\\`\\!\\@\\#\\№\\$\\;\\%\\^\\\\&\\?\\*\\(\\)\\-\\+\\=\\.\\,\\}\\{\\[\\]\\|\\/]+|)\"");
         Matcher matcher1 = pattern1.matcher(RegX);
 
         // Getting the value
@@ -195,7 +197,7 @@ public class CoupleGroup {
     private void SetNumberWeek(String Json){
 
         // I use regular expressions
-        Pattern pattern = Pattern.compile("\"number_week\":\"([0-9\\/\\,\\-]+|)\"");
+        Pattern pattern = Pattern.compile("\"number_week\":\"([0-9 \\~\\`\\!\\@\\#\\№\\$\\;\\%\\^\\:\\&\\?\\*\\(\\)\\-\\_\\+\\=\\.\\,\\}\\{\\[\\]\\|\\/]|)+\"");
         Matcher matcher = pattern.matcher(Json);
 
         String RegX = "";
@@ -206,7 +208,7 @@ public class CoupleGroup {
         }
 
         // I use regular expressions
-        Pattern pattern1 = Pattern.compile("\"([\\d\\-\\/\\,]+|)\"");
+        Pattern pattern1 = Pattern.compile("\"([A-zА-яё0-9 \\~\\`\\!\\@\\#\\№\\$\\;\\%\\^\\\\&\\?\\*\\(\\)\\-\\+\\=\\.\\,\\}\\{\\[\\]\\|\\/]+|)\"");
         Matcher matcher1 = pattern1.matcher(RegX);
 
         // Getting the value
@@ -221,7 +223,7 @@ public class CoupleGroup {
     private void SetZaoch(String Json){
 
         // I use regular expressions
-        Pattern pattern = Pattern.compile("\"zaoch\":(true|false)");
+        Pattern pattern = Pattern.compile("\"zaoch\":(true|false|)");
         Matcher matcher = pattern.matcher(Json);
 
         String RegX = "";
@@ -247,7 +249,7 @@ public class CoupleGroup {
     private void SetTeacherName(String Json){
 
         // I use regular expressions
-        Pattern pattern = Pattern.compile("\"name\":\"[A-zА-яё. ]+\"");
+        Pattern pattern = Pattern.compile("\"name\":\"([A-zА-яё0-9 \\~\\`\\!\\@\\#\\№\\$\\;\\%\\^\\:\\&\\?\\*\\(\\)\\-\\_\\+\\=\\.\\,\\}\\{\\[\\]\\|\\/]+|)\"");
         Matcher matcher = pattern.matcher(Json);
 
         String RegX = "";
@@ -258,13 +260,33 @@ public class CoupleGroup {
         }
 
         // I use regular expressions
-        Pattern pattern1 = Pattern.compile("[А-яё. ]+");
+        Pattern pattern1 = Pattern.compile("\"([A-zА-яё0-9 \\~\\`\\!\\@\\#\\№\\$\\;\\%\\^\\\\&\\?\\*\\(\\)\\-\\+\\=\\.\\,\\}\\{\\[\\]\\|\\/]+|)\"");
         Matcher matcher1 = pattern1.matcher(RegX);
 
         // Getting the value
         // Assigning values to the TeacherName field
         while(matcher1.find()){
             TeacherName = matcher1.group();
+        }
+
+    }
+
+    private void SetUnderGroup(String Json){
+
+        Pattern pattern = Pattern.compile("\"under_group\":\"([A-zА-яё0-9 \\~\\`\\!\\@\\#\\№\\$\\;\\%\\^\\:\\&\\?\\*\\(\\)\\-\\_\\+\\=\\.\\,\\}\\{\\[\\]\\|\\/]+|)\"");
+        Matcher matcher = pattern.matcher(Json);
+
+        String RegX = "";
+
+        while(matcher.find()){
+            RegX = matcher.group();
+        }
+
+        Pattern pattern1 = Pattern.compile("\"([A-zА-яё0-9 \\~\\`\\!\\@\\#\\№\\$\\;\\%\\^\\\\&\\?\\*\\(\\)\\-\\+\\=\\.\\,\\}\\{\\[\\]\\|\\/]+|)\"");
+        Matcher matcher1 = pattern1.matcher(RegX);
+
+        while(matcher1.find()){
+            UnderGroups = matcher1.group();
         }
 
     }
@@ -303,5 +325,9 @@ public class CoupleGroup {
 
     public String GetTeacherName(){
         return TeacherName;
+    }
+
+    public String GetUnderGroup(){
+        return UnderGroups;
     }
 }
